@@ -1,7 +1,7 @@
 *** Settings ***
-Resource          ../../../ArcadiaAtlasRobot/Common/Keywords/RedefindKeywords.txt
-Resource          ../../../ArcadiaAtlasRobot/Common/Keywords/RunOnFailKeywords.txt
-Resource          ../../../../Config/LocalConfig.txt
+Resource          ../../../../ArcadiaAtlasRobot/Common/Keywords/RedefindKeywords.txt
+Resource          ../../../../ArcadiaAtlasRobot/Common/Keywords/RunOnFailKeywords.txt
+Resource          ../../../../../Config/LocalConfig.txt
 Resource          ../Localized/${ar_LANG}/SCGPeMRPLocalized.txt
 Resource          ../PageVariable/SCGPeMRPVariable.txt
 Resource          ../PageRepository/SCGPeMRPRepository.txt
