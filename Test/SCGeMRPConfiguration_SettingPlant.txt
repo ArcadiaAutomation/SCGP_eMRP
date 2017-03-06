@@ -1,0 +1,25 @@
+*** Settings ***
+Resource          Resource/PageRepository/SCGeMRPConfigurationRepository.txt
+Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
+Resource          Resource/PageRepository/SCGPeMRPRepository.txt
+
+*** Test Cases ***
+Create a company which contain multiple plants
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingPlant
+
+Create a company which contain multiple plants in case no code
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingPlant
+
+Create a company which contain multiple plants in case no name
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingPlant
+
+Create a company which contain multiple plants in case duplicate name
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingPlant

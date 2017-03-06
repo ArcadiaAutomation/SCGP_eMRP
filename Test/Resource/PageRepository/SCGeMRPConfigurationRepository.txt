@@ -11,3 +11,6 @@ ${btnAddCompanyRecordSettingPlant}    xpath=//*[@id="gridCompany"]/div[1]/a
 ${btnAddPlantRecordSettingPlant}    xpath=//*[@id="gridPlant"]/div[1]/a
 ${btnAddMachineRecordSettingPlant}    xpath=//*[@id="gridMachine"]/div[1]/a
 ${btnAddLocationRecordSettingPlant}    xpath=//*[@id="gridLocation"]/div[1]/a
+${txtboxCompanyCode}    xpath=//*[@id="txtCompanyCode"]
+${txtboxCompanyName}    xpath=//*[@id="txtCompanyName"]
+${lstAvailablePlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div
