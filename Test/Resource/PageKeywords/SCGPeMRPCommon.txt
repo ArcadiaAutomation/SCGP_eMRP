@@ -1,7 +1,26 @@
 *** Settings ***
-Resource          ../../../ArcadiaAtlasRobot/Common/Keywords/RedefindKeywords.txt
-Resource          ../../../ArcadiaAtlasRobot/Common/Keywords/RunOnFailKeywords.txt
+Resource          ../../../../ArcadiaAtlasRobot/Common/Keywords/RedefindKeywords.txt
+Resource          ../../../../ArcadiaAtlasRobot/Common/Keywords/RunOnFailKeywords.txt
 Resource          ../../../../Config/LocalConfig.txt
 Resource          ../Localized/${ar_LANG}/SCGPeMRPLocalized.txt
 Resource          ../PageVariable/SCGPeMRPVariable.txt
 Resource          ../PageRepository/SCGPeMRPRepository.txt
+
+*** Keywords ***
+Open SCG Website
+    Open Browser    http://192.168.1.62:5767/    ${Browser}
+    Maximize Browser Window
+
+Select Menu
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${mnu${Argument}}
+    Click Web Element    ${mnu${Argument}}
+
+Select Sub Menu
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${subMnu${Argument}}
+    Click Element    ${subMnu${Argument}}
+
+SignOut
+    Wait Until Page Contains Element    ${btnSignout}
+    Click Element    ${btnSignout}
