@@ -1,0 +1,2 @@
+*** Variables ***
+${Logo}           xpath=//*[@id="logo"]/img
