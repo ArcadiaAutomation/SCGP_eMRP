@@ -1,0 +1,16 @@
+*** Variables ***
+${tabBtnBusinessGroup}    xpath=//*[@id="tabstrip"]/ul/li[2]/a
+${tabBtnCompany}    xpath=//*[@id="tabstrip"]/ul/li[3]/a
+${tabBtnPlant}    xpath=//*[@id="tabstrip"]/ul/li[4]/a
+${tabBtnMachine}    xpath=//*[@id="tabstrip"]/ul/li[5]/a
+${tabBtnLocation}    xpath=//*[@id="tabstrip"]/ul/li[6]/a
+${btnAddBusinessGroup}    xpath=//*[@id="gridBusinessGroup"]/div[1]/a
+${btnAddCompany}    xpath=//*[@id="gridCompany"]/div[1]/a
+${btnAddPlant}    xpath=//*[@id="gridPlant"]/div[1]/a
+${btnAddMachine}    xpath=//*[@id="gridMachine"]/div[1]/a
+${btnAddLocation}    xpath=//*[@id="gridLocation"]/div[1]/a
+${txtboxCompanyCode}    xpath=//*[@id="txtCompanyCode"]
+${txtboxCompanyName}    xpath=//*[@id="txtCompanyName"]
+${lstAvailablePlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div
+${txtMessageCompanyNoCode}    xpath=//*[@id="txtCompanyCode_validationMessage"]
+${txtMessageCompanyNoName}    xpath=//*[@id="txtCompanyName_validationMessage"]

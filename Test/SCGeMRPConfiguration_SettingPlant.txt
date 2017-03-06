@@ -1,25 +1,61 @@
 *** Settings ***
-Resource          Resource/PageRepository/SCGeMRPConfigurationRepository.txt
+Resource          Resource/PageRepository/SCGeMRPConfiguration_SettingPlantRepository.txt
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageRepository/SCGPeMRPRepository.txt
+Resource          Resource/Localized/${ar_LANG}/SCGPeMRPLocalized.txt
 
 *** Test Cases ***
-Create a company which contain multiple plants
+1_Create a company which contain multiple plants
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
 
-Create a company which contain multiple plants in case no code
+2_Create a company which contain multiple plants in case no code
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
 
-Create a company which contain multiple plants in case no name
+3_Create a company which contain multiple plants in case no name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
 
-Create a company which contain multiple plants in case duplicate name
+4_Create a company which contain multiple plants in case duplicate name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+
+5_Edit a company to change the company name and plant list
+
+*** Keywords ***
+select tab
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${tabBtn${Argument}}    {lo_general_timeout}
+    Click Element    ${tabBtn${Argument}}
+
+Select Business Group Tab
+    select tab    BusinessGroup
+
+Select Company Tab
+    select tab    Company
+
+Select Plant Tab
+    select tab    Plant
+
+Select Machine Tab
+    select tab    Machine
+
+Select Location Tab
+    select tab    Location
+
+Verify alert text no code
+    Page Should Contain Element    ${txtMessageCompanyNoCode}    ${txtCompanyNoCode}
+    Capture ScreenShot
+
+click add record
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${tabBtn${Argument}}    {lo_general_timeout}
+    Click Element    ${btnAdd${Argument}}
+
+Click Add Company Record
+    click add record    Company
