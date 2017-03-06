@@ -1,2 +1,17 @@
 *** Variables ***
 ${Logo}           xpath=//*[@id="logo"]/img
+${lblSettingPlantConfiguration}    xpath=//*[@id="content"]/h2
+${mnuInventory}    xpath=//*[@id="left-panel"]/nav/ul/li[1]/a/span
+${mnuMRP}         xpath=//*[@id="left-panel"]/nav/ul/li[2]/a/span
+${mnuShipment}    xpath=//*[@id="left-panel"]/nav/ul/li[3]/a/span
+${mnuReport}      xpath=//*[@id="left-panel"]/nav/ul/li[4]/a/span
+${mnuConfiguration}    xpath=//*[@id="left-panel"]/nav/ul/li[5]/a/span
+${mnuAdministrator}    xpath=//*[@id="left-panel"]/nav/ul/li[6]/a/span
+${subMnuSettingPlant}    xpath=//*[@id="Configuration"]/li[1]/a
+${subMnuMappingMaterialName}    xpath=//*[@id="Configuration"]/li[1]/a
+${subMnuSettingHierarchyOfMaterial}    xpath=//*[@id="Configuration"]/li[1]/a
+${subMnuInventoryUsageLevel}    xpath=//*[@id="Configuration"]/li[1]/a
+${subMnuUnloadCapacityConfiguration}    xpath=//*[@id="Configuration"]/li[1]/a
+${subMnuInventoryConfigurationPage}    xpath=//*[@id="Configuration"]/li[1]/a
+${subMnuCalendarSetting}    xpath=//*[@id="Configuration"]/li[1]/a
+${btnSignout}     xpath=//*[@id="header"]/div[2]/ul/li[3]/a
