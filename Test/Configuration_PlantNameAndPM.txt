@@ -122,7 +122,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
     Select Plant Tab
-    select first choice
+    Click Add Plant
+    fill code    Plant    ${EMPTY}
+    fill name    Plant    Korat
     [Teardown]    Keywords For Teardown
 
 16_Create a plant in case no name

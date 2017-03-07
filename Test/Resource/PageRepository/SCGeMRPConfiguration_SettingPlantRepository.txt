@@ -23,3 +23,7 @@ ${btnCompanyNextPage}    xpath=//*[@id="gridCompany"]/div[4]/a[3]/span
 ${btnPlantNextPage}    xpath=//*[@id="gridPlant"]/div[4]/a[3]/span
 ${btnMachineNextPage}    xpath=//*[@id="gridMachine"]/div[4]/a[3]/span
 ${btnRefresh}     xpath=//*[@id="gridCompany"]/div[4]/a[5]
+${txtInputPlantCode}    xpath=//*[@id="txtPlantCode"]
+${txtInputPlantName}    xpath=//*[@id="txtPlantName"]
+${ddlPlantMachine}    xpath=//*[@id="Machines"]
+${ddlPlantLocation}    xpath=//*[@id="Locations_taglist"]
