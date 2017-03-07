@@ -8,22 +8,22 @@ Resource          ../PageRepository/SCGPeMRPRepository.txt
 
 *** Keywords ***
 Open SCG Website
-    Open Browser    http://192.168.1.62:5767/    ${Browser}
+    Open Browser    ${SCGPeMRP_URL}    ${ar_Browser}
     Maximize Browser Window
 
 Select Menu
     [Arguments]    ${Argument}
-    Wait Until Page Contains Element    ${mnu${Argument}}
+    Wait Web Until Page Contains Element    ${mnu${Argument}}
     Click Web Element    ${mnu${Argument}}
 
 Select Sub Menu
     [Arguments]    ${Argument}
-    Wait Until Page Contains Element    ${subMnu${Argument}}
-    Click Element    ${subMnu${Argument}}
+    Wait Web Until Page Contains Element    ${subMnu${Argument}}
+    Click Web Element    ${subMnu${Argument}}
 
 SignOut
-    Wait Until Page Contains Element    ${btnSignOut}
-    Click Element    ${btnSignOut}
+    Wait Web Until Page Contains Element    ${btnSignOut}
+    Click Web Element    ${btnSignOut}
 
 Keywords For Teardown
     Run Keyword If Test Failed    Capture Screen with Specific name

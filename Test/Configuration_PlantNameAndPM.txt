@@ -80,6 +80,31 @@ Resource          Resource/PageKeywords/Configuration_PlantNameAndPM.txt
     Select Sub Menu    SettingPlant
 
 15_Create a plant in case no code
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Plant" Tab
+    ...    5. Add new record
+    ...    6. Input information (Empty Code)
+    ...    7. Update
+    ...    8. Verify Alert massage: Plant Code is required
+    [Tags]    Fail
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingPlant
+    Select Plant Tab
+    select first choice
+    [Teardown]    Keywords For Teardown
+
+16_Create a plant in case no name
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingPlant
+
+17_Create a plant in case duplicate name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
