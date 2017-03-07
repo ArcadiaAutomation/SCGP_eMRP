@@ -1,8 +1,8 @@
 *** Settings ***
-Resource          Resource/PageRepository/SCGeMRPConfiguration_SettingPlantRepository.txt
-Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
-Resource          Resource/Localized/${ar_LANG}/SCGPeMRPLocalized.txt
-Resource          ../../Config/LocalConfig.txt
+Resource          ../PageRepository/SCGeMRPConfiguration_SettingPlantRepository.txt
+Resource          SCGPeMRPCommon.txt
+Resource          ../Localized/EN/SCGPeMRPLocalized.txt
+Resource          ../../../../Config/LocalConfig.txt
 
 *** Keywords ***
 select tab

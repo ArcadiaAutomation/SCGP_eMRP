@@ -1,10 +1,8 @@
 *** Settings ***
-Resource          Resource/PageRepository/SCGeMRPConfiguration_SettingPlantRepository.txt
-Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
-Resource          Resource/PageRepository/SCGPeMRPRepository.txt
 Resource          Resource/Localized/${ar_LANG}/SCGPeMRPLocalized.txt
 Resource          ../../Config/LocalConfig.txt
 Resource          Resource/PageKeywords/Configuration_PlantNameAndPM.txt
+Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 *** Test Cases ***
 1_Create a company which contain multiple plants
@@ -21,73 +19,87 @@ Resource          Resource/PageKeywords/Configuration_PlantNameAndPM.txt
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
     Click Add Company Record
+    [Teardown]    Keywords For Teardown
 
 3_Create a company which contain multiple plants in case no name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
     Click Add Company Record
+    [Teardown]    Keywords For Teardown
 
 4_Create a company which contain multiple plants in case duplicate name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
     Click Add Company Record
+    [Teardown]    Keywords For Teardown
 
 5_Edit a company to change the company name and plant list
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 6_Delete a company and its associated list of plants
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 7_Create a business group which it can contain multiple companies
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 8_Create a business group which it can contain multiple companies in case no name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 9_Create a business group which it can contain multiple companies in case duplicate name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 10_Edit business group name and the list of companies inside
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 11_Delete a business group and its associated list of companies
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 12_Create a plant which it can contain multiple machines
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 13_Create a plant which it can contain multiple location
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 14_Create a plant which it can contain multiple machines and location
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 15_Create a plant in case no code
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 *** Keywords ***
 Select Business Group Tab
@@ -130,7 +142,7 @@ Fill Company Data
     Select company plant
 
 Select company plant
-    select first choice
+    select first choice    Company
 
 Keywords For Teardown
     Close Browser
