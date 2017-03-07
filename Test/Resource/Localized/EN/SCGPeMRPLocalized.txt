@@ -2,5 +2,5 @@
 ${test}           SCGP
 ${txtCompanyNoCode}    Company Code is required
 ${txtCompanyNoName}    Company Name is required
-${txtCompanyCode}    Abcs
-${txtCompanyName}    Test
+${txtCode}        Abcs
+${txtName}        Test
