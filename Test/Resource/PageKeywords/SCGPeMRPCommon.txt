@@ -8,7 +8,7 @@ Resource          ../PageRepository/SCGPeMRPRepository.txt
 
 *** Keywords ***
 Open SCG Website
-    Open Browser    http://192.168.1.62:5767/    ${Browser}
+    Open Browser    http://192.168.1.62:5767/    ${ar_Browser}
     Maximize Browser Window
 
 Select Menu

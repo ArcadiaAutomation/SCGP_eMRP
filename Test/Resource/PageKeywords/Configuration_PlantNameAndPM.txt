@@ -23,7 +23,29 @@ fill name
     Wait Until Page Contains Element    ${txtbox${Argument}Name}
     Input Web Text    ${txtbox${Argument}Name}    ${name}
 
-select first choice
+click ddl
     [Arguments]    ${Argument}
     Wait Until Page Contains Element    ${ddlSelect${Argument}}    ${lo_general_timeout}
     Click Web Element    ${ddlSelect${Argument}}
+
+click update button
+    [Arguments]    ${Argument}
+    Click Web Element    ${btnUpdate${Argument}}
+
+select first choice
+    [Arguments]    ${Argument}
+    Click Web Element    ${lstboxFirst${Argument}}
+
+click next page
+    [Arguments]    ${Argument}
+    Click Web Element    ${btn${Argument}NextPage}
+
+refresh page
+    Reload Page
+    select tab    Company
+
+delete record
+    [Arguments]    ${index}
+    Wait Until Page Contains Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[4]/a[2]
+    Click Web Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[4]/a[2]
+    Dismiss Alert    true
