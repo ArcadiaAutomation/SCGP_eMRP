@@ -6,7 +6,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 1_Create a company which contain multiple plants
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     Select Company Tab
     Click Add Company Record
     Fill Company Data
@@ -17,7 +17,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 2_Create a company which contain multiple plants in case no code
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     Select Company Tab
     Click Add Company Record
     Fill Company Data No Code
@@ -28,7 +28,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 3_Create a company which contain multiple plants in case no name
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     Select Company Tab
     Click Add Company Record
     Fill Company Data No Name
@@ -39,77 +39,108 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 4_Create a company which contain multiple plants in case duplicate name
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     Click Add Company Record
     [Teardown]    Keywords For Teardown
 
 5_Edit a company to change the company name and plant list
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     Select Company Tab
     [Teardown]    Keywords For Teardown
 
 6_Delete a company and its associated list of plants
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     Select Company Tab
     [Teardown]    Keywords For Teardown
 
 7_Create a business group which it can contain multiple companies
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
+    Click Add Business Group
     [Teardown]    Keywords For Teardown
 
 8_Create a business group which it can contain multiple companies in case no name
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     [Teardown]    Keywords For Teardown
 
 9_Create a business group which it can contain multiple companies in case duplicate name
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     [Teardown]    Keywords For Teardown
 
 10_Edit business group name and the list of companies inside
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     [Teardown]    Keywords For Teardown
 
 11_Delete a business group and its associated list of companies
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     [Teardown]    Keywords For Teardown
 
 12_Create a plant which it can contain multiple machines
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     [Teardown]    Keywords For Teardown
 
 13_Create a plant which it can contain multiple location
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     [Teardown]    Keywords For Teardown
 
 14_Create a plant which it can contain multiple machines and location
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     [Teardown]    Keywords For Teardown
 
 15_Create a plant in case no code
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     [Teardown]    Keywords For Teardown
+
+16_Create a plant in case no name
+
+17_Create a plant in case duplicate name
+
+18_Edit a plant to change name and the list of machines and locations inside
+
+19_Delete a company and its associated list of machines and locations
+
+20_Create a machine
+
+21_Create a machine in case no code
+
+22_Create a machine in case no name
+
+23_Create a machine in case duplicate name
+
+24_Edit a machine
+
+25_Delete a machine
+
+26_Create a location
+
+27_Create a location in case no name
+
+28_Create a location in case no capacity
+
+29_Edit a location
+
+30_Delete a location
 
 *** Keywords ***
 Select Business Group Tab
@@ -147,8 +178,8 @@ Click Add Location
     click add record    Location
 
 Fill Company Data
-    fill code    Company    ${txtCompanyCode}
-    fill name    Company    ${txtCompanyName}
+    fill code    Company    ${txtCode}
+    fill name    Company    ${txtName}
     Select company plant
 
 Select company plant
@@ -159,7 +190,7 @@ Click Company Update
     click update button    Company
 
 Fill Company Data No Code
-    fill name    Company    Test2
+    fill name    Company    ${txtName}
     Select company plant
 
 Verify Create Company Success
@@ -169,7 +200,7 @@ Verify Create Company Success
     \    Wait Until Page Contains Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[1]
     \    ${text}    Get Text    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[1]
     \    log    ${text}
-    \    Run Keyword If    "${text}" == "${txtCompanyCode}"    Exit For Loop
+    \    Run Keyword If    "${text}" == "${txtCode}" ||    Exit For Loop
     Capture ScreenShot
     delete record    ${index}
 
@@ -179,11 +210,16 @@ Click company next page
 Verify Message Company No Code
     Wait Until Page Contains Element    ${txtMessageCompanyNoCode}
     Element Text Should Be    ${txtMessageCompanyNoCode}    ${txtCompanyNoCode}
+    Capture ScreenShot
 
 Fill Company Data No Name
-    fill code    Company    Test2
+    fill code    Company    ${txtCode}
     Select company plant
 
 Verify Message Company No Name
     Wait Until Page Contains Element    ${txtMessageCompanyNoName}
     Element Text Should Be    ${txtMessageCompanyNoName}    ${txtCompanyNoName}
+    Capture ScreenShot
+
+Fill Business Group Data
+    fill name    BusinessGroup    ${txtName}

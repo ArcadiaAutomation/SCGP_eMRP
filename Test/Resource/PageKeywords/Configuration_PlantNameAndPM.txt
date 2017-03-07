@@ -14,14 +14,14 @@ click add record
     Click Element    ${btnAdd${Argument}}
 
 fill code
-    [Arguments]    ${Argument}    ${codename}
-    Wait Until Page Contains Element    ${txtbox${Argument}Code}
-    Input Web Text    ${txtbox${Argument}Code}    ${codename}
+    [Arguments]    ${Argument}    ${Companycode}
+    Wait Until Page Contains Element    ${txtInput${Argument}Code}
+    Input Web Text    ${txtInput${Argument}Code}    ${Companycode}
 
 fill name
-    [Arguments]    ${Argument}    ${name}
+    [Arguments]    ${Argument}    ${Companyname}
     Wait Until Page Contains Element    ${txtbox${Argument}Name}
-    Input Web Text    ${txtbox${Argument}Name}    ${name}
+    Input Web Text    ${txtbox${Argument}Name}    ${Companyname}
 
 click ddl
     [Arguments]    ${Argument}
@@ -34,7 +34,7 @@ click update button
 
 select first choice
     [Arguments]    ${Argument}
-    Click Web Element    ${lstboxFirst${Argument}}
+    Click Web Element    ${lstFirst${Argument}}
 
 click next page
     [Arguments]    ${Argument}

@@ -7,7 +7,7 @@ ${mnuShipment}    xpath=//*[@id="left-panel"]/nav/ul/li[3]/a/span
 ${mnuReport}      xpath=//*[@id="left-panel"]/nav/ul/li[4]/a/span
 ${mnuConfiguration}    xpath=//*[@id="left-panel"]/nav/ul/li[5]/a/span
 ${mnuAdministrator}    xpath=//*[@id="left-panel"]/nav/ul/li[6]/a/span
-${subMnuSettingPlant}    xpath=//*[@id="Configuration"]/li[1]/a
+${subMnuPlantNameAndPM}    xpath=//*[@id="Configuration"]/li[1]/a
 ${subMnuMappingMaterialName}    xpath=//*[@id="Configuration"]/li[2]/a
 ${subMnuSettingHierarchyOfMaterial}    xpath=//*[@id="Configuration"]/li[3]/a
 ${subMnuInventoryUsageLevel}    xpath=//*[@id="Configuration"]/li[4]/a
