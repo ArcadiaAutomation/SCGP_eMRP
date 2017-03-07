@@ -1,9 +1,4 @@
 *** Settings ***
-Resource          Resource/PageRepository/SCGeMRPConfiguration_SettingPlantRepository.txt
-Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
-Resource          Resource/PageRepository/SCGPeMRPRepository.txt
-Resource          Resource/Localized/${ar_LANG}/SCGPeMRPLocalized.txt
-Resource          ../../Config/LocalConfig.txt
 Resource          Resource/PageKeywords/Configuration_PlantNameAndPM.txt
 
 *** Test Cases ***
@@ -131,6 +126,3 @@ Fill Company Data
 
 Select company plant
     select first choice
-
-Keywords For Teardown
-    Close Browser

@@ -24,3 +24,7 @@ Select Sub Menu
 SignOut
     Wait Until Page Contains Element    ${btnSignOut}
     Click Element    ${btnSignOut}
+
+Keywords For Teardown
+    Run Keyword If Test Failed    Capture Screen with Specific name
+    Run Keyword And Continue On Failure    Close Browser
