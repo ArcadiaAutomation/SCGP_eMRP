@@ -1,6 +1,5 @@
 *** Settings ***
-Resource          Resource/Localized/${ar_LANG}/SCGPeMRPLocalized.txt
-Resource          ../../Config/LocalConfig.txt
+
 Resource          Resource/PageKeywords/Configuration_PlantNameAndPM.txt
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
@@ -142,7 +141,6 @@ Fill Company Data
     Select company plant
 
 Select company plant
-    select first choice    Company
 
-Keywords For Teardown
-    Close Browser
+select first choice    Company
+
