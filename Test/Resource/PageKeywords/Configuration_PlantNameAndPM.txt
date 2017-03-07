@@ -1,0 +1,31 @@
+*** Settings ***
+Resource          Resource/PageRepository/SCGeMRPConfiguration_SettingPlantRepository.txt
+Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
+Resource          Resource/Localized/${ar_LANG}/SCGPeMRPLocalized.txt
+Resource          ../../Config/LocalConfig.txt
+
+*** Keywords ***
+select tab
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${tabBtn${Argument}}    ${lo_general_timeout}
+    Click Element    ${tabBtn${Argument}}
+
+click add record
+    [Arguments]    ${Argument}
+    Wait Until Element Is Visible    ${tabBtn${Argument}}    ${lo_general_timeout}
+    Click Element    ${btnAdd${Argument}}
+
+fill code
+    [Arguments]    ${Argument}    ${codename}
+    Wait Until Page Contains Element    ${txtbox${Argument}Code}
+    Input Web Text    ${txtbox${Argument}Code}    ${codename}
+
+fill name
+    [Arguments]    ${Argument}    ${name}
+    Wait Until Page Contains Element    ${txtbox${Argument}Name}
+    Input Web Text    ${txtbox${Argument}Name}    ${name}
+
+select first choice
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${ddlSelect${Argument}}    ${lo_general_timeout}
+    Click Web Element    ${ddlSelect${Argument}}

@@ -5,7 +5,7 @@ ${tabBtnPlant}    xpath=//*[@id="tabstrip"]/ul/li[4]/a
 ${tabBtnMachine}    xpath=//*[@id="tabstrip"]/ul/li[5]/a
 ${tabBtnLocation}    xpath=//*[@id="tabstrip"]/ul/li[6]/a
 ${btnAddBusinessGroup}    xpath=//*[@id="gridBusinessGroup"]/div[1]/a
-${btnAddCompany}    xpath=//*[@id="gridCompany"]/div[1]/a
+${btnAddCompany}    xpath=//*[@id="gridCompany"]/div[1]/a[@class="k-button k-button-icontext k-grid-add"]
 ${btnAddPlant}    xpath=//*[@id="gridPlant"]/div[1]/a
 ${btnAddMachine}    xpath=//*[@id="gridMachine"]/div[1]/a
 ${btnAddLocation}    xpath=//*[@id="gridLocation"]/div[1]/a
@@ -14,3 +14,5 @@ ${txtboxCompanyName}    xpath=//*[@id="txtCompanyName"]
 ${lstAvailablePlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div
 ${txtMessageCompanyNoCode}    xpath=//*[@id="txtCompanyCode_validationMessage"]
 ${txtMessageCompanyNoName}    xpath=//*[@id="txtCompanyName_validationMessage"]
+${ddlSelectPlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div/div
+${ddlSelectCompany}    xpath=/html/body/div[11]/div[2]/div/div[4]/div/div
