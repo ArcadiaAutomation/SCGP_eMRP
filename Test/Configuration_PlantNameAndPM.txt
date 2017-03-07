@@ -211,7 +211,7 @@ Fill Company Data
 
 Select company plant
     click ddl    Plant
-    select first choice    Plant
+    select ddl first choice    Plant
 
 Click Company Update
     click update button    Company
@@ -225,9 +225,10 @@ Verify Create Company Success
     Sleep    2
     : FOR    ${index}    IN RANGE    1    11
     \    Wait Until Page Contains Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    ${text}    Get Text    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    log    ${text}
-    \    Run Keyword If    "${text}" == "${txtCode}" ||    Exit For Loop
+    \    ${code}    Get Text    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[1]
+    \    ${name}    Get Text    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[2]
+    \    log    ${code}
+    \    Run Keyword If    "${code}" == "${txtCode}"    Run Keyword If    "${name}" == "${txtName}"     Exit For Loop
     Capture ScreenShot
     delete record    ${index}
 
@@ -250,3 +251,18 @@ Verify Message Company No Name
 
 Fill Business Group Data
     fill name    BusinessGroup    ${txtName}
+
+Delete Business First Row
+    delete first row    Business
+
+Delete Company First Row
+    delete first row    Company
+
+Delete Plant First Row
+    delete first row    Plant
+
+Delete Machine First Row
+    delete first row    Machine
+
+Delete Location First Row
+    delete first row    Location

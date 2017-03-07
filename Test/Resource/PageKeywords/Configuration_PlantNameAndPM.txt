@@ -20,8 +20,8 @@ fill code
 
 fill name
     [Arguments]    ${Argument}    ${Companyname}
-    Wait Until Page Contains Element    ${txtbox${Argument}Name}
-    Input Web Text    ${txtbox${Argument}Name}    ${Companyname}
+    Wait Until Page Contains Element    ${txtInput${Argument}Name}
+    Input Web Text    ${txtInput${Argument}Name}    ${Companyname}
 
 click ddl
     [Arguments]    ${Argument}
@@ -32,8 +32,9 @@ click update button
     [Arguments]    ${Argument}
     Click Web Element    ${btnUpdate${Argument}}
 
-select first choice
+select ddl first choice
     [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${lstFirst${Argument}}
     Click Web Element    ${lstFirst${Argument}}
 
 click next page
@@ -49,3 +50,8 @@ delete record
     Wait Until Page Contains Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[4]/a[2]
     Click Web Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[4]/a[2]
     Dismiss Alert    true
+
+delete first row
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${btnDelete${Argument}FirstRow}    10
+    Click Web Element    ${btnDelete${Argument}FirstRow}
