@@ -16,3 +16,10 @@ ${txtMessageCompanyNoCode}    xpath=//*[@id="txtCompanyCode_validationMessage"]
 ${txtMessageCompanyNoName}    xpath=//*[@id="txtCompanyName_validationMessage"]
 ${ddlSelectPlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div/div
 ${ddlSelectCompany}    xpath=/html/body/div[11]/div[2]/div/div[4]/div/div
+${btnUpdateCompany}    xpath=/html/body/div[11]/div[2]/div/div[7]/a[1]
+${btnUpdateBusinessGroup}    xpath=/html/body/div[11]/div[2]/div/div[5]/a[1]
+${lstboxFirstPlant}    xpath=//*[@id="Plants_listbox"]/li[1]
+${btnCompanyNextPage}    xpath=//*[@id="gridCompany"]/div[4]/a[3]/span
+${btnPlantNextPage}    xpath=//*[@id="gridPlant"]/div[4]/a[3]/span
+${btnMachineNextPage}    xpath=//*[@id="gridMachine"]/div[4]/a[3]/span
+${btnRefresh}     xpath=//*[@id="gridCompany"]/div[4]/a[5]

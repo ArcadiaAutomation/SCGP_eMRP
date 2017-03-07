@@ -1,5 +1,6 @@
 *** Settings ***
 Resource          Resource/PageKeywords/Configuration_PlantNameAndPM.txt
+Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 *** Test Cases ***
 1_Create a company which contain multiple plants
@@ -9,75 +10,100 @@ Resource          Resource/PageKeywords/Configuration_PlantNameAndPM.txt
     Select Company Tab
     Click Add Company Record
     Fill Company Data
+    Click Company Update
+    Verify Create Company Success
     [Teardown]    Keywords For Teardown
 
 2_Create a company which contain multiple plants in case no code
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    Select Company Tab
     Click Add Company Record
+    Fill Company Data No Code
+    Click Company Update
+    Verify Message Company No Code
+    [Teardown]    Keywords For Teardown
 
 3_Create a company which contain multiple plants in case no name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    Select Company Tab
     Click Add Company Record
+    Fill Company Data No Name
+    Click Company Update
+    Verify Message Company No Name
+    [Teardown]    Keywords For Teardown
 
 4_Create a company which contain multiple plants in case duplicate name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
     Click Add Company Record
+    [Teardown]    Keywords For Teardown
 
 5_Edit a company to change the company name and plant list
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    Select Company Tab
+    [Teardown]    Keywords For Teardown
 
 6_Delete a company and its associated list of plants
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    Select Company Tab
+    [Teardown]    Keywords For Teardown
 
 7_Create a business group which it can contain multiple companies
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 8_Create a business group which it can contain multiple companies in case no name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 9_Create a business group which it can contain multiple companies in case duplicate name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 10_Edit business group name and the list of companies inside
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 11_Delete a business group and its associated list of companies
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 12_Create a plant which it can contain multiple machines
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 13_Create a plant which it can contain multiple location
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 14_Create a plant which it can contain multiple machines and location
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 15_Create a plant in case no code
     [Documentation]    ***Condition***
@@ -108,6 +134,7 @@ Resource          Resource/PageKeywords/Configuration_PlantNameAndPM.txt
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingPlant
+    [Teardown]    Keywords For Teardown
 
 *** Keywords ***
 Select Business Group Tab
@@ -145,9 +172,43 @@ Click Add Location
     click add record    Location
 
 Fill Company Data
-    fill code    Company    Abcs
-    fill name    Company    test
+    fill code    Company    ${txtCompanyCode}
+    fill name    Company    ${txtCompanyName}
     Select company plant
 
 Select company plant
-    select first choice
+    click ddl    Plant
+    select first choice    Plant
+
+Click Company Update
+    click update button    Company
+
+Fill Company Data No Code
+    fill name    Company    Test2
+    Select company plant
+
+Verify Create Company Success
+    refresh page
+    Sleep    2
+    : FOR    ${index}    IN RANGE    1    11
+    \    Wait Until Page Contains Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[1]
+    \    ${text}    Get Text    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[1]
+    \    log    ${text}
+    \    Run Keyword If    "${text}" == "${txtCompanyCode}"    Exit For Loop
+    Capture ScreenShot
+    delete record    ${index}
+
+Click company next page
+    click next page    Company
+
+Verify Message Company No Code
+    Wait Until Page Contains Element    ${txtMessageCompanyNoCode}
+    Element Text Should Be    ${txtMessageCompanyNoCode}    ${txtCompanyNoCode}
+
+Fill Company Data No Name
+    fill code    Company    Test2
+    Select company plant
+
+Verify Message Company No Name
+    Wait Until Page Contains Element    ${txtMessageCompanyNoName}
+    Element Text Should Be    ${txtMessageCompanyNoName}    ${txtCompanyNoName}
