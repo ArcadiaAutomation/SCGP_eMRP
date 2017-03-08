@@ -4,3 +4,10 @@ ${txtCompanyNoCode}    Company Code is required
 ${txtCompanyNoName}    Company Name is required
 ${txtCode}        Abcs
 ${txtName}        Test
+${txtCodeNew}     qwert
+${txtNameNew}     EditTest
+${txtBusinessGroupNoName}    Business Group Name is required
+${txtPlantCode}    RCC
+${txtPlantName}    TYRI
+${txtPlantNewName}    CXR
+${txtPlantNewCode}    ASDF

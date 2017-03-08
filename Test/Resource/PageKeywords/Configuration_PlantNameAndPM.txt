@@ -11,6 +11,7 @@ select tab
 click add record
     [Arguments]    ${Argument}
     Wait Until Element Is Visible    ${tabBtn${Argument}}    ${lo_general_timeout}
+    sleep    3
     Click Element    ${btnAdd${Argument}}
 
 fill code
@@ -26,6 +27,7 @@ fill name
 click ddl
     [Arguments]    ${Argument}
     Wait Until Page Contains Element    ${ddlSelect${Argument}}    ${lo_general_timeout}
+    sleep    2
     Click Web Element    ${ddlSelect${Argument}}
 
 click update button
@@ -42,8 +44,9 @@ click next page
     Click Web Element    ${btn${Argument}NextPage}
 
 refresh page
+    [Arguments]    ${Argument}
     Reload Page
-    select tab    Company
+    select tab    ${Argument}
 
 delete record
     [Arguments]    ${index}
@@ -55,3 +58,27 @@ delete first row
     [Arguments]    ${Argument}
     Wait Until Page Contains Element    ${btnDelete${Argument}FirstRow}    10
     Click Web Element    ${btnDelete${Argument}FirstRow}
+    Dismiss Alert    true
+
+edit name
+    [Arguments]    ${Argument}
+    click edit button    ${Argument}
+    Wait Until Page Contains Element    ${txtInput${Argument}Name}
+    Clear Element Text    ${txtInput${Argument}Name}
+    Input Web Text    ${txtInput${Argument}Name}    ${txtNameNew}
+    click update button    ${Argument}
+
+select ddl third choice
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${lstThird${Argument}}
+    Click Web Element    ${lstThird${Argument}}
+
+select ddl second choice
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${lstSecond${Argument}}
+    Click Web Element    ${lstSecond${Argument}}
+
+click edit button
+    [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${btnEdit${Argument}}
+    Click Web Element    ${btnEdit${Argument}}
