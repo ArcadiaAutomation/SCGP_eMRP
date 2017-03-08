@@ -151,11 +151,18 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Tags]    Fail
     Open SCG Website
     Select Menu    Configuration
-    Select Sub Menu    SettingPlant
+    Select Sub Menu    PlantNameAndPM
     Select Plant Tab
     Click Add Plant
     fill code    Plant    ${EMPTY}
     fill name    Plant    Korat
+    Comment    Click Web Element    ${ddlPlantMachine}
+    Comment    Select From Web List By Value    ${ddlPlantMachine}    1
+    Comment    Click Web Element    ${ddlPlantLocation}
+    Comment    Select From Web List    ${ddlPlantLocation}    1
+    Click Web Element    xpath=//a[@class="k-button k-button-icontext k-primary k-grid-update"]
+    Web Element Text Should Be    xpath=//*[@id="txtPlantCode_validationMessage"]    Plant Code is required
+    Capture ScreenShot
     [Teardown]    Keywords For Teardown
 
 16_Create a plant in case no name
