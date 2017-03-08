@@ -3,23 +3,23 @@ Resource          ../PageRepository/SCGeMRPConfiguration_SettingPlantRepository.
 Resource          SCGPeMRPCommon.txt
 
 *** Keywords ***
-select tab
+Select Tab
     [Arguments]    ${Argument}
     Wait Until Page Contains Element    ${tabBtn${Argument}}    ${lo_general_timeout}
     Click Element    ${tabBtn${Argument}}
 
-click add record
+Click Add Record
     [Arguments]    ${Argument}
     Wait Until Element Is Visible    ${tabBtn${Argument}}    ${lo_general_timeout}
     sleep    3
     Click Element    ${btnAdd${Argument}}
 
-fill code
+Fill Code
     [Arguments]    ${Argument}    ${Companycode}
     Wait Until Page Contains Element    ${txtInput${Argument}Code}
     Input Web Text    ${txtInput${Argument}Code}    ${Companycode}
 
-fill name
+Fill Name
     [Arguments]    ${Argument}    ${Companyname}
     Wait Until Page Contains Element    ${txtInput${Argument}Name}
     Input Web Text    ${txtInput${Argument}Name}    ${Companyname}
@@ -30,14 +30,17 @@ click ddl
     sleep    2
     Click Web Element    ${ddlSelect${Argument}}
 
-click update button
+Click Update Button
     [Arguments]    ${Argument}
     Click Web Element    ${btnUpdate${Argument}}
 
-select ddl first choice
-    [Arguments]    ${Argument}
-    Wait Until Page Contains Element    ${lstFirst${Argument}}
-    Click Web Element    ${lstFirst${Argument}}
+Select ddl
+    [Arguments]    ${Argument}    ${Fnum}    ${Lnum}
+    :FOR    ${index}    IN RANGE    ${Fnum}    ${Lnum}
+    \    Run Keyword If    "${Argument}" == "Company"    Click Web Element    xpath=//*[@id="Companies_listbox"]/li[${index}]
+    \    Run Keyword If    "${Argument}" == "Plant"    Click Web Element    xpath=//*[@id="Plants_listbox"]/li[${index}]
+    \    Run Keyword If    "${Argument}" == "Machine"    Click Web Element    xpath=//*[@id="Machines_listbox"]/li[${index}]
+    \    Run Keyword If    "${Argument}" == "Location"    Click Web Element    xpath=//*[@id="Locations_listbox"]/li[${index}]
 
 click next page
     [Arguments]    ${Argument}
@@ -46,15 +49,9 @@ click next page
 refresh page
     [Arguments]    ${Argument}
     Reload Page
-    select tab    ${Argument}
+    Select Tab    ${Argument}
 
-delete record
-    [Arguments]    ${index}
-    Wait Until Page Contains Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[4]/a[2]
-    Click Web Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[4]/a[2]
-    Dismiss Alert    true
-
-delete first row
+Delete First Row
     [Arguments]    ${Argument}
     Wait Until Page Contains Element    ${btnDelete${Argument}FirstRow}    10
     Click Web Element    ${btnDelete${Argument}FirstRow}
@@ -66,17 +63,7 @@ edit name
     Wait Until Page Contains Element    ${txtInput${Argument}Name}
     Clear Element Text    ${txtInput${Argument}Name}
     Input Web Text    ${txtInput${Argument}Name}    ${txtNameNew}
-    click update button    ${Argument}
-
-select ddl third choice
-    [Arguments]    ${Argument}
-    Wait Until Page Contains Element    ${lstThird${Argument}}
-    Click Web Element    ${lstThird${Argument}}
-
-select ddl second choice
-    [Arguments]    ${Argument}
-    Wait Until Page Contains Element    ${lstSecond${Argument}}
-    Click Web Element    ${lstSecond${Argument}}
+    Click Update Button    ${Argument}
 
 click edit button
     [Arguments]    ${Argument}
