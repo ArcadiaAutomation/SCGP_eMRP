@@ -154,15 +154,13 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Plant Tab
     Click Add Plant
+    click update button    Plant
     fill code    Plant    ${EMPTY}
     fill name    Plant    Korat
-    Comment    Click Web Element    ${ddlPlantMachine}
-    Comment    Select From Web List By Value    ${ddlPlantMachine}    1
-    Comment    Click Web Element    ${ddlPlantLocation}
-    Comment    Select From Web List    ${ddlPlantLocation}    1
-    Click Web Element    xpath=//a[@class="k-button k-button-icontext k-primary k-grid-update"]
-    Web Element Text Should Be    xpath=//*[@id="txtPlantCode_validationMessage"]    Plant Code is required
-    Capture ScreenShot
+    select machine
+    select location
+    Click Update Plant
+    Verify Massage Plant No Code
     [Teardown]    Keywords For Teardown
 
 16_Create a plant in case no name
@@ -264,7 +262,8 @@ Select Company Tab
     select tab    Company
 
 Select Plant Tab
-    select tab    Plant
+    Comment    select tab    Plant
+    Click Web Element    ${tabBtnPlant}
 
 Select Machine Tab
     select tab    Machine
@@ -467,3 +466,7 @@ select multiple location
 
 Click Update Plant
     click update button    Plant
+
+Verify Massage Plant No Code
+    Web Element Text Should Be    xpath=//*[@id="txtPlantCode_validationMessage"]    Plant Code is required
+    Capture ScreenShot
