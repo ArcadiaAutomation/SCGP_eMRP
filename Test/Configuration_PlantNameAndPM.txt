@@ -260,7 +260,6 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Tab    Location
 
 *** Keywords ***
-<<<<<<< HEAD
 Select Business Group Tab
     select tab    BusinessGroup
 
