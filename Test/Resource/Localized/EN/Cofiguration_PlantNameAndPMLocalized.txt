@@ -8,7 +8,11 @@ ${txtName}        Test
 ${txtCodeNew}     qwert
 ${txtNameNew}     EditTest
 ${txtBusinessGroupNoName}    Business Group Name is required
-${txtPlantCode}    RCC
-${txtPlantName}    TYRI
+${txtPlantCode1}    RCC
+${txtPlantName1}    TYRI
+${txtPlantCode2}    TRE
+${txtPlantName2}    DERT
+${txtPlantCode3}    TERW
+${txtPlantName3}    PIYK
 ${txtPlantNewName}    CXR
 ${txtPlantNewCode}    ASDF

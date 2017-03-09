@@ -6,6 +6,16 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 *** Test Cases ***
 1_Create a company which contain multiple plants
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Company" Tab
+    ...    5. Add new record
+    ...    6. Input information
+    ...    7. Update
+    ...    8. Verify new company in table
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -17,6 +27,16 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 2_Create a company which contain multiple plants in case no code
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Company" Tab
+    ...    5. Add new record
+    ...    6. Input information (Empty Code)
+    ...    7. Update
+    ...    8. Verify Alert massage: Company Code is required
+    [Tags]    fail
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -28,6 +48,16 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 3_Create a company which contain multiple plants in case no name
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Company" Tab
+    ...    5. Add new record
+    ...    6. Input information (Empty name)
+    ...    7. Update
+    ...    8. Verify Alert massage: Company Name is required
+    [Tags]    fail
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -47,25 +77,54 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 5_Edit a company to change the company name and plant list
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Company" Tab
+    ...    5. Click Edit button
+    ...    6. Edit information
+    ...    7. Update
+    ...    8. Verify Edit record
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
     Edit Company Data
-    Click Update Button    Company
     Verify Company Edit
     [Teardown]    Keywords For Teardown
 
 6_Delete a company and its associated list of plants
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Company" Tab
+    ...    5. Click Delete button
+    ...    6. Alert message "Are you sure you want to delete record?" \
+    ...    7. Click OK
+    ...    8. Verify record is delete
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
-    ${name}    Delete First Row    Company
-    Verify Delete Company    ${name}
+    ${name}    ${code}    Delete Company First Row
+    Verify Delete Company    ${name}    ${code}
     [Teardown]    Keywords For Teardown
 
 7_Create a business group which it can contain multiple companies
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Business Group" Tab
+    ...    5. Add new record
+    ...    6. Input information
+    ...    7. Update
+    ...    8. Verify new Business Group in table
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -77,6 +136,16 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 8_Create a business group which it can contain multiple companies in case no name
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Business Group" Tab
+    ...    5. Add new record
+    ...    6. Input information (Empty Name)
+    ...    7. Update
+    ...    8. Verify Alert massage: Business Group Name is required
+    [Tags]    fail
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -96,25 +165,54 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 10_Edit business group name and the list of companies inside
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Business Group" Tab
+    ...    5. Click Edit button
+    ...    6. Edit information
+    ...    7. Update
+    ...    8. Verify Edit record
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
     Edit Business Group Data
-    Click Update Button    BusinessGroup
     Verify Business Group Edit
     [Teardown]    Keywords For Teardown
 
 11_Delete a business group and its associated list of companies
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Business Group" Tab
+    ...    5. Click Delete button
+    ...    6. Alert message "Are you sure you want to delete record?" \
+    ...    7. Click OK
+    ...    8. Verify record is deleted
+    [Tags]    on hold    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
-    ${name}    Delete First Row    BusinessGroup
+    ${name}    Delete Business Group First Row
     Verify Business Group Delete    ${name}
     [Teardown]    Keywords For Teardown
 
 12_Create a plant which it can contain multiple machines
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Plant" Tab
+    ...    5. Add new record
+    ...    6. Input information (Only machines)
+    ...    7. Update
+    ...    8. Verify new Plant in table
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -122,9 +220,20 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Click Add Record    Plant
     Fill Plant Data With Multiple Machine
     Click Update Button    Plant
+    Verify Plant With Multiple Machine
     [Teardown]    Keywords For Teardown
 
 13_Create a plant which it can contain multiple location
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Plant" Tab
+    ...    5. Add new record
+    ...    6. Input information (Only location)
+    ...    7. Update
+    ...    8. Verify new Plant in table
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -132,16 +241,27 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Click Add Record    Plant
     Fill Plant Data With Multiple Location
     Click Update Button    Plant
+    Verify Plant With Multiple Location
     [Teardown]    Keywords For Teardown
 
 14_Create a plant which it can contain multiple machines and location
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Plant" Tab
+    ...    5. Add new record
+    ...    6. Input information
+    ...    7. Update
+    ...    8. Verify new Plant in table
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
     Click Add Record    Plant
     Fill Plant Data With Multiple Machines And Locations
-    Click Update Button    Plant
+    Verify Plant With Multiple Machine And Location
     [Teardown]    Keywords For Teardown
 
 15_Create a plant in case no code
@@ -185,82 +305,121 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 18_Edit a plant to change name and the list of machines and locations inside
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Plant" Tab
+    ...    5. Click Edit button
+    ...    6. Edit information
+    ...    7. Update
+    ...    8. Verify Edit record
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
+    Edit Plant Data
+    Verify Edit Plant
+    [Teardown]    Keywords For Teardown
 
 19_Delete a Plant and its associated list of machines and locations
+    [Documentation]    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Plant" Tab
+    ...    5. Click Delete button
+    ...    6. Alert message "Are you sure you want to delete record?" \
+    ...    7. Click OK
+    ...    8. Verify record is deleted
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
+    ${name}    Delete Plant First Row
+    Verify Plant Delete    ${name}
+    [Teardown]    Keywords For Teardown
 
 20_Create a machine
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    [Teardown]    Keywords For Teardown
 
 21_Create a machine in case no code
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    [Teardown]    Keywords For Teardown
 
 22_Create a machine in case no name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    [Teardown]    Keywords For Teardown
 
 23_Create a machine in case duplicate name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    [Teardown]    Keywords For Teardown
 
 24_Edit a machine
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    [Teardown]    Keywords For Teardown
 
 25_Delete a machine
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    [Teardown]    Keywords For Teardown
 
 26_Create a location
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
+    Click Add Record    Location
+    Fill Location Data
+    [Teardown]    keywords for teardown
 
 27_Create a location in case no name
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
+    [Teardown]    Keywords For Teardown
 
 28_Create a location in case no capacity
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
+    [Teardown]    Keywords For Teardown
 
 29_Edit a location
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
+    [Teardown]    Keywords For Teardown
 
 30_Delete a location
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
+    [Teardown]    Keywords For Teardown
 
 *** Keywords ***
 Select Business Group Tab
@@ -303,9 +462,6 @@ Verify Create Company Success
     \    Run Keyword If    "${code}" == "${txtCode}"    Run Keyword If    "${name}" == "${txtName}"    Exit For Loop
     Capture ScreenShot
 
-Click company next page
-    click next page    Company
-
 Verify Message Company No Code
     Wait Until Page Contains Element    ${txtMessageCompanyNoCode}
     Element Text Should Be    ${txtMessageCompanyNoCode}    ${txtCompanyNoCode}
@@ -347,12 +503,13 @@ Verify Message Business Group No Name
     Capture ScreenShot
 
 Edit Company Data
-    edit name    Company
+    edit name    Company    HYUU
     sleep    3
+    Capture ScreenShot
     Edit company plant
+    Click Update Button    Company
 
 Edit company plant
-    click edit button    Company
     Delete List    Plant    1
     click ddl    Plant
     Select ddl    Plant    3    4
@@ -364,19 +521,21 @@ Verify Company Edit
     Capture ScreenShot
 
 Verify Delete Company
-    [Arguments]    ${name}
+    [Arguments]    ${name}    ${code}
     Element Should Not Contain    ${lblCompanyNameFirstRow}    ${name}
+    Element Should Not Contain    ${lblCompanyCodeFirstRow}    ${code}
     Capture ScreenShot
 
 Edit Business Group Data
-    edit name    BusinessGroup
+    edit name    BusinessGroup    HTRO
     sleep    2
+    Capture ScreenShot
     Edit business group company
 
 Edit business group company
-    click edit button    Business Group
     click ddl    Company
     select ddl    Company    3    4
+    Click Update Button    BusinessGroup
 
 Verify Business Group Edit
     Wait Until Page Contains Element    ${lblBusinessGroupNameFirstRow}
@@ -390,8 +549,8 @@ Verify Business Group Delete
     Capture ScreenShot
 
 Fill Plant Data With Multiple Machine
-    Fill Code    Plant    ${txtPlantCode}
-    Fill Name    Plant    ${txtPlantName}
+    Fill Code    Plant    ${txtPlantCode1}
+    Fill Name    Plant    ${txtPlantName1}
     select multiple machine
     select location
 
@@ -412,17 +571,26 @@ select multiple location
     Select ddl    Location    1    3
 
 Verify Plant With Multiple Machine
-    Element Should Contain    ${btnDeleteBusinessFirstRow}    dasdaf
-
-Click Update Plant
-    click update button    Plant
+    refresh page    Plant
+    Sleep    2
+    Click Web Element    ${btnPlantLastPage}
+    sleep    2
+    Page Should Contain    ${txtPlantCode1}
+    Page Should Contain    ${txtPlantName1}
+    Capture ScreenShot
 
 Verify Massage Plant No Code
     Web Element Text Should Be    ${lblPlantCodeRequired}    ${txtPlantCodeRequired}
     Capture ScreenShot
 
 Verify Plant With Multiple Location
-    Element Should Contain    dasdadaw    dasd
+    refresh page    Plant
+    Sleep    2
+    Click Web Element    ${btnPlantLastPage}
+    sleep    2
+    Page Should Contain    ${txtPlantCode}
+    Page Should Contain    ${txtPlantName}
+    Capture ScreenShot
 
 Fill Plant Data No Code
     Fill Code    Plant    ${EMPTY}
@@ -443,13 +611,97 @@ Verify Massage Plant No Name
     Capture ScreenShot
 
 Fill Plant Data With Multiple Location
-    Fill Code    Plant    ${txtPlantCode}
-    Fill Name    Plant    ${txtPlantName}
+    Fill Code    Plant    ${txtPlantCode2}
+    Fill Name    Plant    ${txtPlantName2}
     select machine
     select multiple location
 
 Fill Plant Data With Multiple Machines And Locations
-    Fill Code    Plant    ${txtPlantCode}
-    Fill Name    Plant    ${txtPlantName}
+    Fill Code    Plant    ${txtPlantCode3}
+    Fill Name    Plant    ${txtPlantName3}
     select multiple machine
     select multiple location
+
+Delete Business Group First Row
+    Wait Until Page Contains Element    ${lblBusinessGroupNameFirstRow}
+    Capture ScreenShot
+    ${name}    Get Text    ${lblBusinessGroupNameFirstRow}
+    Wait Until Page Contains Element    ${btnDeleteBusinessGroupFirstRow}    10
+    Click Web Element    ${btnDeleteBusinessGroupFirstRow}
+    Dismiss Alert    true
+    refresh page    BusinessGroup
+    [Return]    ${name}
+
+Delete Company First Row
+    Wait Until Page Contains Element    ${lblCompanyNameFirstRow}
+    Capture ScreenShot
+    ${code}    Get Text    ${lblCompanyNameFirstRow}
+    ${name}    Get Text    ${lblCompanyNameFirstRow}
+    Wait Until Page Contains Element    ${btnDeleteCompanyFirstRow}    10
+    Click Web Element    ${btnDeleteCompanyFirstRow}
+    Dismiss Alert    true
+    refresh page    Company
+    [Return]    ${name}    ${code}
+
+Verify Plant With Multiple Machine And Location
+    refresh page    Plant
+    Sleep    2
+    Click Web Element    ${btnPlantLastPage}
+    sleep    2
+    Page Should Contain    ${txtPlantCode}
+    Page Should Contain    ${txtPlantName}
+    Capture ScreenShot
+
+Edit Plant Data
+    edit name    Plant    PM073
+    sleep    3
+    Capture ScreenShot
+    edit plant machine and location
+    Click Update Button    Plant
+
+edit plant machine and location
+    Select ddl    Machine    3    4
+    Select ddl    Location    3    4
+
+Verify Edit Plant
+    refresh page    Plant
+    Sleep    2
+    Click Web Element    ${btnPlantLastPage}
+    sleep    2
+    Web Element Text Should Be    ${lblPlantNameFirstRow}    PM073
+    click edit button    Plant
+    Page Should Contain Element    xpath=//*[@id="Locations_taglist"]/li[1]/span[2]/span
+    Page Should Contain Element    xpath=//*[@id="Machines_taglist"]/li/span[2]
+    Sleep    1
+    Capture ScreenShot
+
+Fill Location Data
+    Fill Name    Location    JOYRE
+    sleep    1
+    Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
+    Press Key    ${txtInputLocationCapacity}    123
+    Click Update Button    Location
+
+Verify Location Data
+    refresh page    Plant
+    Sleep    2
+    Click Web Element    ${btnPlantLastPage}
+    sleep    2
+    Page Should Contain    ${txtPlantCode}
+    Page Should Contain    ${txtPlantName}
+    Capture ScreenShot
+
+Delete Plant First Row
+    Wait Until Page Contains Element    ${lblPlantNameFirstRow}
+    Capture ScreenShot
+    ${name}    Get Text    ${lblPlantNameFirstRow}
+    Wait Until Page Contains Element    ${btnDeletePlantFirstRow}    10
+    Click Web Element    ${btnDeletePlantFirstRow}
+    Dismiss Alert    true
+    refresh page    Plant
+    [Return]    ${name}
+
+Verify Plant Delete
+    [Arguments]    ${name}
+    Element Should Not Contain    ${lblPlantNameFirstRow}    ${name}
+    Capture ScreenShot
