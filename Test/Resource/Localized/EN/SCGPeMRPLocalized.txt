@@ -1,6 +1,5 @@
 *** Variables ***
 ${test}           SCGP
-${txtCompanyNoCode}    Company Code is required
 ${txtCompanyNoName}    Company Name is required
 ${txtCode}        Abcs
 ${txtName}        Test

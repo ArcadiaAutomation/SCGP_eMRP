@@ -12,3 +12,9 @@ ${txtPlantCode}    RCC
 ${txtPlantName}    TYRI
 ${txtPlantNewName}    CXR
 ${txtPlantNewCode}    ASDF
+${txtCompanyNoCode}    Company Code is required
+${txtMachineName}    PM01
+${txtMachineCode}    M01
+${txtMachineCodeRequired}    Machine Code is required
+${txtMachineNameRequired}    Machine Name is required
+${txtNewMachineName}    Mac001
