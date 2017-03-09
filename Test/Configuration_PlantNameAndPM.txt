@@ -2,6 +2,8 @@
 Resource          Resource/PageKeywords/Configuration_PlantNameAndPM.txt
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
+*** Variables ***
+
 *** Test Cases ***
 1_Create a company which contain multiple plants
     Open SCG Website
@@ -158,14 +160,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
-    Select Plant Tab
-    Click Add Plant
-    click update button    Plant
-    fill code    Plant    ${EMPTY}
-    fill name    Plant    Korat
-    select machine
-    select location
-    Click Update Plant
+    Select Tab    Plant
+    Click Add Record    Plant
+    Fill Plant Data No Code
     Verify Massage Plant No Code
     [Teardown]    Keywords For Teardown
 
@@ -175,6 +172,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
     Click Add Record    Plant
+    Fill Plant Data No Name
+    Verify Massage Plant No Name
+    [Teardown]    Keywords For Teardown
 
 17_Create a plant in case duplicate name
     Open SCG Website
@@ -418,11 +418,29 @@ Click Update Plant
     click update button    Plant
 
 Verify Massage Plant No Code
-    Web Element Text Should Be    xpath=//*[@id="txtPlantCode_validationMessage"]    Plant Code is required
+    Web Element Text Should Be    ${lblPlantCodeRequired}    ${txtPlantCodeRequired}
     Capture ScreenShot
 
 Verify Plant With Multiple Location
     Element Should Contain    dasdadaw    dasd
+
+Fill Plant Data No Code
+    Fill Code    Plant    ${EMPTY}
+    Fill Name    Plant    ${txtPlantName}
+    select machine
+    select location
+    Click Update Button    Plant
+
+Fill Plant Data No Name
+    Fill Code    Plant    ${txtPlantCode}
+    Fill Name    Plant    ${EMPTY}
+    select machine
+    select location
+    Click Update Button    Plant
+
+Verify Massage Plant No Name
+    Web Element Text Should Be    ${lblPlantNameRequired}    ${txtPlantNameRequired}
+    Capture ScreenShot
 
 Fill Plant Data With Multiple Location
     Fill Code    Plant    ${txtPlantCode}
