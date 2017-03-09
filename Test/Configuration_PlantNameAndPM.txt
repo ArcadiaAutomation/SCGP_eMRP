@@ -190,7 +190,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    3.Select "Plant name & PM"
     ...    4.Select "Business Group" Tab
     ...    5. Click Delete button
-    ...    6. Alert message "Are you sure you want to delete record?" \
+    ...    6. Alert message "Are you sure you want to delete record?"
     ...    7. Click OK
     ...    8. Verify record is deleted
     [Tags]    on hold    success
@@ -276,24 +276,36 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    6. Input information (Empty Code)
     ...    7. Update
     ...    8. Verify Alert massage: Plant Code is required
-    [Tags]    Fail
+    [Tags]    fail
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
     Click Add Record    Plant
     Fill Plant Data No Code
-    Verify Massage Plant No Code
+    Verify Massage Plant Code Is Required
     [Teardown]    Keywords For Teardown
 
 16_Create a plant in case no name
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Plant" Tab
+    ...    5. Add new record
+    ...    6. Input information (Empty name)
+    ...    7. Update
+    ...    8. Verify Alert massage: Plant Name is required
+    [Tags]    fail
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
     Click Add Record    Plant
     Fill Plant Data No Name
-    Verify Massage Plant No Name
+    Verify Massage Plant Name Is Required
     [Teardown]    Keywords For Teardown
 
 17_Create a plant in case duplicate name
@@ -330,7 +342,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    3.Select "Plant name & PM"
     ...    4.Select "Plant" Tab
     ...    5. Click Delete button
-    ...    6. Alert message "Are you sure you want to delete record?" \
+    ...    6. Alert message "Are you sure you want to delete record?" 
     ...    7. Click OK
     ...    8. Verify record is deleted
     [Tags]    success
@@ -343,45 +355,133 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 20_Create a machine
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Machine " Tab
+    ...    5. Add new record
+    ...    6. Input information
+    ...    7. Update
+    ...    8. Verify new Machine in table
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    Click Add Record    Machine
+    Fill Machine Data
+    Verify Create Machine Success
     [Teardown]    Keywords For Teardown
 
 21_Create a machine in case no code
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Machine" Tab
+    ...    5. Add new record
+    ...    6. Input information (Empty Code)
+    ...    7. Update
+    ...    8. Verify Alert massage: Machine Code is required
+    [Tags]    fail
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    Click Add Record    Machine
+    Fill Machine Data No Code
+    Verify Message Machine Code Is Required
     [Teardown]    Keywords For Teardown
 
 22_Create a machine in case no name
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Machine" Tab
+    ...    5. Add new record
+    ...    6. Input information (Empty Name)
+    ...    7. Update
+    ...    8. Verify Alert massage: Machine Name is required
+    [Tags]    fail
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    Click Add Record    Machine
+    Fill Machine No Name
+    Verify Message Machine Name Is Required
     [Teardown]    Keywords For Teardown
 
 23_Create a machine in case duplicate name
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Machine" Tab
+    ...    5. Add new record
+    ...    6. Input Duplicate information
+    ...    7. Update
+    ...    8. Verify Alert massage: Duplicate record
+    [Tags]    on hold
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    Click Add Record    Machine
+    Fill Machine Data
+    #Verify Duplicate record
     [Teardown]    Keywords For Teardown
 
 24_Edit a machine
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Machine" Tab
+    ...    5. Click Edit button
+    ...    6. Edit information
+    ...    7. Update
+    ...    8. Verify Edit record
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    Edit Machine Name
+    Verify Edit Machine Success
     [Teardown]    Keywords For Teardown
 
 25_Delete a machine
+    [Documentation]    ***Condition***
+    ...    the company itself is NOT deleted
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Machine" Tab
+    ...    5. Click Delete button
+    ...    6. Alert message "Are you sure you want to delete record?"7. Click OK
+    ...    8. Verify record is deleted
+    [Tags]    success
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
+    ${code}    ${name}    Delete Machine Frist Row
+    Verify Delete Machine Success    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
 26_Create a location
@@ -579,7 +679,7 @@ Verify Plant With Multiple Machine
     Page Should Contain    ${txtPlantName1}
     Capture ScreenShot
 
-Verify Massage Plant No Code
+Verify Massage Plant Code Is Required
     Web Element Text Should Be    ${lblPlantCodeRequired}    ${txtPlantCodeRequired}
     Capture ScreenShot
 
@@ -597,6 +697,7 @@ Fill Plant Data No Code
     Fill Name    Plant    ${txtPlantName}
     select machine
     select location
+    Wait Until Element Is Not Visible    ${lstContainer}
     Click Update Button    Plant
 
 Fill Plant Data No Name
@@ -604,9 +705,10 @@ Fill Plant Data No Name
     Fill Name    Plant    ${EMPTY}
     select machine
     select location
+    Wait Until Element Is Not Visible    ${lstContainer}
     Click Update Button    Plant
 
-Verify Massage Plant No Name
+Verify Massage Plant Name Is Required
     Web Element Text Should Be    ${lblPlantNameRequired}    ${txtPlantNameRequired}
     Capture ScreenShot
 
@@ -704,4 +806,64 @@ Delete Plant First Row
 Verify Plant Delete
     [Arguments]    ${name}
     Element Should Not Contain    ${lblPlantNameFirstRow}    ${name}
+    Fill Machine Data
+    Fill Code    Machine    ${txtMachineCode}
+    Fill Name    Machine    ${txtMachineName}
+    Click Update Button    Machine
+
+Fill Machine Data No Code
+    Fill Code    Machine    ${EMPTY}
+    Fill Name    Machine    ${txtMachineName}
+    Click Update Button    Machine
+
+Verify Message Machine Code Is Required
+    Web Element Text Should Be    ${lblMachineCodeRequired}    ${txtMachineCodeRequired}
+    Capture ScreenShot
+
+Verify Message Machine Name Is Required
+    Web Element Text Should Be    ${lblMachineNameRequired}    ${txtMachineNameRequired}
+    Capture ScreenShot
+
+Fill Machine No Name
+    Fill Code    Machine    ${txtMachineCode}
+    Fill Name    Machine    ${EMPTY}
+    Click Update Button    Machine
+
+Verify Create Machine Success
+    Sleep    2
+    Click Web Element    ${btnLastMachinePage}
+    : FOR    ${index}    IN RANGE    1    11
+    \    Wait Until Page Contains Element    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[${index}]/td[1]
+    \    ${code}    Get Text    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[${index}]/td[1]
+    \    ${name}    Get Text    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[${index}]/td[2]
+    \    log    ${code}
+    \    Run Keyword If    "${code}" == "${txtMachineCode}"    Run Keyword If    "${name}" == "${txtMachineName}"    Exit For Loop
+    Capture ScreenShot
+
+Edit Machine Name
+    Capture ScreenShot
+    click edit button    Machine
+    Wait Until Page Contains Element    ${txtInputMachineName}
+    Clear Element Text    ${txtInputMachineName}
+    Input Web Text    ${txtInputMachineName}    ${txtNewMachineName}
+    Click Update Button    Machine
+
+Verify Edit Machine Success
+    Web Element Text Should Be    ${lblMachineNameFirstRow} \ \ \     ${txtNewMachineName}
+    Capture ScreenShot
+
+Delete Machine Frist Row
+    Wait Until Page Contains Element    ${lblMachineCodeFirstRow}
+    ${code}    Get Web Text    ${lblMachineCodeFirstRow}
+    ${name}    Get Web Text    //*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[2]
+    Wait Web Until Page Element Visible    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[3]/a[2]    10
+    Click Web Element    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[3]/a[2]
+    Dismiss Alert    true
+    refresh page    Machine
+    [Return]    ${code}    ${name}
+
+Verify Delete Machine Success
+    [Arguments]    ${code}    ${name}
+    Element Should Not Contain    ${lblMachineCodeFirstRow} \ \ \     ${name}
+    Element Should Not Contain    ${lblMachineNameFirstRow} \ \ \     ${name}
     Capture ScreenShot
