@@ -45,32 +45,22 @@ Select ddl
     \    Run Keyword If    "${Argument}" == "Machine"    Click Web Element    xpath=//*[@id="Machines_listbox"]/li[${index}]
     \    Run Keyword If    "${Argument}" == "Location"    Click Web Element    xpath=//*[@id="Locations_listbox"]/li[${index}]
 
-click next page
-    [Arguments]    ${Argument}
+search record next page
+    [Arguments]    ${Argument}    ${name}
     Click Web Element    ${btn${Argument}NextPage}
+    search and verify record name    ${Argument}    ${name}
 
 refresh page
     [Arguments]    ${Argument}
     Reload Page
     Select Tab    ${Argument}
 
-Delete First Row
-    [Arguments]    ${Argument}
-    Wait Until Page Contains Element    ${lbl${Argument}NameFirstRow}
-    ${name}    Get Text    ${lbl${Argument}NameFirstRow}
-    Wait Until Page Contains Element    ${btnDelete${Argument}FirstRow}    10
-    Click Web Element    ${btnDelete${Argument}FirstRow}
-    Dismiss Alert    true
-    refresh page    ${Argument}
-    [Return]    ${name}
-
 edit name
-    [Arguments]    ${Argument}
+    [Arguments]    ${Argument}    ${text}
     click edit button    ${Argument}
     Wait Until Page Contains Element    ${txtInput${Argument}Name}
     Clear Element Text    ${txtInput${Argument}Name}
-    Input Web Text    ${txtInput${Argument}Name}    ${txtNameNew}
-    Click Update Button    ${Argument}
+    Input Web Text    ${txtInput${Argument}Name}    ${text}
 
 click edit button
     [Arguments]    ${Argument}
@@ -83,3 +73,20 @@ Delete List
     Run Keyword If    "${Text}" == "Company"    Click Web Element    xpath=//*[@id="Companies_taglist"]/li[${num}]/span[2]/span
     Run Keyword If    "${Text}" == "Machine"    Click Web Element    xpath=//*[@id="Machines_taglist"]/li[${num}]/span[2]/span
     Run Keyword If    "${Text}" == "Location"    Click Web Element    xpath=//*[@id="Locations_taglist"]/li[${num}]/span[2]/span
+
+search and verify record name
+    [Arguments]    ${Argument}    ${Sname}
+    : FOR    ${index}    IN RANGE    1    12
+    \    Run Keyword If    ${index} > 10    search record next page    ${Argument}    ${Sname}
+    \    Run Keyword If    ${index} > 10    Exit For Loop
+    \    Wait Until Page Contains Element    xpath=//*[@id="grid${Argument}"]/div[3]/table/tbody/tr[${index}]/td[1]
+    \    ${name}    Get Text    xpath=//*[@id="grid${Argument}"]/div[3]/table/tbody/tr[${index}]/td[2]
+    \    Run Keyword If    "${name}" == "${Sname}"    Run Keyword If    "${Argument}" == "BusinessGroup"    Click Web Element    xpath=//*[@id="gridBusinessGroup"]/div[3]/table/tbody/tr[${index}]/td[3]/a[1]
+    \    Run Keyword If    "${name}" == "${Sname}"    Run Keyword If    "${Argument}" == "Company"    Click Web Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[4]/a[1]
+    \    Run Keyword If    "${name}" == "${Sname}"    Run Keyword If    "${Argument}" == "Plant"    Click Web Element    xpath=//*[@id="gridPlant"]/div[3]/table/tbody/tr[${index}]/td[5]/a[1]
+    \    Run Keyword If    "${name}" == "${Sname}"    Run Keyword If    "${Argument}" == "Machine"    Click Web Element    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[${index}]/td[3]/a[1]
+    \    Run Keyword If    "${name}" == "${Sname}"    Run Keyword If    "${Argument}" == "Location"    Click Web Element    xpath=//*[@id="gridLocation"]/div[3]/table/tbody/tr[${index}]/td[4]/a[1]
+    \    Run Keyword If    "${name}" == "${Sname}"    sleep    1
+    \    Run Keyword If    "${name}" == "${Sname}"    Capture ScreenShot
+    \    Run Keyword If    "${name}" == "${Sname}"    Exit For Loop
+    [Return]    ${name}
