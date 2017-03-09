@@ -1,6 +1,7 @@
 *** Settings ***
 Resource          ../PageRepository/SCGeMRPConfiguration_SettingPlantRepository.txt
 Resource          SCGPeMRPCommon.txt
+Resource          ../Localized/${ar_LANG}/Cofiguration_PlantNameAndPMLocalized.txt
 
 *** Keywords ***
 Select Tab
@@ -32,11 +33,12 @@ click ddl
 
 Click Update Button
     [Arguments]    ${Argument}
+    Wait Web Until Page Contains Element    ${btnUpdate${Argument}}
     Click Web Element    ${btnUpdate${Argument}}
 
 Select ddl
     [Arguments]    ${Argument}    ${Fnum}    ${Lnum}
-    :FOR    ${index}    IN RANGE    ${Fnum}    ${Lnum}
+    : FOR    ${index}    IN RANGE    ${Fnum}    ${Lnum}
     \    Run Keyword If    "${Argument}" == "Company"    Click Web Element    xpath=//*[@id="Companies_listbox"]/li[${index}]
     \    Run Keyword If    "${Argument}" == "Plant"    Click Web Element    xpath=//*[@id="Plants_listbox"]/li[${index}]
     \    Run Keyword If    "${Argument}" == "Machine"    Click Web Element    xpath=//*[@id="Machines_listbox"]/li[${index}]
