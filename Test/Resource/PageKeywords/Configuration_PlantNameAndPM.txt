@@ -39,6 +39,7 @@ Click Update Button
 Select ddl
     [Arguments]    ${Argument}    ${Fnum}    ${Lnum}
     : FOR    ${index}    IN RANGE    ${Fnum}    ${Lnum}
+    \    click ddl    ${Argument}
     \    Run Keyword If    "${Argument}" == "Company"    Click Web Element    xpath=//*[@id="Companies_listbox"]/li[${index}]
     \    Run Keyword If    "${Argument}" == "Plant"    Click Web Element    xpath=//*[@id="Plants_listbox"]/li[${index}]
     \    Run Keyword If    "${Argument}" == "Machine"    Click Web Element    xpath=//*[@id="Machines_listbox"]/li[${index}]
@@ -55,9 +56,13 @@ refresh page
 
 Delete First Row
     [Arguments]    ${Argument}
+    Wait Until Page Contains Element    ${lbl${Argument}NameFirstRow}
+    ${name}    Get Text    ${lbl${Argument}NameFirstRow}
     Wait Until Page Contains Element    ${btnDelete${Argument}FirstRow}    10
     Click Web Element    ${btnDelete${Argument}FirstRow}
     Dismiss Alert    true
+    refresh page    ${Argument}
+    [Return]    ${name}
 
 edit name
     [Arguments]    ${Argument}
@@ -71,3 +76,10 @@ click edit button
     [Arguments]    ${Argument}
     Wait Until Page Contains Element    ${btnEdit${Argument}}
     Click Web Element    ${btnEdit${Argument}}
+
+Delete List
+    [Arguments]    ${Text}    ${num}
+    Run Keyword If    "${Text}" == "Plant"    Click Web Element    xpath=//*[@id="Plants_taglist"]/li[${num}]/span[2]/span
+    Run Keyword If    "${Text}" == "Company"    Click Web Element    xpath=//*[@id="Companies_taglist"]/li[${num}]/span[2]/span
+    Run Keyword If    "${Text}" == "Machine"    Click Web Element    xpath=//*[@id="Machines_taglist"]/li[${num}]/span[2]/span
+    Run Keyword If    "${Text}" == "Location"    Click Web Element    xpath=//*[@id="Locations_taglist"]/li[${num}]/span[2]/span

@@ -110,8 +110,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
-    Delete First Row    Business
-    Verify Business Group Delete
+    ${name}    Delete First Row    BusinessGroup
+    Verify Business Group Delete    ${name}
     [Teardown]    Keywords For Teardown
 
 12_Create a plant which it can contain multiple machines
@@ -130,7 +130,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
     Click Add Record    Plant
-    select multiple location
+    Fill Plant Data With Multiple Location
+    Click Update Button    Plant
     [Teardown]    Keywords For Teardown
 
 14_Create a plant which it can contain multiple machines and location
@@ -139,6 +140,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
     Click Add Record    Plant
+    Fill Plant Data With Multiple Machines And Locations
+    Click Update Button    Plant
     [Teardown]    Keywords For Teardown
 
 15_Create a plant in case no code
@@ -348,14 +351,6 @@ Edit Company Data
     sleep    3
     Edit company plant
 
-Delete List
-    [Arguments]    ${Text}
-    Run Keyword If    "${Text}" == "Company"    Click Web Element    xpath=//*[@id="Plants_taglist"]/li/span[2]/span
-    Run Keyword If    "${Text}" == "BusinessGroup"    Click Web Element    xpath=//*[@id="Companies_taglist"]/li/span[2]/span
-    Run Keyword If    "${Text}" == "Plant"    Click Web Element    xpath=//*[@id="Plants_taglist"]/li/span[2]/span
-    Run Keyword If    "${Text}" == "Machine"    Click Web Element    xpath=//*[@id="Plants_taglist"]/li/span[2]/span
-    Run Keyword If    "${Text}" == "Location"    Click Web Element    xpath=//*[@id="Plants_taglist"]/li/span[2]/span
-
 Edit company plant
     click edit button    Company
     Delete List    Company
@@ -379,8 +374,8 @@ Edit Business Group Data
 
 Edit business group company
     click edit button    Business Group
-    Delete List    BusinessGroup
     click ddl    Company
+    select ddl    Company    3    3
 
 Verify Business Group Edit
     Wait Until Page Contains Element    ${lblBusinessGroupNameFirstRow}
@@ -389,7 +384,7 @@ Verify Business Group Edit
     Capture ScreenShot
 
 Verify Business Group Delete
-    ${name}    Delete First Row    Business
+    [Arguments]    ${name}
     Element Should Not Contain    ${lblBusinessGroupNameFirstRow}    ${name}
     Capture ScreenShot
 
@@ -445,3 +440,15 @@ Fill Plant Data No Name
 Verify Massage Plant No Name
     Web Element Text Should Be    ${lblPlantNameRequired}    ${txtPlantNameRequired}
     Capture ScreenShot
+
+Fill Plant Data With Multiple Location
+    Fill Code    Plant    ${txtPlantCode}
+    Fill Name    Plant    ${txtPlantName}
+    select machine
+    select multiple location
+
+Fill Plant Data With Multiple Machines And Locations
+    Fill Code    Plant    ${txtPlantCode}
+    Fill Name    Plant    ${txtPlantName}
+    select multiple machine
+    select multiple location
