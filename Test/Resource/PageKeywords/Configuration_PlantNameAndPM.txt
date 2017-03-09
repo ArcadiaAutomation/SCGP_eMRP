@@ -37,7 +37,7 @@ Click Update Button
 
 Select ddl
     [Arguments]    ${Argument}    ${Fnum}    ${Lnum}
-    : FOR    ${index}    IN    ${Fnum}    ${Lnum}
+    :FOR    ${index}    IN RANGE    ${Fnum}    ${Lnum}
     \    click ddl    ${Argument}
     \    Run Keyword If    "${Argument}" == "Company"    Click Web Element    xpath=//*[@id="Companies_listbox"]/li[${index}]
     \    Run Keyword If    "${Argument}" == "Plant"    Click Web Element    xpath=//*[@id="Plants_listbox"]/li[${index}]

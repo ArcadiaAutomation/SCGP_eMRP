@@ -286,11 +286,11 @@ Verify alert text no code
 Fill Company Data
     Fill Code    Company    ${txtCode}
     Fill Name    Company    ${txtName}
-    Select ddl    Plant    1    1
+    Select ddl    Plant    1    2
 
 Fill Company Data No Code
     Fill Name    Company    ${txtName}
-    Select ddl    Plant    1    1
+    Select ddl    Plant    1    2
 
 Verify Create Company Success
     refresh page    Company
@@ -313,7 +313,7 @@ Verify Message Company No Code
 
 Fill Company Data No Name
     Fill Code    Company    ${txtCode}
-    Select ddl    Plant    1    1
+    Select ddl    Plant    1    2
 
 Verify Message Company No Name
     Wait Until Page Contains Element    ${txtMessageCompanyNoName}
@@ -353,8 +353,9 @@ Edit Company Data
 
 Edit company plant
     click edit button    Company
-    Delete List    Company
+    Delete List    Plant    1
     click ddl    Plant
+    Select ddl    Plant    3    4
 
 Verify Company Edit
     Wait Until Page Contains Element    ${lblCompanyNameFirstRow}
@@ -375,7 +376,7 @@ Edit Business Group Data
 Edit business group company
     click edit button    Business Group
     click ddl    Company
-    select ddl    Company    3    3
+    select ddl    Company    3    4
 
 Verify Business Group Edit
     Wait Until Page Contains Element    ${lblBusinessGroupNameFirstRow}
@@ -396,19 +397,19 @@ Fill Plant Data With Multiple Machine
 
 select machine
     click ddl    Machine
-    Select ddl    Machine    1    1
+    Select ddl    Machine    1    2
 
 select location
     click ddl    Location
-    Select ddl    Location    1    1
+    Select ddl    Location    1    2
 
 select multiple machine
     click ddl    Machine
-    Select ddl    Machine    1    2
+    Select ddl    Machine    1    3
 
 select multiple location
     click ddl    Location
-    Select ddl    Location    1    2
+    Select ddl    Location    1    3
 
 Verify Plant With Multiple Machine
     Element Should Contain    ${btnDeleteBusinessFirstRow}    dasdaf
