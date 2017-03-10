@@ -102,8 +102,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    3.Select "Plant name & PM"
     ...    4.Select "Company" Tab
     ...    5. Click Delete button
-    ...    6. Alert message "Are you sure you want to delete record?" \
-    ...    7. Click OK
+    ...    6. Alert message "Are you sure you want to delete record?" \ 7. Click OK
     ...    8. Verify record is delete
     [Tags]    success
     Open SCG Website
@@ -342,7 +341,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    3.Select "Plant name & PM"
     ...    4.Select "Plant" Tab
     ...    5. Click Delete button
-    ...    6. Alert message "Are you sure you want to delete record?" 
+    ...    6. Alert message "Are you sure you want to delete record?"
     ...    7. Click OK
     ...    8. Verify record is deleted
     [Tags]    success
@@ -849,7 +848,7 @@ Edit Machine Name
     Click Update Button    Machine
 
 Verify Edit Machine Success
-    Web Element Text Should Be    ${lblMachineNameFirstRow} \ \ \     ${txtNewMachineName}
+    Web Element Text Should Be    ${lblMachineNameFirstRow} \ \ \    ${txtNewMachineName}
     Capture ScreenShot
 
 Delete Machine Frist Row
@@ -864,6 +863,11 @@ Delete Machine Frist Row
 
 Verify Delete Machine Success
     [Arguments]    ${code}    ${name}
-    Element Should Not Contain    ${lblMachineCodeFirstRow} \ \ \     ${name}
-    Element Should Not Contain    ${lblMachineNameFirstRow} \ \ \     ${name}
+    Element Should Not Contain    ${lblMachineCodeFirstRow} \ \ \    ${name}
+    Element Should Not Contain    ${lblMachineNameFirstRow} \ \ \    ${name}
     Capture ScreenShot
+
+Fill Machine Data
+    Fill Code    Machine    ${txtMachineCode}
+    Fill Name    Machine    ${txtMachineName}
+    Click Update Button    Machine
