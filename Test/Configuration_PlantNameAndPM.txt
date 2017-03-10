@@ -805,10 +805,7 @@ Delete Plant First Row
 Verify Plant Delete
     [Arguments]    ${name}
     Element Should Not Contain    ${lblPlantNameFirstRow}    ${name}
-    Fill Machine Data
-    Fill Code    Machine    ${txtMachineCode}
-    Fill Name    Machine    ${txtMachineName}
-    Click Update Button    Machine
+    Capture ScreenShot
 
 Fill Machine Data No Code
     Fill Code    Machine    ${EMPTY}
