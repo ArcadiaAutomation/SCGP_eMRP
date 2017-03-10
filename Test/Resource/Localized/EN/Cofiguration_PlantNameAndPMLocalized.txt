@@ -22,3 +22,5 @@ ${txtMachineCode}    M01
 ${txtMachineCodeRequired}    Machine Code is required
 ${txtMachineNameRequired}    Machine Name is required
 ${txtNewMachineName}    Mac001
+${txtLocationNameRequired}    Location Name is required
+${txtLocationCapacityRequired}    Capacity is required

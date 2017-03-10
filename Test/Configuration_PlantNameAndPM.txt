@@ -102,8 +102,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    3.Select "Plant name & PM"
     ...    4.Select "Company" Tab
     ...    5. Click Delete button
-    ...    6. Alert message "Are you sure you want to delete record?" \
-    ...    7. Click OK
+    ...    6. Alert message "Are you sure you want to delete record?" \ 7. Click OK
     ...    8. Verify record is delete
     [Tags]    success
     Open SCG Website
@@ -342,7 +341,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    3.Select "Plant name & PM"
     ...    4.Select "Plant" Tab
     ...    5. Click Delete button
-    ...    6. Alert message "Are you sure you want to delete record?" 
+    ...    6. Alert message "Are you sure you want to delete record?"
     ...    7. Click OK
     ...    8. Verify record is deleted
     [Tags]    success
@@ -350,8 +349,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
-    ${name}    Delete Plant First Row
-    Verify Plant Delete    ${name}
+    ${code}    ${name}    Delete Plant First Row
+    Verify Plant Delete    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
 20_Create a machine
@@ -480,7 +479,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
-    ${code}    ${name}    Delete Machine Frist Row
+    ${code}    ${name}    Delete Machine First Row
     Verify Delete Machine Success    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
@@ -491,6 +490,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Tab    Location
     Click Add Record    Location
     Fill Location Data
+    Verify Create Location Success
     [Teardown]    keywords for teardown
 
 27_Create a location in case no name
@@ -498,6 +498,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
+    Click Add Record    Location
+    Fill Location Data No Name
+    Verify Create Location No Name
     [Teardown]    Keywords For Teardown
 
 28_Create a location in case no capacity
@@ -505,6 +508,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
+    Click Add Record    Location
+    Fill Location Data No Capacity
+    Verify Create Location No Capacity
     [Teardown]    Keywords For Teardown
 
 29_Edit a location
@@ -512,6 +518,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
+    Edit Location Data
+    Verify Edit Location
     [Teardown]    Keywords For Teardown
 
 30_Delete a location
@@ -519,27 +527,13 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
+    ${name}    ${capacity}    Delete Location First Row
+    Verify Delete Location    ${name}    ${capacity}
     [Teardown]    Keywords For Teardown
 
 *** Keywords ***
-Select Business Group Tab
-    select tab    BusinessGroup
-
-Select Company Tab
-    select tab    Company
-
-Select Plant Tab
-    Comment    select tab    Plant
-    Click Web Element    ${tabBtnPlant}
-
-Select Machine Tab
-    select tab    Machine
-
-Select Location Tab
-    select tab    Location
-
 Verify alert text no code
-    Page Should Contain Element    ${txtMessageCompanyNoCode}    ${txtCompanyNoCode}
+    Web Element Text Should Be    ${txtMessageCompanyNoCode}    ${txtCompanyNoCode}
     Capture ScreenShot
 
 Fill Company Data
@@ -629,8 +623,8 @@ Verify Delete Company
 Edit Business Group Data
     edit name    BusinessGroup    HTRO
     sleep    2
-    Capture ScreenShot
     Edit business group company
+    Capture ScreenShot
 
 Edit business group company
     click ddl    Company
@@ -778,7 +772,7 @@ Verify Edit Plant
     Capture ScreenShot
 
 Fill Location Data
-    Fill Name    Location    JOYRE
+    Fill Name    Location    TYRO
     sleep    1
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
     Press Key    ${txtInputLocationCapacity}    123
@@ -794,22 +788,22 @@ Verify Location Data
     Capture ScreenShot
 
 Delete Plant First Row
-    Wait Until Page Contains Element    ${lblPlantNameFirstRow}
     Capture ScreenShot
-    ${name}    Get Text    ${lblPlantNameFirstRow}
+    ${code}    Get Web Text    ${lblPlantCodeFirstRow}
+    ${name}    Get Web Text    ${lblPlantNameFirstRow}
     Wait Until Page Contains Element    ${btnDeletePlantFirstRow}    10
     Click Web Element    ${btnDeletePlantFirstRow}
     Dismiss Alert    true
     refresh page    Plant
-    [Return]    ${name}
+    [Return]    ${code}    ${name}
 
 Verify Plant Delete
-    [Arguments]    ${name}
+    [Arguments]    ${code}    ${name}
+    Wait Until Page Contains Element    ${lblPlantCodeFirstRow}
+    Wait Until Page Contains Element    ${lblPlantNameFirstRow}
+    Element Should Not Contain    ${lblPlantCodeFirstRow}    ${code}
     Element Should Not Contain    ${lblPlantNameFirstRow}    ${name}
-    Fill Machine Data
-    Fill Code    Machine    ${txtMachineCode}
-    Fill Name    Machine    ${txtMachineName}
-    Click Update Button    Machine
+    Capture ScreenShot
 
 Fill Machine Data No Code
     Fill Code    Machine    ${EMPTY}
@@ -849,10 +843,10 @@ Edit Machine Name
     Click Update Button    Machine
 
 Verify Edit Machine Success
-    Web Element Text Should Be    ${lblMachineNameFirstRow} \ \ \     ${txtNewMachineName}
+    Web Element Text Should Be    ${lblMachineNameFirstRow}    ${txtNewMachineName}
     Capture ScreenShot
 
-Delete Machine Frist Row
+Delete Machine First Row
     Wait Until Page Contains Element    ${lblMachineCodeFirstRow}
     ${code}    Get Web Text    ${lblMachineCodeFirstRow}
     ${name}    Get Web Text    //*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[2]
@@ -864,6 +858,68 @@ Delete Machine Frist Row
 
 Verify Delete Machine Success
     [Arguments]    ${code}    ${name}
-    Element Should Not Contain    ${lblMachineCodeFirstRow} \ \ \     ${name}
-    Element Should Not Contain    ${lblMachineNameFirstRow} \ \ \     ${name}
+    Element Should Not Contain    ${lblMachineCodeFirstRow}    ${name}
+    Element Should Not Contain    ${lblMachineNameFirstRow}    ${name}
+    Capture ScreenShot
+
+Fill Location Data No Name
+    Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
+    Press Key    ${txtInputLocationCapacity}    123
+    Click Update Button    Location
+
+Fill Location Data No Capacity
+    Fill Name    Location    DSL
+    sleep    1
+    Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
+    sleep    2
+    Input Web Text    ${txtInputLocationCapacity}    ${/}
+    Comment    sleep    2
+    Comment    Press Key    ${txtInputLocationCapacity}    \\8
+    Click Update Button    Location
+
+Verify Create Location Success
+    refresh page    Location
+    Sleep    2
+    Click Web Element    ${btnLocationLastPage}
+    sleep    2
+    Page Should Contain    TYRO
+    Capture ScreenShot
+
+Verify Create Location No Name
+    Web Element Text Should Be    ${txtMessageLocationNoName}    ${txtLocationNameRequired}
+    Capture ScreenShot
+
+Verify Create Location No Capacity
+    Web Element Text Should Be    ${txtMessageLocationNoCapacity}    ${txtLocationCapacityRequired}
+    Capture ScreenShot
+
+Edit Location Data
+    Capture ScreenShot
+    click edit button    Location
+    Wait Until Page Contains Element    ${txtInputLocationName}
+    Clear Element Text    ${txtInputLocationName}
+    Input Web Text    ${txtInputLocationName}    HTRE
+    Click Update Button    Location
+
+Delete Location First Row
+    Capture ScreenShot
+    ${name}    Get Web Text    ${lblLocationNameFirstRow}
+    ${capacity}    Get Web Text    ${lblLocationCapacityFirstRow}
+    Wait Web Until Page Element Visible    ${btnDeleteLocationFirstRow}    10
+    Click Web Element    ${btnDeleteLocationFirstRow}
+    Dismiss Alert    true
+    refresh page    Location
+    [Return]    ${name}    ${capacity}
+
+Verify Edit Location
+    refresh page    Location
+    Web Element Text Should Be    ${lblLocationNameFirstRow}    HTRE
+    Capture ScreenShot
+
+Verify Delete Location
+    [Arguments]    ${name}    ${capacity}
+    Wait Until Page Contains Element    ${lblLocationNameFirstRow}
+    Wait Until Page Contains Element    ${lblLocationCapacityFirstRow}
+    Element Should Not Contain    ${lblLocationNameFirstRow}    ${name}
+    Element Should Not Contain    ${lblLocationCapacityFirstRow}    ${capacity}
     Capture ScreenShot
