@@ -870,6 +870,11 @@ Fill Location Data No Name
 
 Fill Location Data No Capacity
     Fill Name    Location    DSL
+    sleep    1
+    Wait Web Until Page Contains Element    ${txtInputLocationCapacity}
+    Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
+    Focus    ${txtInputLocationCapacity}
+    Press Key    xpath=//*[@id="txtNumCapacity"]    \\8
     Click Update Button    Location
 
 Verify Create Location Success
