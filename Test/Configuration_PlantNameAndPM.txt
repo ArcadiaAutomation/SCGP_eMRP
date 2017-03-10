@@ -845,23 +845,23 @@ Edit Machine Name
     Click Update Button    Machine
 
 Verify Edit Machine Success
-    Web Element Text Should Be    ${lblMachineNameFirstRow} \ \ \    ${txtNewMachineName}
+    Web Element Text Should Be    ${lblMachineNameFirstRow}    ${txtNewMachineName}
     Capture ScreenShot
 
 Delete Machine Frist Row
     Wait Until Page Contains Element    ${lblMachineCodeFirstRow}
     ${code}    Get Web Text    ${lblMachineCodeFirstRow}
-    ${name}    Get Web Text    //*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[2]
-    Wait Web Until Page Element Visible    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[3]/a[2]    10
-    Click Web Element    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[3]/a[2]
+    ${name}    Get Web Text    ${lblMachineNameFirstRow}
+    Wait Web Until Page Element Visible    ${btnDeleteMachineFirstRow}    10
+    Click Web Element    ${btnDeleteMachineFirstRow}
     Dismiss Alert    true
     refresh page    Machine
     [Return]    ${code}    ${name}
 
 Verify Delete Machine Success
     [Arguments]    ${code}    ${name}
-    Element Should Not Contain    ${lblMachineCodeFirstRow} \ \ \    ${name}
-    Element Should Not Contain    ${lblMachineNameFirstRow} \ \ \    ${name}
+    Element Should Not Contain    ${lblMachineCodeFirstRow}    ${name}
+    Element Should Not Contain    ${lblMachineNameFirstRow}    ${name}
     Capture ScreenShot
 
 Fill Machine Data
