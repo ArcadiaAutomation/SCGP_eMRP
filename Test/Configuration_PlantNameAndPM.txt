@@ -836,12 +836,14 @@ Verify Create Machine Success
 Edit Machine Name
     Capture ScreenShot
     click edit button    Machine
-    Wait Until Page Contains Element    ${txtInputMachineName}
+    Wait Web Until Page Contains Element    ${txtInputMachineName}
     Clear Element Text    ${txtInputMachineName}
     Input Web Text    ${txtInputMachineName}    ${txtNewMachineName}
     Click Update Button    Machine
 
 Verify Edit Machine Success
+    Wait Web Until Page Contains Element    ${lblMachineNameFirstRow}
+    Web Element Should Be Visible    ${lblMachineNameFirstRow}
     Web Element Text Should Be    ${lblMachineNameFirstRow}    ${txtNewMachineName}
     Capture ScreenShot
 
@@ -873,7 +875,7 @@ Fill Location Data No Capacity
     sleep    1
     Wait Web Until Page Contains Element    ${txtInputLocationCapacity}
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
-    Focus    ${txtInputLocationCapacity}
+    Click Web Element    ${txtInputLocationCapacity}
     Press Key    xpath=//*[@id="txtNumCapacity"]    \\8
     Click Update Button    Location
 
