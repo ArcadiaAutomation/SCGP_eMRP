@@ -849,9 +849,9 @@ Verify Edit Machine Success
 Delete Machine First Row
     Wait Until Page Contains Element    ${lblMachineCodeFirstRow}
     ${code}    Get Web Text    ${lblMachineCodeFirstRow}
-    ${name}    Get Web Text    //*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[2]
-    Wait Web Until Page Element Visible    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[3]/a[2]    10
-    Click Web Element    xpath=//*[@id="gridMachine"]/div[3]/table/tbody/tr[1]/td[3]/a[2]
+    ${name}    Get Web Text    ${lblMachineNameFirstRow}
+    Wait Web Until Page Element Visible    ${btnDeleteMachineFirstRow}    10
+    Click Web Element    ${btnDeleteMachineFirstRow}
     Dismiss Alert    true
     refresh page    Machine
     [Return]    ${code}    ${name}
@@ -923,3 +923,8 @@ Verify Delete Location
     Element Should Not Contain    ${lblLocationNameFirstRow}    ${name}
     Element Should Not Contain    ${lblLocationCapacityFirstRow}    ${capacity}
     Capture ScreenShot
+
+Fill Machine Data
+    Fill Code    Machine    ${txtMachineCode}
+    Fill Name    Machine    ${txtMachineName}
+    Click Update Button    Machine
