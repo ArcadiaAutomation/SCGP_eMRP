@@ -621,10 +621,10 @@ Verify Delete Company
     Capture ScreenShot
 
 Edit Business Group Data
+    Capture ScreenShot
     edit name    BusinessGroup    HTRO
     sleep    2
     Edit business group company
-    Capture ScreenShot
 
 Edit business group company
     click ddl    Company
@@ -749,9 +749,10 @@ Verify Plant With Multiple Machine And Location
     Capture ScreenShot
 
 Edit Plant Data
+    Capture ScreenShot
+    ${code}
     edit name    Plant    PM073
     sleep    3
-    Capture ScreenShot
     edit plant machine and location
     Click Update Button    Plant
 
@@ -765,17 +766,15 @@ Verify Edit Plant
     Click Web Element    ${btnPlantLastPage}
     sleep    2
     Web Element Text Should Be    ${lblPlantNameFirstRow}    PM073
-    click edit button    Plant
-    Page Should Contain Element    xpath=//*[@id="Locations_taglist"]/li[1]/span[2]/span
-    Page Should Contain Element    xpath=//*[@id="Machines_taglist"]/li/span[2]
-    Sleep    1
+    Web Element Text Should Be    ${lblPlantCodeFirstRow}
     Capture ScreenShot
 
 Fill Location Data
     Fill Name    Location    TYRO
     sleep    1
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
-    Press Key    ${txtInputLocationCapacity}    123
+    Focus    ${txtInputLocationCapacity}
+    Press Key    xpath=//*[@id="txtNumCapacity"]    123
     Click Update Button    Location
 
 Verify Location Data
@@ -864,17 +863,13 @@ Verify Delete Machine Success
 
 Fill Location Data No Name
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
-    Press Key    ${txtInputLocationCapacity}    123
+    sleep    2
+    Focus    ${txtInputLocationCapacity}
+    Press Key    xpath=//*[@id="txtNumCapacity"]    123
     Click Update Button    Location
 
 Fill Location Data No Capacity
     Fill Name    Location    DSL
-    sleep    1
-    Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
-    sleep    2
-    Input Web Text    ${txtInputLocationCapacity}    ${/}
-    Comment    sleep    2
-    Comment    Press Key    ${txtInputLocationCapacity}    \\8
     Click Update Button    Location
 
 Verify Create Location Success
@@ -883,6 +878,7 @@ Verify Create Location Success
     Click Web Element    ${btnLocationLastPage}
     sleep    2
     Page Should Contain    TYRO
+    Page Should Contain    123
     Capture ScreenShot
 
 Verify Create Location No Name

@@ -63,7 +63,7 @@ ${btnLocationLastPage}    xpath=//*[@id="gridLocation"]/div[4]/a[4]
 ${lblPlantCodeFirstRow}    xpath=//*[@id="gridPlant"]/div[3]/table/tbody/tr[1]/td[1]
 ${lblPlantNameFirstRow}    xpath=//*[@id="gridPlant"]/div[3]/table/tbody/tr[1]/td[2]
 ${btnEditPlant}    xpath=//*[@id="gridPlant"]/div[3]/table/tbody/tr[1]/td[5]/a[1]
-${txtInputLocationCapacity}    xpath=/html/body/div[10]/div[2]/div/div[4]/span/span/input[1]
+${txtInputLocationCapacity}    xpath=/html/body/div[10]/div[2]/div/div[4]/span/span
 ${txtInputLocationName}    xpath=//*[@id="txtLocationName"]
 ${lstContainer}    xpath=//div[@class="k-animation-container"]
 ${lblMachineCodeRequired}    xpath=//*[@id="txtMachineCode_validationMessage"]
@@ -80,3 +80,4 @@ ${btnEditLocation}    xpath=//*[@id="gridLocation"]/div[3]/table/tbody/tr[1]/td[
 ${lblLocationNameFirstRow}    xpath=//*[@id="gridLocation"]/div[3]/table/tbody/tr[1]/td[1]
 ${lblLocationCapacityFirstRow}    xpath=//*[@id="gridLocation"]/div[3]/table/tbody/tr[1]/td[2]
 ${btnLocationLastPage}    xpath=//*[@id="gridLocation"]/div[4]/a[4]
+${btnDecreaseLocationCapacity}    xpath=/html/body/div[10]/div[2]/div/div[4]/span/span/span/span[2]
