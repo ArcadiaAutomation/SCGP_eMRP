@@ -275,7 +275,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    6. Input information (Empty Code)
     ...    7. Update
     ...    8. Verify Alert massage: Plant Code is required
-    [Tags]    fail
+    [Tags]    fail    test
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
