@@ -7,7 +7,7 @@ Resource          ../Localized/${ar_LANG}/Configuration_SettingHierarchyOfMateri
 Click Add Material Tier
     Click Web Element    ${btnAddMaterialTier}
 
-Click Add Attribute
+Click Add Material Attribute
     Click Web Element    ${btnAddMaterialAttribute}
 
 Select Tier
@@ -21,3 +21,26 @@ Select Tier
 
 Select Parent Tier
     Click Web Element    ${ddlParentTier}
+    Click Web Element    xpath=//*[@id="main-table-parentTier"]/option[6]
+
+Fill Material Tier Name
+    ${name}    Generate Random String    4    [UPPER]
+    Input Web Text    ${txtboxTierName}    ${name}
+    Click save material tier
+    [Return]    ${name}
+
+Click save material tier
+    Click Web Element    ${btnSaveMaterialTier}
+    sleep    1
+
+Click Edit Material Tier
+    Click Web Element    ${btnEditMaterialTier}
+
+Click add attribute
+    Click Web Element    ${btnAddAttribute}
+
+Click save material attribute
+    Click Web Element    ${btnUpdateAttributeFirstRow}
+
+go to material attribute last page
+    Click Web Element    ${btnMaterialAttributeLastPage}

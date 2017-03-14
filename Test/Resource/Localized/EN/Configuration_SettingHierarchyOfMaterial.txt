@@ -1,0 +1,7 @@
+*** Variables ***
+${txtAddMaterialTierSuccess}    Save MaterialTier was created.
+${txtSearchTest}    test3
+${txtAlertMaterialNoTier}    Please Select TierNo
+${txtAlertMaterialNoParentTier}    Please Select ParentTier
+${txtAlertMaterialNoName}    Please Input TierName
+${txtAlertDuplicateMaterialTier}    Save MaterialTier was fail

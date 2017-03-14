@@ -1,6 +1,7 @@
 *** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial.txt
+Library           ImageHorizonLibrary    reference_folder=None, screenshot_folder=None, keyword_on_failure=ImageHorizonLibrary.Take A Screenshot
 
 *** Test Cases ***
 46_Add Material Tier 1
@@ -9,54 +10,276 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
     Select Tier    1
-    Input Web Text    ${txtboxTierName}    TTRE
+    ${name}    Fill Material Tier Name
+    Verify Add Material Tier 1 Success    ${name}
+    [Teardown]    Keywords For Teardown
 
 47_Add Material Tier 2
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
+    Select Tier    2
+    Select Parent Tier
+    ${name}    Fill Material Tier Name
+    Verify Add Material Tier 2 Success    ${name}
+    [Teardown]    Keywords For Teardown
 
 48_Add Material Tier 3
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
+    Select Tier    3
+    Select Parent Tier
+    ${name}    Fill Material Tier Name
+    Verify Add Material Tier 3 Success    ${name}
+    [Teardown]    Keywords For Teardown
 
 49_Add Material Tier 4
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
+    Select Tier    4
+    Select Parent Tier
+    ${name}    Fill Material Tier Name
+    Verify Add Material Tier 4 Success    ${name}
+    [Teardown]    Keywords For Teardown
 
 50_Add Material Tier 5
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
+    Select Tier    5
+    Select Parent Tier
+    ${name}    Fill Material Tier Name
+    Verify Add Material Tier 5 Success    ${name}
+    [Teardown]    Keywords For Teardown
 
 51_Search Material Tier
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Search Tier Name
+    Verify Search Success
+    [Teardown]    Keywords For Teardown
 
 52_Add Material Tier Not Select Tier
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+    Fill Material Tier Name
+    Verify Add Material Tier No Tier
+    [Teardown]    Keywords For Teardown
 
 53_Add Material Tier Not Select Parent Tier
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+    Select Tier    2
+    Fill Material Tier Name
+    Verify Add Material Tier No Parent Tier
+    [Teardown]    Keywords For Teardown
 
 54_Add Material Tier No Name
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+    Select Tier    5
+    Select Parent Tier
+    Click save material tier
+    Verify Add Material Tier No Name
+    [Teardown]    Keywords For Teardown
 
 55_Add Material Tier Not Select Tier, Parent Tier and Input Tier Name
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+    Click save material tier
+    Verify Material Tier No Tier Parent And Name
+    [Teardown]    Keywords For Teardown
 
 56_Add Material Tier in case duplicate record
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+    Fill Duplicate Material Tier Data
+    Verify Add Material Tier Duplicate
+    [Teardown]    Keywords For Teardown
 
 57_Edit Material Tier
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    ${name}    Edit Material Tier First Row
+    Verify Edit Material    ${name}
+    [Teardown]    Keywords For Teardown
 
 58_Delete Material Tier
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
 
 59_Add Material Attribute
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Attribute
+    ${name}    Fill Material Attribute Name
+    Comment    Verify Add Material Attribute Success    ${name}
+    [Teardown]    Keywords For Teardown
 
 60_Add Material Attribute in case name is empty
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    [Teardown]    Keywords For Teardown
 
 61_Add Material Attribute in case duplicate record
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    [Teardown]    Keywords For Teardown
 
 62_Edit Material Attribute
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    [Teardown]    Keywords For Teardown
 
 63_Delete Material Attribute
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    [Teardown]    Keywords For Teardown
+
+*** Keywords ***
+Verify Add Material Tier 1 Success
+    [Arguments]    ${tiername}
+    Take A Screenshot
+    Alert Should Be Present    ${txtAddMaterialTierSuccess}
+    : FOR    ${index}    IN RANGE    1    101
+    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[1]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[1]
+    \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
+    Capture ScreenShot
+
+Verify Add Material Tier 2 Success
+    [Arguments]    ${tiername}
+    Take A Screenshot
+    Alert Should Be Present    ${txtAddMaterialTierSuccess}
+    : FOR    ${index}    IN RANGE    1    101
+    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[2]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[2]
+    \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
+    Capture ScreenShot
+
+Verify Add Material Tier 3 Success
+    [Arguments]    ${tiername}
+    Take A Screenshot
+    Alert Should Be Present    ${txtAddMaterialTierSuccess}
+    : FOR    ${index}    IN RANGE    1    101
+    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[3]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[3]
+    \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
+    Capture ScreenShot
+
+Verify Add Material Tier 4 Success
+    [Arguments]    ${tiername}
+    Take A Screenshot
+    Alert Should Be Present    ${txtAddMaterialTierSuccess}
+    : FOR    ${index}    IN RANGE    1    101
+    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[4]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[4]
+    \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
+    Capture ScreenShot
+
+Verify Add Material Tier 5 Success
+    [Arguments]    ${tiername}
+    Take A Screenshot
+    Alert Should Be Present    ${txtAddMaterialTierSuccess}
+    : FOR    ${index}    IN RANGE    1    101
+    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[5]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[5]
+    \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
+    Capture ScreenShot
+
+Search Tier Name
+    Input Web Text    ${txtboxSearchMaterial}    ${txtSearchTest}
+    Click Web Element    ${btnSearchMaterial}
+
+Verify Search Success
+    : FOR    ${index}    IN RANGE    1    6
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[${index}]
+    \    Run Keyword If    "${name}" == "${txtSearchTest}"    Exit For Loop
+    Capture ScreenShot
+
+Verify Add Material Tier No Tier
+    Set Screenshot Folder    C:\Image
+    Take A Screenshot
+    Alert Should Be Present    ${txtAlertMaterialNoTier}
+    Sleep    1
+    Take A Screenshot
+    Alert Should Be Present    ${txtAlertMaterialNoParentTier}
+
+Verify Add Material Tier No Parent Tier
+    Take A Screenshot
+    Alert Should Be Present    ${txtAlertMaterialNoParentTier}
+
+Verify Add Material Tier No Name
+    Take A Screenshot
+    Alert Should Be Present    ${txtAlertMaterialNoName}
+
+Verify Material Tier No Tier Parent And Name
+    Take A Screenshot
+    Alert Should Be Present    ${txtAlertMaterialNoTier}
+    Sleep    1
+    Take A Screenshot
+    Alert Should Be Present    ${txtAlertMaterialNoParentTier}
+    Sleep    1
+    Take A Screenshot
+    Alert Should Be Present    ${txtAlertMaterialNoName}
+
+Verify Add Material Tier Duplicate
+    Take A Screenshot
+    Alert Should Be Present    ${txtAlertDuplicateMaterialTier}
+
+Fill Duplicate Material Tier Data
+    Select Tier    4
+    Select Parent Tier
+    Input Web Text    ${txtboxTierName}    MP
+    Click save material tier
+
+Edit Material Tier First Row
+    Click Edit Material Tier
+    ${name}    Fill Material Tier Name
+    [Return]    ${name}
+
+Verify Edit Material
+    [Arguments]    ${name}
+    Take A Screenshot
+    Alert Should Be Present    ${txtAddMaterialTierSuccess}
+    Web Element Text Should Be    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[1]/td[1]    ${name}
+    Capture ScreenShot
+
+Fill Material Attribute Name
+    Click add attribute
+    ${name}    Generate Random String    4    [UPPER]
+    Input Web Text    ${txtboxMaterialAttributeName}    ${name}
+    Click save material attribute
+
+Verify Add Material Attribute Success
+    [Arguments]    ${Atname}
+    Click Web Element    ${btnMaterialAttributeLastPage}
+    : FOR    ${index}    IN RANGE    1    21
+    \    Scroll Web To Element    xpath= //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}]/td[1]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}]/td[1]
+    \    Run Keyword If    "${name}" == "${Atname}"    Exit For Loop
+    Capture ScreenShot

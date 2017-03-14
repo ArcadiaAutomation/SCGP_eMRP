@@ -12,3 +12,6 @@ ${btnDeleteAttributeFirstRow}    xpath=//*[@id="gridMaterialAttribute"]/div[3]/t
 ${btnUpdateAttributeFirstRow}    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[1]/td[2]/a[1]
 ${txtboxSearchMaterial}    xpath=//*[@id="txtSearchText"]
 ${btnSearchMaterial}    xpath=//*[@id="ID_SEARCH"]
+${btnEditMaterialTier}    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[1]/td[6]/span/a
+${txtboxMaterialAttributeName}    xpath=//*[@id="txtMaterialAttributeName1"]
+${btnMaterialAttributeLastPage}    xpath=//*[@id="gridMaterialAttribute"]/div[4]/a[4]
