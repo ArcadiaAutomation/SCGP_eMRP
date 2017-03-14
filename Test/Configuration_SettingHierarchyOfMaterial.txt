@@ -1,0 +1,4 @@
+*** Settings ***
+Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
+
+*** Test Cases ***

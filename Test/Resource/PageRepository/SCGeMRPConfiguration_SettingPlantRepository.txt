@@ -26,7 +26,7 @@ ${btnRefresh}     xpath=//*[@id="gridCompany"]/div[4]/a[5]
 ${txtInputPlantCode}    xpath=//*[@id="txtPlantCode"]
 ${txtInputPlantName}    xpath=//*[@id="txtPlantName"]
 ${ddlSelectMachine}    xpath=/html/body/div[12]/div[2]/div/div[6]/div/div
-${ddlSelectLocation}    xpath=/html/body/div[12]/div[2]/div/div[8]/div/div
+${ddlSelectLocation}    xpath=/html/body/div[12]/div[2]/div/div[8]/div
 ${txtInputBusinessGroupName}    xpath=//*[@id="txtBusinessGroupName"]
 ${lstFirstCompany}    xpath=//*[@id="Companies_listbox"]/li[1]
 ${btnDeleteBusinessGroupFirstRow}    xpath=//*[@id="gridBusinessGroup"]/div[3]/table/tbody/tr[1]/td[3]/a[2]
