@@ -1,4 +1,62 @@
 *** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
+Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial.txt
 
 *** Test Cases ***
+46_Add Material Tier 1
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+    Select Tier    1
+    Input Web Text    ${txtboxTierName}    TTRE
+
+47_Add Material Tier 2
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+
+48_Add Material Tier 3
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+
+49_Add Material Tier 4
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+
+50_Add Material Tier 5
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Tier
+
+51_Search Material Tier
+
+52_Add Material Tier Not Select Tier
+
+53_Add Material Tier Not Select Parent Tier
+
+54_Add Material Tier No Name
+
+55_Add Material Tier Not Select Tier, Parent Tier and Input Tier Name
+
+56_Add Material Tier in case duplicate record
+
+57_Edit Material Tier
+
+58_Delete Material Tier
+
+59_Add Material Attribute
+
+60_Add Material Attribute in case name is empty
+
+61_Add Material Attribute in case duplicate record
+
+62_Edit Material Attribute
+
+63_Delete Material Attribute

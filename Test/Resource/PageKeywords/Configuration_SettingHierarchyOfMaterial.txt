@@ -1,0 +1,23 @@
+*** Settings ***
+Resource          ../PageRepository/SCGeMRPConfiguration_SettingHierarchyOfMaterial.txt
+Resource          SCGPeMRPCommon.txt
+Resource          ../Localized/${ar_LANG}/Configuration_SettingHierarchyOfMaterial.txt
+
+*** Keywords ***
+Click Add Material Tier
+    Click Web Element    ${btnAddMaterialTier}
+
+Click Add Attribute
+    Click Web Element    ${btnAddMaterialAttribute}
+
+Select Tier
+    [Arguments]    ${Argument}
+    Click Web Element    ${ddlTierList}
+    Run Keyword If    "${Argument}" == "1"    Click Web Element    xpath=//*[@id="TierNo"]/option[2]
+    Run Keyword If    "${Argument}" == "2"    Click Web Element    xpath=//*[@id="TierNo"]/option[3]
+    Run Keyword If    "${Argument}" == "3"    Click Web Element    xpath=//*[@id="TierNo"]/option[4]
+    Run Keyword If    "${Argument}" == "4"    Click Web Element    xpath=//*[@id="TierNo"]/option[5]
+    Run Keyword If    "${Argument}" == "5"    Click Web Element    xpath=//*[@id="TierNo"]/option[6]
+
+Select Parent Tier
+    Click Web Element    ${ddlParentTier}

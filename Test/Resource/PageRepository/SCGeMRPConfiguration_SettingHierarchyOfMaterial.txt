@@ -1,0 +1,14 @@
+*** Variables ***
+${btnAddMaterialTier}    xpath=//*[@id="AddMaterialTier"]
+${btnAddMaterialAttribute}    xpath=//*[@id="AddMaterialAttibute"]
+${ddlTierList}    xpath=//*[@id="TierNo"]
+${ddlParentTier}    xpath=//*[@id="main-table-parentTier"]
+${txtboxTierName}    xpath=//*[@id="main-table-TierNames"]
+${checkboxImported}    xpath=//*[@id="main-table-Import"]
+${btnSaveMaterialTier}    xpath=//*[@id="addMaterialTier"]
+${btnAddAttribute}    xpath=//*[@id="gridMaterialAttribute"]/div[1]/a
+${btnEditAttributeFirstRow}    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[1]/td[2]/a[1]
+${btnDeleteAttributeFirstRow}    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[1]/td[2]/a[2]
+${btnUpdateAttributeFirstRow}    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[1]/td[2]/a[1]
+${txtboxSearchMaterial}    xpath=//*[@id="txtSearchText"]
+${btnSearchMaterial}    xpath=//*[@id="ID_SEARCH"]
