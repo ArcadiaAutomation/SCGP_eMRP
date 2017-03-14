@@ -59,8 +59,6 @@ refresh page
 edit name
     [Arguments]    ${Argument}    ${text}
     click edit button    ${Argument}
-    Wait Until Page Contains Element    ${txtInput${Argument}Name}
-    Clear Element Text    ${txtInput${Argument}Name}
     Input Web Text    ${txtInput${Argument}Name}    ${text}
 
 click edit button
