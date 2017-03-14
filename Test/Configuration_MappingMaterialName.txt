@@ -1,0 +1,131 @@
+*** Settings ***
+Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
+Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
+
+*** Test Cases ***
+31_Add Mapping Select Type Con
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Con
+    Select Machine    2
+    [Teardown]    Keywords For Teardown
+
+32_Add Mapping Type Con in case not select machine
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Con
+    [Teardown]    Keywords For Teardown
+
+33_Add Mapping Type Con in case not select last tier
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Con
+    Select Machine    2
+    [Teardown]    Keywords For Teardown
+
+34_Add Mapping Type Con in case not select material
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Con
+    Select Machine    2
+    [Teardown]    Keywords For Teardown
+
+35_Add Mapping Type Rec
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Rec
+    [Teardown]    Keywords For Teardown
+
+36_Add Mapping Type Rec in case not select Attribute
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Rec
+    [Teardown]    Keywords For Teardown
+
+37_Add Mapping Type Rec in case not select last tier
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Rec
+    [Teardown]    Keywords For Teardown
+
+38_Add Mapping Type Rec in case not select material
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Rec
+    Select Attribute    2
+    Select Tier    3
+    Click Save Mapping
+    Sleep    5
+    [Teardown]    Keywords For Teardown
+
+39_Add Mapping Type Inv
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Inv
+    [Teardown]    Keywords For Teardown
+
+40_Add Mapping Type Inv in case not select Location
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Inv
+    [Teardown]    Keywords For Teardown
+
+41_Add Mapping Type Inv in case not select Last tier
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Inv
+    [Teardown]    Keywords For Teardown
+
+42_Add Mapping Type Inv in case not select material
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Inv
+    [Teardown]    Keywords For Teardown
+
+43_Add Mapping in case duplicate record
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    [Teardown]    Keywords For Teardown
+
+44_Edit Mapping
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    [Teardown]    Keywords For Teardown
+
+45_Delete Mapping
+    Open SCG Website
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    [Teardown]    Keywords For Teardown
+
+*** Keywords ***
+Choose Type
+    [Arguments]    ${Argument}
+    click select type
+    select type    ${Argument}

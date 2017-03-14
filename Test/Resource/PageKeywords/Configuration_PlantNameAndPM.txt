@@ -40,6 +40,7 @@ Select ddl
     [Arguments]    ${Argument}    ${Fnum}    ${Lnum}
     : FOR    ${index}    IN RANGE    ${Fnum}    ${Lnum}
     \    click ddl    ${Argument}
+    \    sleep    1
     \    Run Keyword If    "${Argument}" == "Company"    Click Web Element    xpath=//*[@id="Companies_listbox"]/li[${index}]
     \    Run Keyword If    "${Argument}" == "Plant"    Click Web Element    xpath=//*[@id="Plants_listbox"]/li[${index}]
     \    Run Keyword If    "${Argument}" == "Machine"    Click Web Element    xpath=//*[@id="Machines_listbox"]/li[${index}]

@@ -330,8 +330,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
-    Edit Plant Data
-    Verify Edit Plant
+    ${code}    ${name}    Edit Plant Data
+    Verify Edit Plant    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
 19_Delete a Plant and its associated list of machines and locations
@@ -484,6 +484,17 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 26_Create a location
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Location" Tab
+    ...    5. Add new record
+    ...    6. Input information
+    ...    7. Update
+    ...    8. Verify new Location in table
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -494,6 +505,17 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    keywords for teardown
 
 27_Create a location in case no name
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Location" Tab
+    ...    5. Add new record
+    ...    6. Input information (Empty Name)
+    ...    7. Update
+    ...    8. Verify Alert massage: Location Name is required
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -504,6 +526,17 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 28_Create a location in case no capacity
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Location" Tab
+    ...    5. Add new record
+    ...    6. Input information (Empty Capacity)
+    ...    7. Update
+    ...    8. Verify Alert massage: Capacity is required
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -514,6 +547,17 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 29_Edit a location
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Location" Tab
+    ...    5. Click Edit button
+    ...    6. Edit information
+    ...    7. Update
+    ...    8. Verify Edit record
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -523,6 +567,17 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 30_Delete a location
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Plant name & PM"
+    ...    4.Select "Location" Tab
+    ...    5. Click Delete button
+    ...    6. Alert message "Are you sure you want to delete record?" \
+    ...    7. Click OK
+    ...    8. Verify record is deleted
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
@@ -604,13 +659,12 @@ Edit Company Data
     Click Update Button    Company
 
 Edit company plant
-    Delete List    Plant    1
     click ddl    Plant
     Select ddl    Plant    3    4
 
 Verify Company Edit
     Wait Until Page Contains Element    ${lblCompanyNameFirstRow}
-    Page Should Contain Element    ${lblCompanyNameFirstRow}
+    Web Element Text Should Be    ${lblCompanyNameFirstRow}    HYUU
     sleep    2
     Capture ScreenShot
 
@@ -682,8 +736,8 @@ Verify Plant With Multiple Location
     Sleep    2
     Click Web Element    ${btnPlantLastPage}
     sleep    2
-    Page Should Contain    ${txtPlantCode}
-    Page Should Contain    ${txtPlantName}
+    Page Should Contain    ${txtPlantCode2}
+    Page Should Contain    ${txtPlantName2}
     Capture ScreenShot
 
 Fill Plant Data No Code
@@ -717,6 +771,7 @@ Fill Plant Data With Multiple Machines And Locations
     Fill Name    Plant    ${txtPlantName3}
     select multiple machine
     select multiple location
+    Click Update Button    Plant
 
 Delete Business Group First Row
     Wait Until Page Contains Element    ${lblBusinessGroupNameFirstRow}
@@ -744,36 +799,38 @@ Verify Plant With Multiple Machine And Location
     Sleep    2
     Click Web Element    ${btnPlantLastPage}
     sleep    2
-    Page Should Contain    ${txtPlantCode}
-    Page Should Contain    ${txtPlantName}
+    Page Should Contain    ${txtPlantCode3}
+    Page Should Contain    ${txtPlantName3}
     Capture ScreenShot
 
 Edit Plant Data
     Capture ScreenShot
-    ${code}
-    edit name    Plant    PM073
-    sleep    3
-    edit plant machine and location
+    ${code}    Get Web Text    ${lblPlantCodeFirstRow}
+    ${name}    Generate Random String    4    [UPPER]
+    edit name    Plant    ${name}
+    Set Selenium Speed    0.2
+    Select ddl    Machine    2    3
+    sleep    1
+    Click Web Element    ${ddlSelectLocation}
+    Select ddl    Location    3    4
     Click Update Button    Plant
+    [Return]    ${code}    ${name}
 
 edit plant machine and location
-    Select ddl    Machine    3    4
-    Select ddl    Location    3    4
 
 Verify Edit Plant
+    [Arguments]    ${code}    ${name}
     refresh page    Plant
-    Sleep    2
-    Click Web Element    ${btnPlantLastPage}
     sleep    2
-    Web Element Text Should Be    ${lblPlantNameFirstRow}    PM073
-    Web Element Text Should Be    ${lblPlantCodeFirstRow}
+    Web Element Text Should Be    ${lblPlantNameFirstRow}    ${name}
+    Web Element Text Should Be    ${lblPlantCodeFirstRow}    ${code}
     Capture ScreenShot
 
 Fill Location Data
     Fill Name    Location    TYRO
     sleep    1
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
-    Focus    ${txtInputLocationCapacity}
+    Click Web Element    ${txtInputLocationCapacity}
     Press Key    xpath=//*[@id="txtNumCapacity"]    123
     Click Update Button    Location
 
@@ -864,7 +921,7 @@ Verify Delete Machine Success
 Fill Location Data No Name
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
     sleep    2
-    Focus    ${txtInputLocationCapacity}
+    Click Web Element    ${txtInputLocationCapacity}
     Press Key    xpath=//*[@id="txtNumCapacity"]    123
     Click Update Button    Location
 
@@ -873,7 +930,8 @@ Fill Location Data No Capacity
     sleep    1
     Wait Web Until Page Contains Element    ${txtInputLocationCapacity}
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
-    Focus    ${txtInputLocationCapacity}
+    Sleep    2
+    Click Web Element    ${txtInputLocationCapacity}
     Press Key    xpath=//*[@id="txtNumCapacity"]    \\8
     Click Update Button    Location
 
