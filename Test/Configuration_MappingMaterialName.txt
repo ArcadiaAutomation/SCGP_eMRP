@@ -96,6 +96,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    8. Verify Error Message “Please Select Location”
     ...    9. Verify Error Message “Please Select LastTier”
     ...    10. \ Verify Error Message “Please Select Mwterial Source”
+    [Tags]    test
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
@@ -147,7 +148,7 @@ Choose Type
     select type    ${Argument}
 
 Verify Message Not Select Location
-    Set Selenium Speed    1s
+    Set Selenium Speed    2s
     Take A Screenshot
     ${text}=    Get Alert Message    dissmiss=False
     Log    ${text}
