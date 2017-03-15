@@ -83,11 +83,27 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 40_Add Mapping Type Inv in case not select Location
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Mapping Material name"
+    ...    4. Add Mapping
+    ...    5. Select Type: Inv
+    ...    6. Not Select Location
+    ...    7. Save
+    ...    8. Verify Error Message “Please Select Location”
+    ...    9. Verify Error Message “Please Select LastTier”
+    ...    10. \ Verify Error Message “Please Select Mwterial Source”
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
     Choose Type    Inv
+    #Not Select Location
+    Click Save Mapping
+    Verify Message Not Select Location
     [Teardown]    Keywords For Teardown
 
 41_Add Mapping Type Inv in case not select Last tier
@@ -129,3 +145,15 @@ Choose Type
     [Arguments]    ${Argument}
     click select type
     select type    ${Argument}
+
+Verify Message Not Select Location
+    Set Screenshot Folder    Output
+    Set Selenium Speed    1s
+    Take A Screenshot
+    ${text}=    Get Alert Message    dissmiss=False
+    Log    ${text}
+    Should Be Equal    ${text}    ${txtMessageNoLocation}
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageNoLastTier}
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageNoMaterial}

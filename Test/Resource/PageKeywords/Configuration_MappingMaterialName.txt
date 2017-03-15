@@ -5,7 +5,7 @@ Resource          ../Localized/${ar_LANG}/Configuration_MappingMaterialName.txt
 
 *** Keywords ***
 Click Add Material
-    Wait Until Element Is Visible    ${btnAddMappingMaterial}
+    Web Element Should Be Visible    ${btnAddMappingMaterial}
     Click Web Element    ${btnAddMappingMaterial}
     sleep    5
 
@@ -13,7 +13,7 @@ click select type
     Click Web Element    ${ddlSelectType}
 
 Click Save Mapping
-    Wait Until Element Is Visible    ${btnSaveMappingMaterial}
+    Web Element Should Be Visible    ${btnSaveMappingMaterial}
     Scroll Web To Element    ${btnSaveMappingMaterial}
     Click Web Element    ${btnSaveMappingMaterial}
 

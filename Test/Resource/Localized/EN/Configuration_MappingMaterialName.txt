@@ -1,2 +1,5 @@
 *** Variables ***
 ${txtMessageNoMachine}    Please Select Machine
+${txtMessageNoLocation}    Please Select Location
+${txtMessageNoLastTier}    Please Select LastTier
+${txtMessageNoMaterial}    Please Select Material Source
