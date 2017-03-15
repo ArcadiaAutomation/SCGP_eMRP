@@ -5,3 +5,5 @@ ${txtAlertMaterialNoTier}    Please Select TierNo
 ${txtAlertMaterialNoParentTier}    Please Select ParentTier
 ${txtAlertMaterialNoName}    Please Input TierName
 ${txtAlertDuplicateMaterialTier}    Save MaterialTier was fail
+${txtFirstMaterialAttribute}    //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
+${txtMaterialAttributeNoName}    Material Name should not empty string

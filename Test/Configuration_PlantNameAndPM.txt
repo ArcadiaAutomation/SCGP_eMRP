@@ -939,6 +939,7 @@ Fill Location Data No Name
 Fill Location Data No Capacity
     Fill Name    Location    DSL
     sleep    1
+    Set Selenium Speed    0.2
     Wait Web Until Page Contains Element    ${txtInputLocationCapacity}
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
     Click Web Element    ${txtInputLocationCapacity}
