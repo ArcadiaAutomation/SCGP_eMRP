@@ -1,7 +1,6 @@
 *** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial.txt
-Library           ImageHorizonLibrary    reference_folder=None, screenshot_folder=None, keyword_on_failure=ImageHorizonLibrary.Take A Screenshot
 
 *** Test Cases ***
 46_Add Material Tier 1

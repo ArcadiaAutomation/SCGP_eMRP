@@ -5,7 +5,7 @@ Resource          ../../../../Config/LocalConfig.txt
 Resource          ../Localized/${ar_LANG}/SCGPeMRPLocalized.txt
 Resource          ../PageVariable/SCGPeMRPVariable.txt
 Resource          ../PageRepository/SCGPeMRPRepository.txt
-Library           ImageHorizonLibrary
+Library           ImageHorizonLibrary    screenshot_folder=${ar_screenshot_folder}
 
 *** Keywords ***
 Open SCG Website

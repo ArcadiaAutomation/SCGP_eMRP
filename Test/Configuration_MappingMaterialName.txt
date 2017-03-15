@@ -147,7 +147,6 @@ Choose Type
     select type    ${Argument}
 
 Verify Message Not Select Location
-    Set Screenshot Folder    Output
     Set Selenium Speed    1s
     Take A Screenshot
     ${text}=    Get Alert Message    dissmiss=False
