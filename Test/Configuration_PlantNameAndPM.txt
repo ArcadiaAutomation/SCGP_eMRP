@@ -829,8 +829,6 @@ edit plant machine and location
 Verify Edit Plant
     [Arguments]    ${code}    ${name}
     refresh page    Plant
-    Sleep    2
-    Click Web Element    ${btnPlantLastPage}
     sleep    2
     Web Element Text Should Be    ${lblPlantNameFirstRow}    ${name}
     Web Element Text Should Be    ${lblPlantCodeFirstRow}    ${code}
@@ -839,8 +837,9 @@ Verify Edit Plant
 Fill Location Data
     Fill Name    Location    TYRO
     sleep    1
+    Set Selenium Speed    0.5
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
-    Focus    ${txtInputLocationCapacity}
+    Click Web Element    ${txtInputLocationCapacity}
     Press Key    xpath=//*[@id="txtNumCapacity"]    123
     Click Update Button    Location
 
@@ -933,7 +932,7 @@ Verify Delete Machine Success
 Fill Location Data No Name
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
     sleep    2
-    Focus    ${txtInputLocationCapacity}
+    Click Web Element    ${txtInputLocationCapacity}
     Press Key    xpath=//*[@id="txtNumCapacity"]    123
     Click Update Button    Location
 
