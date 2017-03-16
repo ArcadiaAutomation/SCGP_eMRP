@@ -4,3 +4,6 @@ ${txtMessageNoLocation}    Please Select Location
 ${txtMessageNoLastTier}    Please Select LastTier
 ${txtMessageNoMaterial}    Please Select Material Source
 ${txtMessageCreateMappingSuccess}    Save MaterialMapping was created.
+${txtMessageAddSuccess}    Save MaterialMapping was created.
+${txtMessageNoAttribute}    Please Select Attribute
+

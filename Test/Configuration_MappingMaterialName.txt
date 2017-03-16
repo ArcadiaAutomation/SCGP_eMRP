@@ -1,4 +1,4 @@
-*** Settings ***
+﻿*** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
@@ -58,33 +58,20 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 35_Add Mapping Type Rec
-    Open SCG Website
-    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
-    Select Menu    Configuration
-    Select Sub Menu    MappingMaterialName
-    Click Add Material
-    Choose Type    Rec
-    [Teardown]    Keywords For Teardown
-
-36_Add Mapping Type Rec in case not select Attribute
-    Open SCG Website
-    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
-    Select Menu    Configuration
-    Select Sub Menu    MappingMaterialName
-    Click Add Material
-    Choose Type    Rec
-    [Teardown]    Keywords For Teardown
-
-37_Add Mapping Type Rec in case not select last tier
-    Open SCG Website
-    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
-    Select Menu    Configuration
-    Select Sub Menu    MappingMaterialName
-    Click Add Material
-    Choose Type    Rec
-    [Teardown]    Keywords For Teardown
-
-38_Add Mapping Type Rec in case not select material
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Mapping Material name"
+    ...    4. Add Mapping
+    ...    5. Select Type: Rec
+    ...    6. Select Attribute
+    ...    7. Select Last Tier
+    ...    8. Select Material
+    ...    9. Save
+    ...    10. Verify Add Success
+    [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -92,18 +79,80 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Click Add Material
     Choose Type    Rec
     Select Attribute    2
-    Select Tier    3
+    Select Tier    2
+    Select Material    1    2
     Click Save Mapping
-    Sleep    5
+    Verify Add Mapping Type Rec Success
+    [Teardown]    Keywords For Teardown
+
+36_Add Mapping Type Rec in case not select attribute
+    [Tags]    fail
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Rec
+    #Not Select Attribute
+    Click Save Mapping
+    Verify Message Not Select Attribute
+    [Teardown]    Keywords For Teardown
+
+37_Add Mapping Type Rec in case not select last tier
+    [Tags]    fail
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Rec
+    Select Attribute    2
+    #Not Select Last Tier
+    Click Save Mapping
+    Verify Message Not Select Last Tier
+    [Teardown]    Keywords For Teardown
+
+38_Add Mapping Type Rec in case not select material
+    [Tags]    fail
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MappingMaterialName
+    Click Add Material
+    Choose Type    Rec
+    Select Attribute    2
+    Select Tier    2
+    #Not Select Material
+    Click Save Mapping
+    Verify Message Not Select Material
     [Teardown]    Keywords For Teardown
 
 39_Add Mapping Type Inv
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Mapping Material name"
+    ...    4. Add Mapping
+    ...    5. Select Type: Inv
+    ...    6. Select Location
+    ...    7. Select Last Tier
+    ...    8. Select Material
+    ...    9. Save
+    ...    10. Verify Add Success
+    [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
     Choose Type    Inv
+    Select Location By Index    5
+    Select Tier    5
+    Select Material    1    2
+    Click Save Mapping
+    Verify Add Mapping Type Inv Success
     [Teardown]    Keywords For Teardown
 
 40_Add Mapping Type Inv in case not select Location
@@ -120,7 +169,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    8. Verify Error Message “Please Select Location”
     ...    9. Verify Error Message “Please Select LastTier”
     ...    10. \ Verify Error Message “Please Select Mwterial Source”
-    [Tags]    test
+    [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -146,13 +195,14 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    8. Save
     ...    9. Verify Error Message “Please Select LastTier”
     ...    10. \ Verify Error Message “Please Select Material Source”
+    [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
     Choose Type    Inv
-    Select Location    20
+    Select Location By Index    5
     #Not Select Last Tier
     Click Save Mapping
     Verify Message Not Select Last Tier
@@ -172,13 +222,14 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    8. Not Select Material
     ...    9. Save
     ...    10. \ Verify Error Message “Please Select Material Source”
+    [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
     Choose Type    Inv
-    Select Location    10
+    Select Location By Index    5
     Select Tier    5
     #Not Select Material
     Click Save Mapping
@@ -250,4 +301,37 @@ Verify Add Mapping Type Con Success
     sleep    2
     Take A Screenshot
     Alert Should Be Present    ${txtMessageCreateMappingSuccess}
-    [Teardown]
+
+Select Location By Index
+    [Arguments]    ${index}
+    Wait Web Until Page Contains Element    ${ddlSelectLocation}
+    Wait Web Until Page Element Visible    ${ddlSelectLocation}
+    Wait Until Element Is Enabled    ${ddlSelectLocation}
+    Wait Web Until Page Contains Element    ${iconDdlSelectLocation}
+    Wait Web Until Page Element Visible    ${iconDdlSelectLocation}
+    Click Web Element    ${ddlSelectLocation}
+    Click Web Element    xpath=//*[@id="main-table-Location_listbox"]/li[${index}]
+    Wait Until Element Is Not Visible    xpath=//*[@id="main-table-Location_listbox"]/li[${index}]
+
+Verify Add Mapping Type Inv Success
+    Set Selenium Speed    0.5
+    Sleep    1s
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageAddSuccess}
+
+Verify Add Mapping Type Rec Success
+    Set Selenium Speed    0.5
+    Sleep    1s
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageAddSuccess}
+
+Verify Message Not Select Attribute
+    Set Selenium Speed    0.5
+    Sleep    1s
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageNoAttribute}
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageNoLastTier}
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageNoMaterial}
+
