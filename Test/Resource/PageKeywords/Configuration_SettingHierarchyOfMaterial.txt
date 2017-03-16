@@ -20,8 +20,9 @@ Select Tier
     Run Keyword If    "${Argument}" == "5"    Click Web Element    xpath=//*[@id="TierNo"]/option[6]
 
 Select Parent Tier
+    ${count}    Get Matching Xpath Count    //*[@id="main-table-parentTier"]/option
     Click Web Element    ${ddlParentTier}
-    Click Web Element    xpath=//*[@id="main-table-parentTier"]/option[6]
+    Click Web Element    xpath=//*[@id="main-table-parentTier"]/option[${count}]
 
 Fill Material Tier Name
     ${name}    Generate Random String    4    [UPPER]

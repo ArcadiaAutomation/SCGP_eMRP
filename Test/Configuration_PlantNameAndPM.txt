@@ -660,7 +660,7 @@ Edit Company Data
     ${code}    Get Web Text    ${lblCompanyCodeFirstRow}
     ${name}    Generate Random String    4    [UPPER]
     edit name    Company    ${name}
-    Select ddl    Plant    1    3
+    Select ddl    Plant    2    3
     Click Update Button    Company
     [Return]    ${code}    ${name}
 
@@ -671,9 +671,9 @@ Edit company plant
 
 Verify Company Edit
     [Arguments]    ${code}    ${name}
+    sleep    2
     Web Element Text Should Be    ${lblCompanyCodeFirstRow}    ${code}
     Web Element Text Should Be    ${lblCompanyNameFirstRow}    ${name}
-    sleep    2
     Capture ScreenShot
 
 Verify Delete Company
