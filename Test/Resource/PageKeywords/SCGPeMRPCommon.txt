@@ -29,3 +29,9 @@ SignOut
 Keywords For Teardown
     Run Keyword If Test Failed    Capture Screen with Specific name
     Run Keyword And Continue On Failure    Close Browser
+
+Login SCGP
+    [Arguments]    ${username}    ${password}
+    Input Web Text    ${txtInputUsername}    ${username}
+    Input Web Text    ${txtInputPassword}    ${password}
+    Click Web Element    ${btnLogin}

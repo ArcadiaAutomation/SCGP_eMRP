@@ -15,3 +15,6 @@ ${subMnuUnloadCapacityConfiguration}    xpath=//*[@id="Configuration"]/li[5]/a
 ${subMnuInventoryConfigurationPage}    xpath=//*[@id="Configuration"]/li[6]/a
 ${subMnuCalendarSetting}    xpath=//*[@id="Configuration"]/li[7]/a
 ${btnSignOut}     xpath=//*[@id="header"]/div[2]/ul/li[3]/a
+${txtInputUsername}    xpath=//*[@id="LoginId"]
+${txtInputPassword}    xpath=//*[@id="Password"]
+${btnLogin}       xpath=//*[@id="btnLogin"]
