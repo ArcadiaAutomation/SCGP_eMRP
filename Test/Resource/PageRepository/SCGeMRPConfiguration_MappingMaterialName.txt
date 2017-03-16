@@ -1,11 +1,11 @@
 *** Variables ***
 ${btnAddMappingMaterial}    xpath=//*[@id="AddMapping"]
 ${ddlSelectType}    xpath=//*[@id="materialmapping"]/ul/li[1]/div[2]/div/div/span/span/span[1]
-${ddlSelectMachine}    xpath=//*[@id="limachine"]/div[2]/div/div/span/span/span[1]
+${ddlSelectMachine}    xpath=//*[@id="limachine"]/div[2]/div/div/span/span
 ${ddlSelectAttribute}    xpath=//*[@id="liattribute"]/div[2]/div/div/span/span/span[1]
 ${ddlSelectLocation}    xpath=//*[@id="lilocation"]/div[2]/div/div/span/span/span[1]
 ${btnMaterialLastPage}    xpath=//*[@id="gridMaterial"]/div[3]/a[4]
-${CheckboxFirstMaterial}    xpath=//*[@id="gridMaterial"]/div[2]/table/tbody/tr[1]/td[1]/input
+${CheckboxFirstMaterial}    xpath=//*[@id="gridMaterial"]//table/tbody/tr[1]/td[1]/input
 ${btnSaveMappingMaterial}    xpath=//*[@class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"]/div/button[1]
 ${lstTypeCon}     xpath=//*[@id="main-table-Type_listbox"]/li[1]
 ${lstTypeRec}     xpath=//*[@id="main-table-Type_listbox"]/li[2]

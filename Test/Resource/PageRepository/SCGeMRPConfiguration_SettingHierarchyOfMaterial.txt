@@ -16,3 +16,4 @@ ${btnEditMaterialTier}    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[1]/td
 ${txtboxMaterialAttributeName}    xpath=//*[@id="txtMaterialAttributeName1"]
 ${btnMaterialAttributeLastPage}    xpath=//*[@id="gridMaterialAttribute"]/div[4]/a[4]
 ${lblMessageMaterialAttributeNoName}    xpath=//*[@id="txtMaterialAttributeName1_validationMessage"]
+${btnRefreshAttribute}    xpath=//*[@id="gridMaterialAttribute"]/div[4]/a[5]

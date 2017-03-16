@@ -338,37 +338,31 @@ Fill Material Attribute Name
 
 Verify Add Material Attribute Success
     [Arguments]    ${Atname}
+    Click Web Element    ${btnRefreshAttribute}
     Click Web Element    ${btnMaterialAttributeLastPage}
-    : FOR    ${index}    IN RANGE    1    21
-    \    Run Keyword And Continue On Failure    Mouse Over    xpath= //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    Scroll Web To Element    xpath= //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    Run Keyword If    "${name}" == "${Atname}"    Exit For Loop
+    sleep    3
+    ${count}    Get Matching Xpath Count    xpath= //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
+    Mouse Over    xpath= //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${count}]/td[1]
+    Web Element Text Should Be    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${count}]/td[1]    ${Atname}
     Capture ScreenShot
 
 Edit Material Attribute
     Click Web Element    ${btnMaterialAttributeLastPage}
     Set Selenium Speed    0.2
     ${name}    Generate Random String    4    [UPPER]
-    : FOR    ${index}    IN RANGE    1    21
-    \    ${check}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    log    ${check}
-    \    Run Keyword If    "${check}" == "0"    Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}-1]/td[2]/a[1]
-    \    Run Keyword If    "${check}" == "0"    Take A Screenshot
-    \    Run Keyword If    "${check}" == "0"    Input Web Text    ${txtboxMaterialAttributeName}    ${name}
-    \    Run Keyword If    "${check}" == "0"    Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}-1]/td[2]/a[1]
-    \    Run Keyword If    "${check}" == "0"    Exit For Loop
+    ${check}    Get Matching Xpath Count    //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
+    Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${check}]/td[2]/a[1]
+    Take A Screenshot
+    Input Web Text    ${txtboxMaterialAttributeName}    ${name}
+    Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${check}]/td[2]/a[1]
     [Return]    ${name}
 
 Verify Edit Material Attribute
     [Arguments]    ${Atname}
-    Click Web Element    ${btnMaterialAttributeLastPage}
     sleep    1
-    : FOR    ${index}    IN RANGE    1    21
-    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    log    ${Atname}
-    \    log    ${name}
-    \    Run Keyword If    "${name}" == "${Atname}"    Exit For Loop
+    ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
+    sleep    2
+    Web Element Text Should Be    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${count}]/td[1]    ${Atname}
     Capture ScreenShot
 
 Fill Material Attribute No Name
@@ -384,9 +378,10 @@ Delete Material Attribute Last Row
     Set Selenium Speed    0.2
     ${Frecord}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
     ${Text}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${Frecord}]/td[1]
-    Take A Screenshot
     Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${Frecord}]/td[2]/a[2]
+    Take A Screenshot
     Dismiss Alert    true
+    sleep    1
     [Return]    ${Text}
 
 Verify Delete Material Attribute Success
@@ -422,7 +417,7 @@ Fill Duplicate Material Attribute Name
 
 Verify Duplicate Material Attribute
     Click Web Element    ${btnMaterialAttributeLastPage}
-    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
+    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr
     Scroll Web To Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${count}]/td[1]
     ${name1}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${count}]/td[1]
     Run Keyword If    "${count}" == "1"    verify duplicate attribute diff page

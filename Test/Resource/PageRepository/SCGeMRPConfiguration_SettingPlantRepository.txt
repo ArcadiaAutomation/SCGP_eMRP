@@ -14,7 +14,7 @@ ${txtInputCompanyName}    xpath=//*[@id="txtCompanyName"]
 ${lstAvailablePlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div
 ${txtMessageCompanyNoCode}    xpath=//*[@id="txtCompanyCode_validationMessage"]
 ${txtMessageCompanyNoName}    xpath=//*[@id="txtCompanyName_validationMessage"]
-${ddlSelectPlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div/div
+${ddlSelectPlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div/div/input
 ${ddlSelectCompany}    xpath=/html/body/div[11]/div[2]/div/div[4]/div/div
 ${btnUpdateCompany}    xpath=/html/body/div[11]/div[2]/div/div[7]/a[1]
 ${btnUpdateBusinessGroup}    xpath=/html/body/div[11]/div[2]/div/div[5]/a[1]

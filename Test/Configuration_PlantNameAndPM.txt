@@ -689,8 +689,9 @@ Edit Company Data
     Capture ScreenShot
     ${code}    Get Web Text    ${lblCompanyCodeFirstRow}
     ${name}    Generate Random String    4    [UPPER]
-    edit name    Company    ${name}
-    Select ddl    Plant    2    3
+    click edit button    Company
+    Input Web Text    ${txtInputCompanyName}    ${name}
+    Select ddl    Plant    3    4
     Click Update Button    Company
     [Return]    ${code}    ${name}
 
@@ -845,7 +846,7 @@ Edit Plant Data
     ${code}    Get Text    ${lblPlantCodeFirstRow}
     ${name}    Generate Random String    4    [UPPER]
     Edit plant name    ${name}
-    Set Selenium Speed    0.1
+    Set Selenium Speed    0.2
     Focus    ${ddlSelectMachine}
     Select ddl    Machine    2    3
     select ddl    Location    3    4
@@ -940,6 +941,7 @@ Edit Machine Name
 Verify Edit Machine Success
     Wait Web Until Page Contains Element    ${lblMachineNameFirstRow}
     Web Element Should Be Visible    ${lblMachineNameFirstRow}
+    sleep    2
     Web Element Text Should Be    ${lblMachineNameFirstRow}    ${txtNewMachineName}
     Capture ScreenShot
 
