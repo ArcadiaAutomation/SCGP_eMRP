@@ -5,7 +5,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 *** Test Cases ***
 31_Add Mapping Select Type Con
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -15,7 +15,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 32_Add Mapping Type Con in case not select machine
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -24,7 +24,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 33_Add Mapping Type Con in case not select last tier
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -34,7 +34,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 34_Add Mapping Type Con in case not select material
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -44,7 +44,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 35_Add Mapping Type Rec
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -53,7 +53,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 36_Add Mapping Type Rec in case not select Attribute
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -62,7 +62,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 37_Add Mapping Type Rec in case not select last tier
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -71,7 +71,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 38_Add Mapping Type Rec in case not select material
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -84,7 +84,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 39_Add Mapping Type Inv
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -107,7 +107,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    10. \ Verify Error Message “Please Select Mwterial Source”
     [Tags]    test
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -132,7 +132,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    9. Verify Error Message “Please Select LastTier”
     ...    10. \ Verify Error Message “Please Select Material Source”
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -158,7 +158,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    9. Save
     ...    10. \ Verify Error Message “Please Select Material Source”
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -172,21 +172,21 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 43_Add Mapping in case duplicate record
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     [Teardown]    Keywords For Teardown
 
 44_Edit Mapping
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     [Teardown]    Keywords For Teardown
 
 45_Delete Mapping
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     [Teardown]    Keywords For Teardown

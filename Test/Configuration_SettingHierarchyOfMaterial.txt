@@ -6,7 +6,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 46_Add Material Tier 1
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -18,7 +18,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 47_Add Material Tier 2
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -31,7 +31,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 48_Add Material Tier 3
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -44,7 +44,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 49_Add Material Tier 4
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -57,7 +57,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 50_Add Material Tier 5
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -70,7 +70,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 51_Search Material Tier
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Search Tier Name
@@ -80,7 +80,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 52_Add Material Tier Not Select Tier
     [Tags]    fail
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -91,7 +91,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 53_Add Material Tier Not Select Parent Tier
     [Tags]    fail
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -103,7 +103,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 54_Add Material Tier No Name
     [Tags]    fail
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -116,7 +116,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 55_Add Material Tier Not Select Tier, Parent Tier and Input Tier Name
     [Tags]    fail
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -127,7 +127,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 56_Add Material Tier in case duplicate record
     [Tags]    fail
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -138,7 +138,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 57_Edit Material Tier
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     ${name}    Edit Material Tier First Row
@@ -148,7 +148,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 58_Delete Material Tier
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Delete Material Tier
@@ -158,7 +158,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 59_Add Material Attribute
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Attribute
@@ -169,7 +169,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 60_Add Material Attribute in case name is empty
     [Tags]    fail
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Attribute
@@ -180,7 +180,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 61_Add Material Attribute in case duplicate record
     [Tags]    fail
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Attribute
@@ -191,7 +191,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 62_Edit Material Attribute
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Attribute
@@ -202,7 +202,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 63_Delete Material Attribute
     [Tags]    success
     Open SCG Website
-    Login SCGP    admin    lsddas
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Attribute

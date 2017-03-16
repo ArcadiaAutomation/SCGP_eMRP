@@ -10,3 +10,5 @@ ${txtPlantCode}    RCC
 ${txtPlantName}    TYRI
 ${txtPlantNewName}    CXR
 ${txtPlantNewCode}    ASDF
+${txtLoginUsername}    admin
+${txtLoginPassword}    ertyuio
