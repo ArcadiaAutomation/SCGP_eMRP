@@ -98,6 +98,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    10. \ Verify Error Message “Please Select Mwterial Source”
     [Tags]    test
     Open SCG Website
+    Login SCGP    admin    ${EMPTY}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
@@ -108,19 +109,54 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 41_Add Mapping Type Inv in case not select Last tier
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select ""Configuration""
+    ...    3.Select ""Mapping Material name""
+    ...    4. Add Mapping
+    ...    5. Select Type: Inv
+    ...    6. Select Location
+    ...    7. Not Select Last Tier
+    ...    8. Save
+    ...    9. Verify Error Message “Please Select LastTier”
+    ...    10. \ Verify Error Message “Please Select Material Source”
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
     Choose Type    Inv
+    Select Location    20
+    #Not Select Last Tier
+    Click Save Mapping
+    Verify Message Not Select Last Tier
     [Teardown]    Keywords For Teardown
 
 42_Add Mapping Type Inv in case not select material
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Mapping Material name"
+    ...    4. Add Mapping
+    ...    5. Select Type: Inv
+    ...    6. Select Location
+    ...    7. Select Last Tier
+    ...    8. Not Select Material
+    ...    9. Save
+    ...    10. \ Verify Error Message “Please Select Material Source”
     Open SCG Website
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
     Choose Type    Inv
+    Select Location    10
+    Select Tier    5
+    #Not Select Material
+    Click Save Mapping
+    Verify Message Not Select Material
     [Teardown]    Keywords For Teardown
 
 43_Add Mapping in case duplicate record
@@ -148,12 +184,25 @@ Choose Type
     select type    ${Argument}
 
 Verify Message Not Select Location
-    Set Selenium Speed    2s
+    Set Selenium Speed    0.5
+    Sleep    1s
     Take A Screenshot
-    ${text}=    Get Alert Message    dissmiss=False
-    Log    ${text}
-    Should Be Equal    ${text}    ${txtMessageNoLocation}
+    Alert Should Be Present    ${txtMessageNoLocation}
     Take A Screenshot
     Alert Should Be Present    ${txtMessageNoLastTier}
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageNoMaterial}
+
+Verify Message Not Select Last Tier
+    Set Selenium Speed    0.5
+    Sleep    1s
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageNoLastTier}
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageNoMaterial}
+
+Verify Message Not Select Material
+    Set Selenium Speed    0.5
+    Sleep    1s
     Take A Screenshot
     Alert Should Be Present    ${txtMessageNoMaterial}
