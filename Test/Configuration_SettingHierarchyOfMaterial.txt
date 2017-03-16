@@ -6,6 +6,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 46_Add Material Tier 1
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -17,6 +18,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 47_Add Material Tier 2
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -29,6 +31,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 48_Add Material Tier 3
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -41,6 +44,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 49_Add Material Tier 4
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -53,6 +57,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 50_Add Material Tier 5
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -65,6 +70,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 51_Search Material Tier
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Search Tier Name
@@ -74,6 +80,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 52_Add Material Tier Not Select Tier
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -84,6 +91,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 53_Add Material Tier Not Select Parent Tier
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -95,6 +103,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 54_Add Material Tier No Name
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -107,6 +116,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 55_Add Material Tier Not Select Tier, Parent Tier and Input Tier Name
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -117,6 +127,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 56_Add Material Tier in case duplicate record
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Tier
@@ -127,6 +138,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 57_Edit Material Tier
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     ${name}    Edit Material Tier First Row
@@ -134,13 +146,19 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 58_Delete Material Tier
+    [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
+    Delete Material Tier
+    Verify Delete Material Tier
+    [Teardown]    Keywords For Teardown
 
 59_Add Material Attribute
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Attribute
@@ -151,6 +169,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 60_Add Material Attribute in case name is empty
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Attribute
@@ -161,13 +180,18 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 61_Add Material Attribute in case duplicate record
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
+    Click Add Material Attribute
+    Fill Duplicate Material Attribute Name
+    Verify Duplicate Material Attribute
     [Teardown]    Keywords For Teardown
 
 62_Edit Material Attribute
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Attribute
@@ -178,6 +202,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 63_Delete Material Attribute
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    SettingHierarchyOfMaterial
     Click Add Material Attribute
@@ -190,10 +215,10 @@ Verify Add Material Tier 1 Success
     [Arguments]    ${tiername}
     Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
-    : FOR    ${index}    IN RANGE    1    101
-    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[1]
-    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[1]
-    \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
+    sleep    2
+    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTier"]/table/tbody/tr/td[1]
+    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[1]
+    Web Element Text Should Be    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[1]    ${tiername}
     Capture ScreenShot
 
 Verify Add Material Tier 2 Success
@@ -201,7 +226,7 @@ Verify Add Material Tier 2 Success
     Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
     ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
-    Set Selenium Speed    0.2
+    sleep    2
     : FOR    ${index}    IN RANGE    1    ${count}
     \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[2]
     \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[2]
@@ -212,7 +237,9 @@ Verify Add Material Tier 3 Success
     [Arguments]    ${tiername}
     Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
-    : FOR    ${index}    IN RANGE    1    101
+    ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
+    sleep    2
+    : FOR    ${index}    IN RANGE    1    ${count}
     \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[3]
     \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[3]
     \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
@@ -222,8 +249,9 @@ Verify Add Material Tier 4 Success
     [Arguments]    ${tiername}
     Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
-    Set Selenium Speed    0.1
-    : FOR    ${index}    IN RANGE    1    101
+    ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
+    sleep    2
+    : FOR    ${index}    IN RANGE    1    ${count}
     \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[4]
     \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[4]
     \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
@@ -233,7 +261,9 @@ Verify Add Material Tier 5 Success
     [Arguments]    ${tiername}
     Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
-    : FOR    ${index}    IN RANGE    1    101
+    ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
+    sleep    2
+    : FOR    ${index}    IN RANGE    1    ${count}
     \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[5]
     \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[5]
     \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
@@ -244,13 +274,13 @@ Search Tier Name
     Click Web Element    ${btnSearchMaterial}
 
 Verify Search Success
+    sleep    2
     : FOR    ${index}    IN RANGE    1    6
     \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[${index}]
     \    Run Keyword If    "${name}" == "${txtSearchTest}"    Exit For Loop
     Capture ScreenShot
 
 Verify Add Material Tier No Tier
-    Set Screenshot Folder    C:\Image
     Take A Screenshot
     Alert Should Be Present    ${txtAlertMaterialNoTier}
     Sleep    1
@@ -286,6 +316,7 @@ Fill Duplicate Material Tier Data
     Click save material tier
 
 Edit Material Tier First Row
+    Capture ScreenShot
     Click Edit Material Tier
     ${name}    Fill Material Tier Name
     [Return]    ${name}
@@ -367,10 +398,39 @@ Verify Delete Material Attribute Success
     Run Keyword If    "${count}" == "0"    Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[4]/a[2]
     ${countR}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
     Element Should Not Contain    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${countR}]/td[1]    ${Atname}
-    Comment    :FOR    ${index}    IN RANGE    1    21
-    Comment    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}]/td[1]
-    Comment    \    Run Keyword If    "${name}" == "${Atname}"    Element Should Not Contain    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${index}]/td[1]    ${Atname}
-    Comment    \    Run Keyword If    "${index}" == "${countR}"    Capture ScreenShot
-    Comment    \    Run Keyword If    "${index}" == "${countR}"    Exit For Loop
+    Capture ScreenShot
 
 Delete Material Tier
+    Take A Screenshot
+    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTier"]/table/tbody/tr/td[6]/span/a
+    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[6]/span/a
+    Click Web Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[6]/span/a
+    sleep    1
+    Click Web Element    xpath=/html/body/div[7]/div[3]/div/button[3]
+
+Verify Delete Material Tier
+    Take A Screenshot
+    Alert Should Be Present    Delete MaterialTier was successful.
+
+Fill Duplicate Material Attribute Name
+    Click Web Element    ${btnMaterialAttributeLastPage}
+    ${Frecord}    Get Matching Xpath Count    //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
+    ${Text}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${Frecord}]/td[1]
+    Click add attribute
+    Input Web Text    ${txtboxMaterialAttributeName}    ${Text}
+    Click save material attribute
+
+Verify Duplicate Material Attribute
+    Click Web Element    ${btnMaterialAttributeLastPage}
+    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
+    Scroll Web To Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${count}]/td[1]
+    ${name1}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${count}]/td[1]
+    Run Keyword If    "${count}" == "1"    verify duplicate attribute diff page
+    Element Should Not Contain    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${count}-1]/td[1]    ${name1}
+    Capture ScreenShot
+
+verify duplicate attribute diff page
+    Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[4]/a[2]
+    ${count1}    Get Matching Xpath Count    //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
+    ${name2}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${count}]/td[1]
+    Capture ScreenShot
