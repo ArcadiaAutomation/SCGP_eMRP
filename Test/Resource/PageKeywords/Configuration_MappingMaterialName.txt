@@ -7,9 +7,9 @@ Resource          ../Localized/${ar_LANG}/Configuration_MappingMaterialName.txt
 Click Add Material
     Web Element Should Be Visible    ${btnAddMappingMaterial}
     Click Web Element    ${btnAddMappingMaterial}
-    sleep    5
 
 click select type
+    Wait Web Until Page Element Visible    ${ddlSelectType}
     Click Web Element    ${ddlSelectType}
 
 Click Save Mapping
@@ -19,13 +19,14 @@ Click Save Mapping
 
 select type
     [Arguments]    ${Argument}
-    Wait Until Element Is Visible    ${lstType${Argument}}
+    Wait Web Until Page Contains Element    ${lstType${Argument}}
+    Wait Web Until Page Element Visible    ${lstType${Argument}}
     Click Web Element    ${lstType${Argument}}
 
-Select material
+Select Material
     [Arguments]    ${Fnum}    ${Lnum}
-    :FOR    ${index}    IN RANGE    ${Fnum}    ${Lnum}
-    \    Click Web Element    //*[@id="gridMaterial"]/div[2]/table/tbody/tr[${index}]/td[1]/input
+    : FOR    ${index}    IN RANGE    ${Fnum}    ${Lnum}
+    \    Click Web Element    xpath=//*[@id="gridMaterial"]//table/tbody/tr[${index}]/td[1]/input
 
 Select Attribute
     [Arguments]    ${num}
@@ -36,17 +37,21 @@ Select Attribute
 Select Location
     [Arguments]    ${num}
     Click Web Element    ${ddlSelectLocation}
-    sleep    1
+    Sleep    1
     Click Web Element    xpath=//*[@id="main-table-Location_listbox"]/li[${num}]
 
 Select Machine
     [Arguments]    ${num}
+    Wait Web Until Page Contains Element    ${ddlSelectMachine}
+    Wait Web Until Page Element Visible    ${ddlSelectMachine}
     Click Web Element    ${ddlSelectMachine}
     sleep    1
     Click Web Element    xpath=//*[@id="main-table-Machine_listbox"]/li[${num}]
 
 Select Tier
     [Arguments]    ${num}
+    Wait Web Until Page Contains Element    ${ddlLastTier}
+    Wait Web Until Page Element Visible    ${ddlLastTier}
+    Wait Until Element Is Enabled    ${ddlLastTier}
     Click Web Element    ${ddlLastTier}
-    sleep    1
     Click Web Element    xpath= //*[@id="main-table-LastTier_listbox"]/li[${num}]

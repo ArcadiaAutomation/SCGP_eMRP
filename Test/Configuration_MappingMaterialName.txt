@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
@@ -83,12 +83,29 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 39_Add Mapping Type Inv
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Mapping Material name"
+    ...    4. Add Mapping
+    ...    5. Select Type: Inv
+    ...    6. Select Location
+    ...    7. Select Last Tier
+    ...    8. Select Material
+    ...    9. Save
+    ...    10. Verify Add Success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
     Choose Type    Inv
+    Select Location By Index    5
+    Select Tier    5
+    Select Material    1    2
+    Alert Should Be Present    ${txtMessageAddSuccess}
     [Teardown]    Keywords For Teardown
 
 40_Add Mapping Type Inv in case not select Location
@@ -105,7 +122,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    8. Verify Error Message “Please Select Location”
     ...    9. Verify Error Message “Please Select LastTier”
     ...    10. \ Verify Error Message “Please Select Mwterial Source”
-    [Tags]    test
+    [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -131,13 +148,14 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    8. Save
     ...    9. Verify Error Message “Please Select LastTier”
     ...    10. \ Verify Error Message “Please Select Material Source”
+    [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
     Choose Type    Inv
-    Select Location    20
+    Select Location By Index    5
     #Not Select Last Tier
     Click Save Mapping
     Verify Message Not Select Last Tier
@@ -157,13 +175,14 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    8. Not Select Material
     ...    9. Save
     ...    10. \ Verify Error Message “Please Select Material Source”
+    [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
     Click Add Material
     Choose Type    Inv
-    Select Location    10
+    Select Location By Index    5
     Select Tier    5
     #Not Select Material
     Click Save Mapping
@@ -220,3 +239,14 @@ Verify Message Not Select Material
     Sleep    1s
     Take A Screenshot
     Alert Should Be Present    ${txtMessageNoMaterial}
+
+Select Location By Index
+    [Arguments]    ${index}
+    Wait Web Until Page Contains Element    ${ddlSelectLocation}
+    Wait Web Until Page Element Visible    ${ddlSelectLocation}
+    Wait Until Element Is Enabled    ${ddlSelectLocation}
+    Wait Web Until Page Contains Element    ${iconDdlSelectLocation}
+    Wait Web Until Page Element Visible    ${iconDdlSelectLocation}
+    Click Web Element    ${ddlSelectLocation}
+    Click Web Element    xpath=//*[@id="main-table-Location_listbox"]/li[${index}]
+    Wait Until Element Is Not Visible    xpath=//*[@id="main-table-Location_listbox"]/li[${index}]
