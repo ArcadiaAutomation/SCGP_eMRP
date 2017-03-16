@@ -17,6 +17,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify new company in table
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
@@ -38,6 +39,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Company Code is required
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
@@ -59,6 +61,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Company Name is required
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
@@ -70,6 +73,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 4_Create a company which contain multiple plants in case duplicate name
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
@@ -88,6 +92,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Edit record
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
@@ -106,6 +111,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify record is delete
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
@@ -125,6 +131,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify new Business Group in table
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
@@ -146,6 +153,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Business Group Name is required
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
@@ -157,6 +165,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 9_Create a business group which it can contain multiple companies in case duplicate name
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
@@ -175,6 +184,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Edit record
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
@@ -194,6 +204,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify record is deleted
     [Tags]    on hold    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
@@ -213,6 +224,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify new Plant in table
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
@@ -234,6 +246,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify new Plant in table
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
@@ -255,6 +268,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify new Plant in table
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
@@ -277,6 +291,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Plant Code is required
     [Tags]    fail    test
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
@@ -299,6 +314,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Plant Name is required
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
@@ -309,6 +325,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 17_Create a plant in case duplicate name
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
@@ -327,6 +344,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Edit record
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
@@ -346,6 +364,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify record is deleted
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
@@ -367,6 +386,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify new Machine in table
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
@@ -389,6 +409,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Machine Code is required
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
@@ -411,6 +432,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Machine Name is required
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
@@ -433,6 +455,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Duplicate record
     [Tags]    on hold
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
@@ -455,6 +478,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Edit record
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
@@ -476,6 +500,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify record is deleted
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Machine
@@ -497,6 +522,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify new Location in table
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
@@ -519,6 +545,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Location Name is required
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
@@ -541,6 +568,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Alert massage: Capacity is required
     [Tags]    fail
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
@@ -563,6 +591,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify Edit record
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
@@ -583,6 +612,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    8. Verify record is deleted
     [Tags]    success
     Open SCG Website
+    Login SCGP    admin    lsddas
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
