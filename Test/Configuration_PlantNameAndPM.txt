@@ -843,7 +843,7 @@ Verify Plant With Multiple Machine And Location
 
 Edit Plant Data
     Capture ScreenShot
-    ${code}    Get Text    ${lblPlantCodeFirstRow}
+    ${code}    Get Web Text    ${lblPlantCodeFirstRow}
     ${name}    Generate Random String    4    [UPPER]
     Edit plant name    ${name}
     Set Selenium Speed    0.2
