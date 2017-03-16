@@ -30,9 +30,15 @@ Select Material
 
 Select Attribute
     [Arguments]    ${num}
+    Wait Web Until Page Contains Element    ${ddlSelectAttribute}
+    Wait Web Until Page Element Visible    ${ddlSelectAttribute}
+    Wait Until Element Is Enabled    ${ddlSelectAttribute}
+    Wait Web Until Page Contains Element    ${iconDdlSelectAttribute}
+    Wait Web Until Page Element Visible    ${iconDdlSelectAttribute}
     Click Web Element    ${ddlSelectAttribute}
     sleep    1
     Click Web Element    xpath=//*[@id="main-table-Attribute_listbox"]/li[${num}]
+    Wait Until Element Is Not Visible    xpath=//*[@id="main-table-Attribute_listbox"]/li[${num}]
 
 Select Location
     [Arguments]    ${num}
