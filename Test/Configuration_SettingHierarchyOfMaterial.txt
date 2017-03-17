@@ -78,7 +78,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 52_Add Material Tier Not Select Tier
-    [Tags]    fail
+    [Tags]    fail    test
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
