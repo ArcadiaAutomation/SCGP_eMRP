@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
@@ -237,6 +237,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 43_Add Mapping in case duplicate record
+    [Tags]    on hold
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -244,7 +245,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 44_Edit Mapping
-    [Tags]    success    on hold
+    [Tags]    on hold
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -270,38 +271,38 @@ Choose Type
 Verify Message Not Select Location
     Set Selenium Speed    0.5
     Sleep    1s
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoLocation}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoLastTier}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoMaterial}
 
 Verify Message Not Select Last Tier
     Set Selenium Speed    0.5
     Sleep    1s
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoLastTier}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoMaterial}
 
 Verify Message Not Select Material
     Set Selenium Speed    0.5
     Sleep    1s
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoMaterial}
 
 Verify Message Not Select Machine
     Set Selenium Speed    0.5
     Sleep    1s
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoMachine}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoLastTier}
 
 Verify Add Mapping Type Con Success
     sleep    2
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageCreateMappingSuccess}
 
 Select Location By Index
@@ -318,23 +319,23 @@ Select Location By Index
 Verify Add Mapping Type Inv Success
     Set Selenium Speed    0.5
     Sleep    1s
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageAddSuccess}
 
 Verify Add Mapping Type Rec Success
     Set Selenium Speed    0.5
     Sleep    1s
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageAddSuccess}
 
 Verify Message Not Select Attribute
     Set Selenium Speed    0.5
     Sleep    1s
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoAttribute}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoLastTier}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageNoMaterial}
 
 Delete Mapping Last Row
@@ -348,10 +349,9 @@ Delete Mapping Last Row
 
 Verify Delete Mapping
     [Arguments]    ${material}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtMessageDeleteMapping}
     ${count}    Get Matching Xpath Count    //*[@id="gridMaterialMapping"]/div[2]/table/tbody/tr/td[5]/a
     Run Keyword If    "${count}" == "0"    Click Web Element    ${btnGoback}
     Element Should Not Contain    xpath=//*[@id="gridMaterialMapping"]/div[2]/table/tbody/tr[${count}]/td[4]    ${material}
     Capture ScreenShot
-

@@ -72,6 +72,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 4_Create a company which contain multiple plants in case duplicate name
+    [Tags]    on hold
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -164,6 +165,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 9_Create a business group which it can contain multiple companies in case duplicate name
+    [Tags]    on hold
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -202,7 +204,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    6. Alert message "Are you sure you want to delete record?"
     ...    7. Click OK
     ...    8. Verify record is deleted
-    [Tags]    on hold    success
+    [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
