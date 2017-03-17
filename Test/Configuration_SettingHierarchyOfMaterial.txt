@@ -1,4 +1,4 @@
-*** Settings ***
+﻿*** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial.txt
 
@@ -147,6 +147,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 52_Add Material Tier Not Select Tier
+<<<<<<< HEAD
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -160,7 +161,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     ...    8. Save
     ...    9. Verify Error message “Please Select TierNo”
     ...    10. Verify Error message “Please Select ParentTier”
-    [Tags]    fail
+    [Tags]    fail    test
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
