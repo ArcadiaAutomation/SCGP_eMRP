@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial.txt
 
@@ -16,7 +16,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     ...    7. Input Tier Name
     ...    8. Save
     ...    9. Verify Add Success "Save MaterialTier was created."
-    ...     \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+    ...    \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -410,7 +410,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 *** Keywords ***
 Verify Add Material Tier 1 Success
     [Arguments]    ${tiername}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
     sleep    2
     ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTier"]/table/tbody/tr/td[1]
@@ -420,7 +420,7 @@ Verify Add Material Tier 1 Success
 
 Verify Add Material Tier 2 Success
     [Arguments]    ${tiername}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
     ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
     sleep    2
@@ -432,7 +432,7 @@ Verify Add Material Tier 2 Success
 
 Verify Add Material Tier 3 Success
     [Arguments]    ${tiername}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
     ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
     sleep    2
@@ -444,7 +444,7 @@ Verify Add Material Tier 3 Success
 
 Verify Add Material Tier 4 Success
     [Arguments]    ${tiername}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
     ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
     sleep    2
@@ -456,7 +456,7 @@ Verify Add Material Tier 4 Success
 
 Verify Add Material Tier 5 Success
     [Arguments]    ${tiername}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
     ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
     sleep    2
@@ -478,32 +478,32 @@ Verify Search Success
     Capture ScreenShot
 
 Verify Add Material Tier No Tier
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAlertMaterialNoTier}
     Sleep    1
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAlertMaterialNoParentTier}
 
 Verify Add Material Tier No Parent Tier
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAlertMaterialNoParentTier}
 
 Verify Add Material Tier No Name
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAlertMaterialNoName}
 
 Verify Material Tier No Tier Parent And Name
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAlertMaterialNoTier}
     Sleep    1
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAlertMaterialNoParentTier}
     Sleep    1
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAlertMaterialNoName}
 
 Verify Add Material Tier Duplicate
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAlertDuplicateMaterialTier}
 
 Fill Duplicate Material Tier Data
@@ -520,7 +520,7 @@ Edit Material Tier First Row
 
 Verify Edit Material
     [Arguments]    ${name}
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
     sleep    1
     Web Element Text Should Be    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[1]/td[1]    ${name}
@@ -549,7 +549,7 @@ Edit Material Attribute
     ${name}    Generate Random String    4    [UPPER]
     ${check}    Get Matching Xpath Count    //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
     Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${check}]/td[2]/a[1]
-    Take A Screenshot
+    Comment    Take A Screenshot
     Input Web Text    ${txtboxMaterialAttributeName}    ${name}
     Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${check}]/td[2]/a[1]
     [Return]    ${name}
@@ -576,7 +576,7 @@ Delete Material Attribute Last Row
     ${Frecord}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
     ${Text}    Get Web Text    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${Frecord}]/td[1]
     Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${Frecord}]/td[2]/a[2]
-    Take A Screenshot
+    Comment    Take A Screenshot
     Dismiss Alert    true
     sleep    1
     [Return]    ${Text}
@@ -593,7 +593,7 @@ Verify Delete Material Attribute Success
     Capture ScreenShot
 
 Delete Material Tier
-    Take A Screenshot
+    Comment    Take A Screenshot
     ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTier"]/table/tbody/tr/td[6]/span/a
     Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[6]/span/a
     Click Web Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[6]/span/a
@@ -601,7 +601,7 @@ Delete Material Tier
     Click Web Element    xpath=/html/body/div[7]/div[3]/div/button[3]
 
 Verify Delete Material Tier
-    Take A Screenshot
+    Comment    Take A Screenshot
     Alert Should Be Present    Delete MaterialTier was successful.
 
 Fill Duplicate Material Attribute Name
