@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
@@ -141,7 +141,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    8. Select Material
     ...    9. Save
     ...    10. Verify Add Success
-    [Tags]    success
+    [Tags]    success    test
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -169,7 +169,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    8. Verify Error Message “Please Select Location”
     ...    9. Verify Error Message “Please Select LastTier”
     ...    10. \ Verify Error Message “Please Select Mwterial Source”
-    [Tags]    fail
+    [Tags]    fail    test
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -334,4 +334,3 @@ Verify Message Not Select Attribute
     Alert Should Be Present    ${txtMessageNoLastTier}
     Take A Screenshot
     Alert Should Be Present    ${txtMessageNoMaterial}
-
