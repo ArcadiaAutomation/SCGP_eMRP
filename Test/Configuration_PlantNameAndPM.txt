@@ -251,9 +251,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
     Click Add Record    Plant
-    Fill Plant Data With Multiple Location
+    ${code}    ${name}    Fill Plant Data With Multiple Location
     Click Update Button    Plant
-    Verify Plant With Multiple Location
+    Verify Plant With Multiple Location    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
 14_Create a plant which it can contain multiple machines and location
@@ -273,8 +273,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
     Click Add Record    Plant
-    Fill Plant Data With Multiple Machines And Locations
-    Verify Plant With Multiple Machine And Location
+    ${code}    ${name}    Fill Plant Data With Multiple Machines And Locations
+    Click Update Button    Plant
+    Verify Plant With Multiple Machine And Location    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
 15_Create a plant in case no code
@@ -771,12 +772,13 @@ Verify Massage Plant Code Is Required
     Capture ScreenShot
 
 Verify Plant With Multiple Location
+    [Arguments]    ${code}    ${name}
     refresh page    Plant
     Sleep    2
     Click Web Element    ${btnPlantLastPage}
     sleep    2
-    Page Should Contain    ${txtPlantCode}
-    Page Should Contain    ${txtPlantName}
+    Page Should Contain    ${code}
+    Page Should Contain    ${name}
     Capture ScreenShot
 
 Fill Plant Data No Code
@@ -800,16 +802,22 @@ Verify Massage Plant Name Is Required
     Capture ScreenShot
 
 Fill Plant Data With Multiple Location
-    Fill Code    Plant    ${txtPlantCode2}
-    Fill Name    Plant    ${txtPlantName2}
+    ${code}    Generate Random String    4    [UPPER]
+    ${name}    Generate Random String    4    [UPPER]
+    Fill Code    Plant    ${code}
+    Fill Name    Plant    ${name}
     select machine
     select multiple location
+    [Return]    ${code}    ${name}
 
 Fill Plant Data With Multiple Machines And Locations
-    Fill Code    Plant    ${txtPlantCode3}
-    Fill Name    Plant    ${txtPlantName3}
+    ${code}    Generate Random String    4    [UPPER]
+    ${name}    Generate Random String    4    [UPPER]
+    Fill Code    Plant    ${code}
+    Fill Name    Plant    ${name}
     select multiple machine
     select multiple location
+    [Return]    ${code}    ${name}
 
 Delete Business Group First Row
     Wait Until Page Contains Element    ${lblBusinessGroupNameFirstRow}
@@ -833,12 +841,12 @@ Delete Company First Row
     [Return]    ${name}    ${code}
 
 Verify Plant With Multiple Machine And Location
+    [Arguments]    ${code}    ${name}
     refresh page    Plant
     Sleep    2
     Click Web Element    ${btnPlantLastPage}
-    sleep    2
-    Page Should Contain    ${txtPlantCode}
-    Page Should Contain    ${txtPlantName}
+    Page Should Contain    ${code}
+    Page Should Contain    ${name}
     Capture ScreenShot
 
 Edit Plant Data

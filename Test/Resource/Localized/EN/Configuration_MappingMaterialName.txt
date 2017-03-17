@@ -6,4 +6,4 @@ ${txtMessageNoMaterial}    Please Select Material Source
 ${txtMessageCreateMappingSuccess}    Save MaterialMapping was created.
 ${txtMessageAddSuccess}    Save MaterialMapping was created.
 ${txtMessageNoAttribute}    Please Select Attribute
-
+${txtMessageDeleteMapping}    Are you sure you want to delete this record?

@@ -4,6 +4,19 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 
 *** Test Cases ***
 46_Add Material Tier 1
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier
+    ...    5. Select Tier : 1
+    ...    6. Parent Tier show “- This tier not have any parent. -”
+    ...    7. Input Tier Name
+    ...    8. Save
+    ...    9. Verify Add Success "Save MaterialTier was created."
+    ...     \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -16,6 +29,18 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 47_Add Material Tier 2
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier
+    ...    5. Select Tier : 2
+    ...    6. Select Parent Tier
+    ...    7. Input Tier Name
+    ...    8. Save
+    ...    9. Verify Add Success "Save MaterialTier was created."
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -29,6 +54,19 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 48_Add Material Tier 3
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier
+    ...    5. Select Tier : 3
+    ...    6. Select Parent Tier
+    ...    7. Input Tier Name
+    ...    8. Select Imported
+    ...    9. Save
+    ...    10. Verify Add Success “"Save MaterialTier was created."”
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -42,6 +80,18 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 49_Add Material Tier 4
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier
+    ...    5. Select Tier : 4
+    ...    6. Select Parent Tier
+    ...    7. Input Tier Name
+    ...    8. Save
+    ...    9. Verify Add Success "Save MaterialTier was created."
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -55,6 +105,17 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 50_Add Material Tier 5
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier
+    ...    5. Select Tier : 5
+    ...    7. Input Tier Name
+    ...    8. Save
+    ...    9. Verify Add Success "Save MaterialTier was created."
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -68,6 +129,14 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 51_Search Material Tier
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Search Material Tier Name
+    ...    5. Verify Search Material Tier Name
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -78,6 +147,19 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 52_Add Material Tier Not Select Tier
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier
+    ...    5. Select Tier : Not select
+    ...    6. \ Parent Tier show “- This tier not have any parent. -”
+    ...    7. Input Tier Name
+    ...    8. Save
+    ...    9. Verify Error message “Please Select TierNo”
+    ...    10. Verify Error message “Please Select ParentTier”
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -89,6 +171,18 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 53_Add Material Tier Not Select Parent Tier
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier
+    ...    5. Select Tier : 2
+    ...    6. \ Not Select Parent Tier
+    ...    7. Input Tier Name
+    ...    8. Save
+    ...    9. Verify Error message “Please Select ParentTier”
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -101,6 +195,18 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 54_Add Material Tier No Name
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier
+    ...    5. Select Tier : 5
+    ...    6. \ Select Parent Tier
+    ...    7. Not Input Tier Name
+    ...    8. Save
+    ...    9. Verify Error message “Please Input TierName”
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -114,6 +220,17 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 55_Add Material Tier Not Select Tier, Parent Tier and Input Tier Name
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier
+    ...    5. Save
+    ...    6. Verify Error message “Please Select TierNo”
+    ...    7. Verify Error message “Please Select ParentTier”
+    ...    8. Verify Error message “Please Input TierName”
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -125,6 +242,15 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 56_Add Material Tier in case duplicate record
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Tier Duplicate data
+    ...    5. Save
+    ...    6. Verify Error Message “Save MaterialTier was fail”
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -136,6 +262,15 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 57_Edit Material Tier
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Edit Material Tier
+    ...    5. Save
+    ...    6. Verify Edit Success
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -146,6 +281,15 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 58_Delete Material Tier
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Edit Material Tier
+    ...    5. Save
+    ...    6. Verify Delete Success
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -156,6 +300,17 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 59_Add Material Attribute
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Attribute
+    ...    5. Click Button Add Attribute
+    ...    6. Input Attribute Name
+    ...    7. Update
+    ...    8. Verify Add Success
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -167,6 +322,17 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 60_Add Material Attribute in case name is empty
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Attribute
+    ...    5. Click Button Add Attribute
+    ...    6. Input Attribute Name : Empty
+    ...    7. Update
+    ...    8. Verify Error Message
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -178,6 +344,17 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 61_Add Material Attribute in case duplicate record
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Attribute
+    ...    5. Click Button Add Attribute
+    ...    6. Input Attribute Name : Duplicate record
+    ...    7. Update
+    ...    8. Verify Error Message
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -189,6 +366,16 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 62_Edit Material Attribute
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Attribute
+    ...    5. Edit Attribute Name
+    ...    6. Update
+    ...    7. Verify Edit Success
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -200,6 +387,16 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     [Teardown]    Keywords For Teardown
 
 63_Delete Material Attribute
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Setting Hierarchy of material"
+    ...    4. Add Material Attribute
+    ...    5. Delect Attribute Name
+    ...    6. Update
+    ...    7. Verify Delete Success
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}

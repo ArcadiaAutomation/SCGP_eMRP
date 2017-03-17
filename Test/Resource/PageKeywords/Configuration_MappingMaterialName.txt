@@ -28,7 +28,6 @@ Select Material
     : FOR    ${index}    IN RANGE    ${Fnum}    ${Lnum}
     \    Click Web Element    //*[@id="gridMaterial"]//table/tbody/tr[${index}]/td[1]/input
 
-
 Select Attribute
     [Arguments]    ${num}
     Wait Web Until Page Contains Element    ${ddlSelectAttribute}
@@ -49,6 +48,7 @@ Select Location
 
 Select Machine
     [Arguments]    ${num}
+    sleep    2
     Wait Web Until Page Contains Element    ${ddlSelectMachine}
     Wait Web Until Page Element Visible    ${ddlSelectMachine}
     Click Web Element    ${ddlSelectMachine}

@@ -1,4 +1,4 @@
-﻿*** Settings ***
+*** Settings ***
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
@@ -244,7 +244,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 44_Edit Mapping
-    [Tags]    success
+    [Tags]    success    on hold
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -257,6 +257,8 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MappingMaterialName
+    ${material}    Delete Mapping Last Row
+    Verify Delete Mapping    ${material}
     [Teardown]    Keywords For Teardown
 
 *** Keywords ***
@@ -335,3 +337,20 @@ Verify Message Not Select Attribute
     Take A Screenshot
     Alert Should Be Present    ${txtMessageNoMaterial}
 
+Delete Mapping Last Row
+    sleep    2
+    Click Web Element    ${btnMappingLastPage}
+    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialMapping"]/div[2]/table/tbody/tr/td[5]/a
+    Sleep    2
+    ${material}    Get Web Text    xpath=//*[@id="gridMaterialMapping"]/div[2]/table/tbody/tr[${count}]/td[4]
+    Click Web Element    xpath=//*[@id="gridMaterialMapping"]/div[2]/table/tbody/tr[${count}]/td[5]/a
+    [Return]    ${material}
+
+Verify Delete Mapping
+    [Arguments]    ${material}
+    Take A Screenshot
+    Alert Should Be Present    ${txtMessageDeleteMapping}
+    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialMapping"]/div[2]/table/tbody/tr/td[5]/a
+    Run Keyword If    "${count}" == "0"    Click Web Element    ${btnGoback}
+    Element Should Not Contain    xpath=//*[@id="gridMaterialMapping"]/div[2]/table/tbody/tr[${count}]/td[4]    ${material}
+    Capture ScreenShot
