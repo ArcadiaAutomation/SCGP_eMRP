@@ -34,3 +34,10 @@ select material tier2
     Click Web Element    ${ddlMaterialTierTwo}
     ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierTwo_listbox"]/li
     Click Web Element    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}]
+
+select type
+    [Arguments]    ${type}
+    Click Web Element    ${btn${type}Type}
+
+select first material tier create default page
+    Click Web Element    ${btnSelectMaterialTierFirstRow}

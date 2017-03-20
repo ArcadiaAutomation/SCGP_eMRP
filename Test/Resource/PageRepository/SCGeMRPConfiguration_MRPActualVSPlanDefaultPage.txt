@@ -17,3 +17,6 @@ ${btnBackPreviewPage}    //*[@id="wid-id-0"]/div/div[2]/div[1]/fieldset/div[2]/d
 ${btnPreviewMaterialTierResultFirstRow}    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[1]
 ${btnEditMaterialTierResultFirstRow}    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[2]
 ${btnDeleteMaterialTierResultFirstRow}    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[3]
+${btnAllType}     //*[@id="divType"]/div/div/ul/li[1]/label
+${btnImportType}    //*[@id="divType"]/div/div/ul/li[2]/label
+${btnDomesticType}    //*[@id="divType"]/div/div/ul/li[3]/label

@@ -8,6 +8,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    Create Default Page Data Tier3 All Type
     [Teardown]    Keywords For Teardown
 
 65_Create Default Page Select Tier 3 And Import Type
@@ -15,6 +16,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    Create Default Page Data Tier3 Import Type
     [Teardown]    Keywords For Teardown
 
 66_Create Default Page Select Tier 3 And Domestic Type
@@ -22,6 +24,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    Create Default Page Data Tier3 Domestic Type
     [Teardown]    Keywords For Teardown
 
 67_Create Default Page Select Tier 4 And All Type
@@ -109,7 +112,21 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 *** Keywords ***
-Create Default Page Data Tier3
+Create Default Page Data Tier3 All Type
     select material tier1
     select material tier2
+    click search create default page
+    select first material tier create default page
+    click save create default
+
+Create Default Page Data Tier3 Import Type
+    select material tier1
+    select material tier2
+    select type    Import
+    click search create default page
+
+Create Default Page Data Tier3 Domestic Type
+    select material tier1
+    select material tier2
+    select type    Domestic
     click search create default page
