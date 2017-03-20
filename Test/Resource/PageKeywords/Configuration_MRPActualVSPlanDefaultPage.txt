@@ -1,0 +1,26 @@
+*** Settings ***
+Resource          ../PageRepository/SCGeMRPConfiguration_MRPActualVSPlanDefaultPage.txt
+Resource          SCGPeMRPCommon.txt
+Resource          ../Localized/${ar_LANG}/Configuration_MRPActualVSPlanDefaultPage.txt
+
+*** Keywords ***
+click select tier
+    [Arguments]    ${Tier}
+    Click Web Element    ${radiobtnTier${Tier}}
+
+click search create default page
+    Click Web Element    ${btnSearchCreateDefaultPage}
+
+click save create default
+    Click Web Element    ${btnSaveCreateDefaultPage}
+
+click clear
+    Click Web Element    ${btnClearCreateDefaultPage}
+
+click select all
+    Click Web Element    ${btnSelectAllCreateDefaultPage}
+
+search material tier result
+    [Arguments]    ${name}
+    Input Web Text    ${txtboxSearchMaterialTier2Result}    ${name}
+    Click Web Element    ${btnSearchMaterialTier2Result}

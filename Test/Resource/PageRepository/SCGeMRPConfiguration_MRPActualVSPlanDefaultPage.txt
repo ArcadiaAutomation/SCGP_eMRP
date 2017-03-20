@@ -1,0 +1,19 @@
+*** Variables ***
+${ddlMaterialTierOne}    //*[@id="divMaterialTierOne"]/div/div/span/span
+${ddlMaterialTierTwo}    //*[@id="divMaterialTierTwo"]/div/div/span/span
+${radiobtnTier4}    //*[@id="divTier"]/div/div/ul/li[2]/label
+${radiobtnTier5}    //*[@id="divTier"]/div/div/ul/li[3]/label
+${btnSearchCreateDefaultPage}    //*[@id="ID_SEARCH"]
+${btnClearCreateDefaultPage}    //*[@id="ID_CLEAR"]
+${btnSaveAsCreateDefaultPage}    //*[@id="wid-id-9"]/div/div[2]/form/fieldset/div[5]/div/a
+${btnSaveCreateDefaultPage}    //*[@id="ID_SAVE1"]
+${btnRefreshCreateDefaultPage}    //*[@id="gridDefaultPage"]/div[2]/a
+${btnSelectAllCreateDefaultPage}    //*[@id="chk_all_materilaTier"]
+${txtboxSearchMaterialTier2Result}    //*[@id="txtMaterialTierTwoSearchText"]
+${btnSearchMaterialTier2Result}    //*[@id="ID_SEARCH_MaterialTier"]
+${btnSelectMaterialTierFirstRow}    //*[@id="gridDefaultPage"]/table/tbody/tr[1]/td[1]/input
+${txtMaterialTierNameFirstRow}    //*[@id="gridDefaultPage"]/table/tbody/tr[1]/td[2]
+${btnBackPreviewPage}    //*[@id="wid-id-0"]/div/div[2]/div[1]/fieldset/div[2]/div/button
+${btnPreviewMaterialTierResultFirstRow}    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[1]
+${btnEditMaterialTierResultFirstRow}    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[2]
+${btnDeleteMaterialTierResultFirstRow}    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[3]

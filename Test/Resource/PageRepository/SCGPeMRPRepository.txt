@@ -11,9 +11,10 @@ ${subMnuPlantNameAndPM}    xpath=//*[@id="Configuration"]/li[1]/a
 ${subMnuMappingMaterialName}    xpath=//*[@id="Configuration"]/li[2]/a
 ${subMnuSettingHierarchyOfMaterial}    xpath=//*[@id="Configuration"]/li[3]/a
 ${subMnuInventoryUsageLevel}    xpath=//*[@id="Configuration"]/li[4]/a
-${subMnuUnloadCapacityConfiguration}    xpath=//*[@id="Configuration"]/li[5]/a
-${subMnuInventoryConfigurationPage}    xpath=//*[@id="Configuration"]/li[6]/a
-${subMnuCalendarSetting}    xpath=//*[@id="Configuration"]/li[7]/a
+${subMnuInventoryConfigurationPage}    xpath=//*[@id="Configuration"]/li[5]/a
+${subMnuCalendarSetting}    xpath=//*[@id="Configuration"]/li[6]/a
+${subMnuMRPActualVSPlanningDefaultPage}    xpath=//*[@id="Configuration"]/li[7]/a
+${subMnuMRPActualVSPlanningPlantPage}    xpath=//*[@id="Configuration"]/li[8]/a
 ${btnSignOut}     xpath=//*[@id="header"]/div[2]/ul/li[3]/a
 ${txtInputUsername}    xpath=//*[@id="LoginId"]
 ${txtInputPassword}    xpath=//*[@id="Password"]

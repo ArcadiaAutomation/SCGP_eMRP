@@ -1,0 +1,4 @@
+*** Settings ***
+Resource          Resource/PageKeywords/Configuration_MRPActualVSPlanDefaultPage.txt
+
+*** Test Cases ***

@@ -594,6 +594,7 @@ Verify Delete Material Attribute Success
 
 Delete Material Tier
     Comment    Take A Screenshot
+    Sleep    1
     ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTier"]/table/tbody/tr/td[6]/span/a
     Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[6]/span/a
     Click Web Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[6]/span/a
