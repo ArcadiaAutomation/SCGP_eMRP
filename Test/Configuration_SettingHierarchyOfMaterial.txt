@@ -411,8 +411,8 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
 Verify Add Material Tier 1 Success
     [Arguments]    ${tiername}
     Comment    Take A Screenshot
+    Set Selenium Speed    0.2
     Alert Should Be Present    ${txtAddMaterialTierSuccess}
-    sleep    2
     ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTier"]/table/tbody/tr/td[1]
     Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[1]
     Web Element Text Should Be    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[1]    ${tiername}
@@ -425,8 +425,10 @@ Verify Add Material Tier 2 Success
     ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
     sleep    2
     : FOR    ${index}    IN RANGE    1    ${count}
-    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[2]
-    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[2]
+    \    ${total}    Evaluate    ${count}-${index}+1
+    \    log    ${total}
+    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${total}]/td[2]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${total}]/td[2]
     \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
     Capture ScreenShot
 
@@ -437,8 +439,10 @@ Verify Add Material Tier 3 Success
     ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
     sleep    2
     : FOR    ${index}    IN RANGE    1    ${count}
-    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[3]
-    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[3]
+    \    ${total}    Evaluate    ${count}-${index}+1
+    \    log    ${total}
+    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${total}]/td[3]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${total}]/td[3]
     \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
     Capture ScreenShot
 
@@ -449,8 +453,10 @@ Verify Add Material Tier 4 Success
     ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
     sleep    2
     : FOR    ${index}    IN RANGE    1    ${count}
-    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[4]
-    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[4]
+    \    ${total}    Evaluate    ${count}-${index}+1
+    \    log    ${total}
+    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${total}]/td[4]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${total}]/td[4]
     \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
     Capture ScreenShot
 
@@ -461,8 +467,10 @@ Verify Add Material Tier 5 Success
     ${count}    Get Matching Xpath Count    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr/td[2]
     sleep    2
     : FOR    ${index}    IN RANGE    1    ${count}
-    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[5]
-    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${index}]/td[5]
+    \    ${total}    Evaluate    ${count}-${index}+1
+    \    log    ${total}
+    \    Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${total}]/td[5]
+    \    ${name}    Get Web Text    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${total}]/td[5]
     \    Run Keyword If    "${name}" == "${tiername}"    Exit For Loop
     Capture ScreenShot
 
@@ -544,8 +552,8 @@ Verify Add Material Attribute Success
     Capture ScreenShot
 
 Edit Material Attribute
-    Click Web Element    ${btnMaterialAttributeLastPage}
     Set Selenium Speed    0.2
+    Click Web Element    ${btnMaterialAttributeLastPage}
     ${name}    Generate Random String    4    [UPPER]
     ${check}    Get Matching Xpath Count    //*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr/td[1]
     Click Web Element    xpath=//*[@id="gridMaterialAttribute"]/div[3]/table/tbody/tr[${check}]/td[2]/a[1]

@@ -4,6 +4,19 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 *** Test Cases ***
 31_Add Mapping Select Type Con
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Mapping Material name"
+    ...    4. Add Mapping
+    ...    5. Select Type: Con
+    ...    6. Select Machine
+    ...    7. Select Last Tier
+    ...    8. Select Material
+    ...    9. Save
+    ...    10. Verify Add Success
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -19,6 +32,17 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 32_Add Mapping Type Con in case not select machine
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Mapping Material name"
+    ...    4. Add Mapping
+    ...    5. Select Type: Con
+    ...    6. Not Select Machine
+    ...    7. Save
+    ...    8. Verify Error Message "Please Select Machine"
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -31,6 +55,19 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 33_Add Mapping Type Con in case not select last tier
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Mapping Material name"
+    ...    4. Add Mapping
+    ...    5. Select Type: Con
+    ...    6. Select Machine
+    ...    7. Not Select Last Tier
+    ...    8. Save
+    ...    9. Verify Error Message “Please Select LastTier”
+    ...    10. \ Verify Error Message “Please Select Material Source” \ \ \ \ \ \ \ \ \ \ \
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -44,6 +81,19 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 34_Add Mapping Type Con in case not select material
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "Mapping Material name"
+    ...    4. Add Mapping
+    ...    5. Select Type: Con
+    ...    6. Select Machine
+    ...    7. Select Last Tier
+    ...    8. Not Select Material
+    ...    9. Save
+    ...    10. \ Verify Error Message “Please Select Material Source”
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -253,6 +303,16 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 45_Delete Mapping
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select ""Configuration""
+    ...    3.Select ""Mapping Material name""
+    ...    4. Delete Mapping (First row)
+    ...    5. Save
+    ...    6. Verify Delete Success Message
+    ...
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}

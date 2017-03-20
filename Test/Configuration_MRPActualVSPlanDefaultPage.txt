@@ -1,4 +1,115 @@
 *** Settings ***
 Resource          Resource/PageKeywords/Configuration_MRPActualVSPlanDefaultPage.txt
+Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 *** Test Cases ***
+64_Create Default Page Select Tier 3 And All Type
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+65_Create Default Page Select Tier 3 And Import Type
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+66_Create Default Page Select Tier 3 And Domestic Type
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+67_Create Default Page Select Tier 4 And All Type
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+68_Create Default Page Select Tier 5 And All Type
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+69_Create Default Page In Case Not Select Material Tier 1
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+70_Create Default Page In Case Not Select Material Tier 2
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+71_Create Default Page In Case Not Select Lists of Material
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+72_Clear Search Create Default Page
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+73_Save As Link To Plant Page
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+74_Search Result Material Tier 2
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+75_Edit Result Material Tier 2
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+76_Search View Material Tier
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+77_Preview Result Material Tier
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+78_Delete Result Material Tier 2
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    [Teardown]    Keywords For Teardown
+
+*** Keywords ***
+Create Default Page Data Tier3
+    select material tier1
+    select material tier2
+    click search create default page

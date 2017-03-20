@@ -24,3 +24,13 @@ search material tier result
     [Arguments]    ${name}
     Input Web Text    ${txtboxSearchMaterialTier2Result}    ${name}
     Click Web Element    ${btnSearchMaterialTier2Result}
+
+select material tier1
+    Click Web Element    ${ddlMaterialTierOne}
+    ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierOne_listbox"]/li
+    Click Web Element    xpath=//*[@id="ddlMaterialTierOne_listbox"]/li[${count}]
+
+select material tier2
+    Click Web Element    ${ddlMaterialTierTwo}
+    ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierTwo_listbox"]/li
+    Click Web Element    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}]
