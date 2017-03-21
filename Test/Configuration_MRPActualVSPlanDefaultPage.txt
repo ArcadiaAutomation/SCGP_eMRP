@@ -42,17 +42,42 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 69_Create Default Page In Case Not Select Material Tier 1
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "MRP Actual VS Plan Default Page"
+    ...    4. Click search
+    ...    5. Verify Alert message "Please select material tier one."
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    Select Material Tier1
+    #Not Select Material Tier 1
+    Search Create Default Page
+    Verify Message Not Select Tier 1
     [Teardown]    Keywords For Teardown
 
 70_Create Default Page In Case Not Select Material Tier 2
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "MRP Actual VS Plan Default Page"
+    ...    4. Select Material Tier 1
+    ...    5. Click search
+    ...    6. Verify Alert message "Please select material tier two."
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    Select Material Tier1
+    #Not Select Material Tier 2
+    Search Create Default Page
+    Verify Message Not Select Tier 2
     [Teardown]    Keywords For Teardown
 
 71_Create Default Page In Case Not Select Lists of Material
@@ -60,6 +85,11 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    Select Material Tier1
+    Select Material Tier2
+    Search Create Default Page
+    #Not Select Material
+    Save Create Default
     [Teardown]    Keywords For Teardown
 
 72_Clear Search Create Default Page
@@ -113,20 +143,28 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 *** Keywords ***
 Create Default Page Data Tier3 All Type
-    select material tier1
-    select material tier2
-    click search create default page
-    select first material tier create default page
-    click save create default
+    Select Material Tier1
+    Select Material Tier2
+    Search Create Default Page
+    Select First Material Tier Create Default Page
+    Save Create Default
 
 Create Default Page Data Tier3 Import Type
-    select material tier1
-    select material tier2
-    select type    Import
-    click search create default page
+    Select Material Tier1
+    Select Material Tier2
+    Select Type    Import
+    Search Create Default Page
 
 Create Default Page Data Tier3 Domestic Type
-    select material tier1
-    select material tier2
-    select type    Domestic
-    click search create default page
+    Select Material Tier1
+    Select Material Tier2
+    Select Type    Domestic
+    Search Create Default Page
+
+Verify Message Not Select Tier 1
+    Web Element Text Should Be    ${modaltxtAlertMssage}    ${txtMessageNotSelectTier1}
+    Capture ScreenShot
+
+Verify Message Not Select Tier 2
+    Web Element Text Should Be    ${modaltxtAlertMssage}    ${txtMessageNotSelectTier2}
+    Capture ScreenShot

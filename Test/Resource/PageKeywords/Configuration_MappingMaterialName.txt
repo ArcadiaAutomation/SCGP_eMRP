@@ -1,7 +1,7 @@
 *** Settings ***
 Resource          ../PageRepository/SCGeMRPConfiguration_MappingMaterialName.txt
 Resource          SCGPeMRPCommon.txt
-Resource          ../Localized/${ar_LANG}/Configuration_MappingMaterialName.txt
+Resource          ../Localized/${ar_LANG}/Configuration_MappingMaterialNameLocalized.txt
 
 *** Keywords ***
 Click Add Material

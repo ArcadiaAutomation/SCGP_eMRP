@@ -1,43 +1,43 @@
 *** Settings ***
 Resource          ../PageRepository/SCGeMRPConfiguration_MRPActualVSPlanDefaultPage.txt
 Resource          SCGPeMRPCommon.txt
-Resource          ../Localized/${ar_LANG}/Configuration_MRPActualVSPlanDefaultPage.txt
+Resource          ../Localized/${ar_LANG}/Configuration_MRPActualVSPlanDefaultPageLocalized.txt
 
 *** Keywords ***
-click select tier
+Select Tier
     [Arguments]    ${Tier}
     Click Web Element    ${radiobtnTier${Tier}}
 
-click search create default page
+Search Create Default Page
     Click Web Element    ${btnSearchCreateDefaultPage}
 
-click save create default
+Save Create Default
     Click Web Element    ${btnSaveCreateDefaultPage}
 
-click clear
+Clear Search Create Defult Page
     Click Web Element    ${btnClearCreateDefaultPage}
 
-click select all
+Click Select All
     Click Web Element    ${btnSelectAllCreateDefaultPage}
 
-search material tier result
+Search Material Tier Result
     [Arguments]    ${name}
     Input Web Text    ${txtboxSearchMaterialTier2Result}    ${name}
     Click Web Element    ${btnSearchMaterialTier2Result}
 
-select material tier1
+Select Material Tier1
     Click Web Element    ${ddlMaterialTierOne}
     ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierOne_listbox"]/li
     Click Web Element    xpath=//*[@id="ddlMaterialTierOne_listbox"]/li[${count}]
 
-select material tier2
+Select Material Tier2
     Click Web Element    ${ddlMaterialTierTwo}
     ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierTwo_listbox"]/li
     Click Web Element    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}]
 
-select type
+Select Type
     [Arguments]    ${type}
     Click Web Element    ${btn${type}Type}
 
-select first material tier create default page
+Select First Material Tier Create Default Page
     Click Web Element    ${btnSelectMaterialTierFirstRow}

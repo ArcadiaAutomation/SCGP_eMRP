@@ -949,9 +949,9 @@ Edit Machine Name
     Click Update Button    Machine
 
 Verify Edit Machine Success
+    Set Selenium Speed    0.2
     Wait Web Until Page Contains Element    ${lblMachineNameFirstRow}
     Web Element Should Be Visible    ${lblMachineNameFirstRow}
-    sleep    2
     Web Element Text Should Be    ${lblMachineNameFirstRow}    ${txtNewMachineName}
     Capture ScreenShot
 

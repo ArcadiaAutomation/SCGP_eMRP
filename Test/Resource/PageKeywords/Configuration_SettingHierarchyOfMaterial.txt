@@ -1,7 +1,7 @@
 *** Settings ***
 Resource          ../PageRepository/SCGeMRPConfiguration_SettingHierarchyOfMaterial.txt
 Resource          SCGPeMRPCommon.txt
-Resource          ../Localized/${ar_LANG}/Configuration_SettingHierarchyOfMaterial.txt
+Resource          ../Localized/${ar_LANG}/Configuration_SettingHierarchyOfMaterialLocalized.txt
 
 *** Keywords ***
 Click Add Material Tier
