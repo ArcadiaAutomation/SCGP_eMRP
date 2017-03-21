@@ -2,3 +2,8 @@
 ${txtMessageNotSelectTier1}    Please select material tier one.
 ${txtMessageNotSelectTier2}    Please select material tier two.
 ${txtMessageSaveDefaultPage}    Save completed
+${txtMessageNotMaterial}    Please input data.
+${txtddlMaterialTieSelect}    Select
+${txtSearchViewMaterialTeirLowwer}    sub
+${txtSearchViewMaterialTeirUpper}    SUB
+${txtPreviewLinkToPlantPage}    Form Preview MRP Actual VS Plan Plant Page

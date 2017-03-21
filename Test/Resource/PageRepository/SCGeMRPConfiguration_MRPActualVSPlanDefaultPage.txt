@@ -20,6 +20,14 @@ ${btnDeleteMaterialTierResultFirstRow}    xpath=//*[@id="gridMaterialTierTwoDefa
 ${radiobtnAllType}    xpath=//*[@id="divType"]/div/div/ul/li[1]/label
 ${radiobtnImportType}    xpath=//*[@id="divType"]/div/div/ul/li[2]/label
 ${radiobtnDomesticType}    xpath=//*[@id="divType"]/div/div/ul/li[3]/label
-${txtMessageSaveDefault}    //*[@id="pAlertmessage"]
-${btnDismissMessageSaveDefault}    //*[@id="ok"]
+${txtMessageSaveDefault}    xpath=//*[@id="pAlertmessage"]
+${btnDismissMessageSaveDefault}    xpath=//*[@id="ok"]
 ${modaltxtAlertMssage}    xpath=//*[@id="pAlertmessage"]
+${txtddlMaterialTierOne}    xpath=//*[@id="divMaterialTierOne"]//span[@class="k-input"]
+${txtddlMaterialTierTwo}    xpath=//*[@id="divMaterialTierTwo"]//span[@class="k-input"]
+${lblSeachViewMaterialFirstRow}    xpath=//*[@id="gridViewDefaultPlanPage"]/table/tbody/tr[1]/td[1]
+${txtboxSearchViewMaterial}    xpath=//*[@id="txtViewSearchText"]
+${btnSeachViewMaterial}    xpath=//*[@id="ID_SEARCH_VIEWRESULT"]
+${btnEditFristRowMaterialTier2}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[@class="k-button k-button-icontext k-grid-Edit"]
+${btnPriviewFristRowMaterialTier2}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[@class="k-button k-button-icontext k-grid-Preview"]
+${lblHeadPlantPage}    xpath=//*[@id="wid-id-0"]/header/h2

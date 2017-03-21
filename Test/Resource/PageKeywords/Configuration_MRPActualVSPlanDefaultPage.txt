@@ -39,7 +39,12 @@ Select Material Tier2
 
 Select Type
     [Arguments]    ${type}
-    Click Web Element    ${btn${type}Type}
+    Click Web Element    ${radiobtn${type}Type}
 
 Select First Material Tier Create Default Page
     Click Web Element    ${btnSelectMaterialTierFirstRow}
+
+Search View Material Tier
+    [Arguments]    ${text}
+    Input Web Text    ${txtboxSearchViewMaterial}    ${text}
+    Click Web Element    ${btnSeachViewMaterial}
