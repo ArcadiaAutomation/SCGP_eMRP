@@ -20,4 +20,6 @@ ${btnDeleteMaterialTierResultFirstRow}    xpath=//*[@id="gridMaterialTierTwoDefa
 ${radiobtnAllType}    xpath=//*[@id="divType"]/div/div/ul/li[1]/label
 ${radiobtnImportType}    xpath=//*[@id="divType"]/div/div/ul/li[2]/label
 ${radiobtnDomesticType}    xpath=//*[@id="divType"]/div/div/ul/li[3]/label
+${txtMessageSaveDefault}    //*[@id="pAlertmessage"]
+${btnDismissMessageSaveDefault}    //*[@id="ok"]
 ${modaltxtAlertMssage}    xpath=//*[@id="pAlertmessage"]

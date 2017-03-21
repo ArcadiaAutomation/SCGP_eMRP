@@ -1,5 +1,5 @@
 *** Settings ***
-Resource          ../PageRepository/SCGeMRPConfiguration_SettingPlantRepository.txt
+Resource          ../PageRepository/SCGeMRPConfiguration_PlantNameAndPMRepository.txt
 Resource          SCGPeMRPCommon.txt
 Resource          ../Localized/${ar_LANG}/Cofiguration_PlantNameAndPMLocalized.txt
 
@@ -32,9 +32,8 @@ click ddl
     Click Web Element    ${ddlSelect${Argument}}
 
 Click Update Button
-    [Arguments]    ${Argument}
-    Wait Web Until Page Contains Element    ${btnUpdate${Argument}}
-    Click Web Element    ${btnUpdate${Argument}}
+    Wait Web Until Page Contains Element    ${btnUpdate}
+    Click Web Element    ${btnUpdate}
 
 Select ddl
     [Arguments]    ${Argument}    ${Fnum}    ${Lnum}

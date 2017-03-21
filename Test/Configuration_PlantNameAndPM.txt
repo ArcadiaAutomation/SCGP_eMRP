@@ -22,9 +22,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
     Click Add Record    Company
-    Fill Company Data
-    Click Update Button    Company
-    Verify Create Company Success
+    ${code}    ${name}    Fill Company Data
+    Click Update Button
+    Verify Create Company Success    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
 2_Create a company which contain multiple plants in case no code
@@ -45,7 +45,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Tab    Company
     Click Add Record    Company
     Fill Company Data No Code
-    Click Update Button    Company
+    Click Update Button
     Verify Message Company No Code
     [Teardown]    Keywords For Teardown
 
@@ -67,7 +67,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Tab    Company
     Click Add Record    Company
     Fill Company Data No Name
-    Click Update Button    Company
+    Click Update Button
     Verify Message Company No Name
     [Teardown]    Keywords For Teardown
 
@@ -137,9 +137,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
     Click Add Record    BusinessGroup
-    Fill Business Group Data
-    Click Update Button    BusinessGroup
-    Verify Create Business Group Success
+    ${name}    Fill Business Group Data
+    Click Update Button
+    Verify Create Business Group Success    ${name}
     [Teardown]    Keywords For Teardown
 
 8_Create a business group which it can contain multiple companies in case no name
@@ -160,7 +160,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Tab    BusinessGroup
     Click Add Record    BusinessGroup
     Fill Business Group Data No Name
-    Click Update Button    BusinessGroup
+    Click Update Button
     Verify Message Business Group No Name
     [Teardown]    Keywords For Teardown
 
@@ -190,8 +190,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
-    Edit Business Group Data
-    Verify Business Group Edit
+    ${name}    Edit Business Group Data
+    Verify Business Group Edit    ${name}
     [Teardown]    Keywords For Teardown
 
 11_Delete a business group and its associated list of companies
@@ -231,9 +231,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
     Click Add Record    Plant
-    Fill Plant Data With Multiple Machine
-    Click Update Button    Plant
-    Verify Plant With Multiple Machine
+    ${code}    ${name}    Fill Plant Data With Multiple Machine
+    Click Update Button
+    Verify Plant With Multiple Machine    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
 13_Create a plant which it can contain multiple location
@@ -254,7 +254,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Tab    Plant
     Click Add Record    Plant
     ${code}    ${name}    Fill Plant Data With Multiple Location
-    Click Update Button    Plant
+    Click Update Button
     Verify Plant With Multiple Location    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
@@ -276,7 +276,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Tab    Plant
     Click Add Record    Plant
     ${code}    ${name}    Fill Plant Data With Multiple Machines And Locations
-    Click Update Button    Plant
+    Click Update Button
     Verify Plant With Multiple Machine And Location    ${code}    ${name}
     [Teardown]    Keywords For Teardown
 
@@ -530,8 +530,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
     Click Add Record    Location
-    Fill Location Data
-    Verify Create Location Success
+    ${name}    ${num}    Fill Location Data
+    Verify Create Location Success    ${name}    ${num}
     [Teardown]    keywords for teardown
 
 27_Create a location in case no name
@@ -598,8 +598,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Location
-    Edit Location Data
-    Verify Edit Location
+    ${name}    Edit Location Data
+    Verify Edit Location    ${name}
     [Teardown]    Keywords For Teardown
 
 30_Delete a location
@@ -629,23 +629,25 @@ Verify alert text no code
     Capture ScreenShot
 
 Fill Company Data
-    Fill Code    Company    ${txtCode}
-    Fill Name    Company    ${txtName}
+    ${code}    Generate Random String    4    [UPPER]
+    ${name}    Generate Random String    4    [UPPER]
+    Fill Code    Company    ${code}
+    Fill Name    Company    ${name}
     Select ddl    Plant    1    2
+    [Return]    ${code}    ${name}
 
 Fill Company Data No Code
     Fill Name    Company    ${txtName}
     Select ddl    Plant    1    2
 
 Verify Create Company Success
+    [Arguments]    ${code1}    ${name1}
     refresh page    Company
     Sleep    2
-    : FOR    ${index}    IN RANGE    1    11
-    \    Wait Until Page Contains Element    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    ${code}    Get Text    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    ${name}    Get Text    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${index}]/td[2]
-    \    log    ${code}
-    \    Run Keyword If    "${code}" == "${txtCode}"    Run Keyword If    "${name}" == "${txtName}"    Exit For Loop
+    Click Web Element    xpath=//*[@id="gridCompany"]/div[4]/a[@title="Go to the last page"]
+    ${count}    Get Matching Xpath Count    //*[@id="gridCompany"]/div[3]/table/tbody/tr/td[4]/a[1]
+    Web Element Text Should Be    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${count}]/td[1]    ${code1}
+    Web Element Text Should Be    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${count}]/td[2]    ${name1}
     Capture ScreenShot
 
 Verify Message Company No Code
@@ -663,21 +665,22 @@ Verify Message Company No Name
     Capture ScreenShot
 
 Fill Business Group Data
-    Fill Name    BusinessGroup    ${txtName}
+    ${name}    Generate Random String    4    [UPPER]
+    Fill Name    BusinessGroup    ${name}
     Select Company
+    [Return]    ${name}
 
 Select Company
     click ddl    Company
     Select ddl    Company    1    2
 
 Verify Create Business Group Success
+    [Arguments]    ${name}
     refresh page    BusinessGroup
     Sleep    2
-    : FOR    ${index}    IN RANGE    1    11
-    \    Wait Until Page Contains Element    xpath= //*[@id="gridBusinessGroup"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    ${name}    Get Text    xpath= //*[@id="gridBusinessGroup"]/div[3]/table/tbody/tr[${index}]/td[1]
-    \    log    ${name}
-    \    Run Keyword If    "${name}" == "${txtName}"    Exit For Loop
+    Click Web Element    ${btnBusinessGroupLastPage}
+    ${count}    Get Matching Xpath Count    //*[@id="gridBusinessGroup"]/div[3]/table/tbody/tr/td[3]/a[1]
+    Web Element Text Should Be    xpath=//*[@id="gridBusinessGroup"]/div[3]/table/tbody/tr[${count}]/td[1]    ${name}
     Capture ScreenShot
 
 Fill Business Group Data No Name
@@ -695,7 +698,7 @@ Edit Company Data
     click edit button    Company
     Input Web Text    ${txtInputCompanyName}    ${name}
     Select ddl    Plant    3    4
-    Click Update Button    Company
+    Click Update Button
     [Return]    ${code}    ${name}
 
 Edit company plant
@@ -718,19 +721,23 @@ Verify Delete Company
 
 Edit Business Group Data
     Capture ScreenShot
-    edit name    BusinessGroup    HTRO
+    ${name}    Generate Random String    5    [UPPER]
+    edit name    BusinessGroup    ${name}
     sleep    2
     Edit business group company
+    [Return]    ${name}
 
 Edit business group company
     click ddl    Company
     select ddl    Company    3    4
-    Click Update Button    BusinessGroup
+    Click Update Button
 
 Verify Business Group Edit
-    Wait Until Page Contains Element    ${lblBusinessGroupNameFirstRow}
-    Page Should Contain Element    ${lblBusinessGroupNameFirstRow}
-    sleep    2
+    [Arguments]    ${name}
+    refresh page    BusinessGroup
+    Sleep    2
+    Click Web Element    ${btnBusinessGroupLastPage}
+    Web Element Text Should Be    xpath=//*[@id="gridBusinessGroup"]/div[3]/table/tbody/tr[1]/td[1]    ${name}
     Capture ScreenShot
 
 Verify Business Group Delete
@@ -739,10 +746,13 @@ Verify Business Group Delete
     Capture ScreenShot
 
 Fill Plant Data With Multiple Machine
-    Fill Code    Plant    ${txtPlantCode1}
-    Fill Name    Plant    ${txtPlantName1}
+    ${code}    Generate Random String    4    [UPPER]
+    ${name}    Generate Random String    4    [UPPER]
+    Fill Code    Plant    ${code}
+    Fill Name    Plant    ${name}
     select multiple machine
     select location
+    [Return]    ${code}    ${name}
 
 select machine
     click ddl    Machine
@@ -761,12 +771,12 @@ select multiple location
     Select ddl    Location    1    3
 
 Verify Plant With Multiple Machine
+    [Arguments]    ${code}    ${name}
     refresh page    Plant
     Sleep    2
     Click Web Element    ${btnPlantLastPage}
-    sleep    2
-    Page Should Contain    ${txtPlantCode1}
-    Page Should Contain    ${txtPlantName1}
+    Page Should Contain    ${code}
+    Page Should Contain    ${name}
     Capture ScreenShot
 
 Verify Massage Plant Code Is Required
@@ -789,7 +799,7 @@ Fill Plant Data No Code
     select machine
     select location
     Wait Until Element Is Not Visible    ${lstContainer}
-    Click Update Button    Plant
+    Click Update Button
 
 Fill Plant Data No Name
     Fill Code    Plant    ${txtPlantCode}
@@ -797,7 +807,7 @@ Fill Plant Data No Name
     select machine
     select location
     Wait Until Element Is Not Visible    ${lstContainer}
-    Click Update Button    Plant
+    Click Update Button
 
 Verify Massage Plant Name Is Required
     Web Element Text Should Be    ${lblPlantNameRequired}    ${txtPlantNameRequired}
@@ -860,7 +870,7 @@ Edit Plant Data
     Focus    ${ddlSelectMachine}
     Select ddl    Machine    2    3
     select ddl    Location    3    4
-    Click Update Button    Plant
+    Click Update Button
     [Return]    ${code}    ${name}
 
 edit plant machine and location
@@ -876,13 +886,16 @@ Verify Edit Plant
     Capture ScreenShot
 
 Fill Location Data
-    Fill Name    Location    TYRO
+    ${num}    Generate Random String    2    [NUMBERS]
+    ${name}    Generate Random String    4    [UPPER]
+    Fill Name    Location    ${name}
     sleep    1
     Set Selenium Speed    0.5
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
     Click Web Element    ${txtInputLocationCapacity}
-    Press Key    xpath=//*[@id="txtNumCapacity"]    123
-    Click Update Button    Location
+    Press Key    xpath=//*[@id="txtNumCapacity"]    ${num}
+    Click Update Button
+    [Return]    ${name}    ${num}
 
 Verify Location Data
     refresh page    Plant
@@ -914,7 +927,7 @@ Verify Plant Delete
 Fill Machine Data No Code
     Fill Code    Machine    ${EMPTY}
     Fill Name    Machine    ${txtMachineName}
-    Click Update Button    Machine
+    Click Update Button
 
 Verify Message Machine Code Is Required
     Web Element Text Should Be    ${lblMachineCodeRequired}    ${txtMachineCodeRequired}
@@ -927,7 +940,7 @@ Verify Message Machine Name Is Required
 Fill Machine No Name
     Fill Code    Machine    ${txtMachineCode}
     Fill Name    Machine    ${EMPTY}
-    Click Update Button    Machine
+    Click Update Button
 
 Verify Create Machine Success
     Sleep    2
@@ -946,7 +959,7 @@ Edit Machine Name
     Wait Web Until Page Contains Element    ${txtInputMachineName}
     Clear Element Text    ${txtInputMachineName}
     Input Web Text    ${txtInputMachineName}    ${txtNewMachineName}
-    Click Update Button    Machine
+    Click Update Button
 
 Verify Edit Machine Success
     Set Selenium Speed    0.2
@@ -976,7 +989,7 @@ Fill Location Data No Name
     sleep    2
     Click Web Element    ${txtInputLocationCapacity}
     Press Key    xpath=//*[@id="txtNumCapacity"]    123
-    Click Update Button    Location
+    Click Update Button
 
 Fill Location Data No Capacity
     Fill Name    Location    DSL
@@ -986,15 +999,16 @@ Fill Location Data No Capacity
     Wait Web Until Page Element Visible    ${txtInputLocationCapacity}
     Click Web Element    ${txtInputLocationCapacity}
     Press Key    xpath=//*[@id="txtNumCapacity"]    \\8
-    Click Update Button    Location
+    Click Update Button
 
 Verify Create Location Success
+    [Arguments]    ${name}    ${num}
     refresh page    Location
     Sleep    2
     Click Web Element    ${btnLocationLastPage}
     sleep    2
-    Page Should Contain    TYRO
-    Page Should Contain    123
+    Page Should Contain    ${name}
+    Page Should Contain    ${num}
     Capture ScreenShot
 
 Verify Create Location No Name
@@ -1008,10 +1022,12 @@ Verify Create Location No Capacity
 Edit Location Data
     Capture ScreenShot
     click edit button    Location
+    ${name}    Generate Random String    4    [UPPER]
     Wait Until Page Contains Element    ${txtInputLocationName}
     Clear Element Text    ${txtInputLocationName}
-    Input Web Text    ${txtInputLocationName}    HTRE
-    Click Update Button    Location
+    Input Web Text    ${txtInputLocationName}    ${name}
+    Click Update Button
+    [Return]    ${name}
 
 Delete Location First Row
     Capture ScreenShot
@@ -1024,8 +1040,9 @@ Delete Location First Row
     [Return]    ${name}    ${capacity}
 
 Verify Edit Location
+    [Arguments]    ${name}
     refresh page    Location
-    Web Element Text Should Be    ${lblLocationNameFirstRow}    HTRE
+    Web Element Text Should Be    ${lblLocationNameFirstRow}    ${name}
     Capture ScreenShot
 
 Verify Delete Location
@@ -1039,7 +1056,7 @@ Verify Delete Location
 Fill Machine Data
     Fill Code    Machine    ${txtMachineCode}
     Fill Name    Machine    ${txtMachineName}
-    Click Update Button    Machine
+    Click Update Button
 
 Edit plant name
     [Arguments]    ${text}

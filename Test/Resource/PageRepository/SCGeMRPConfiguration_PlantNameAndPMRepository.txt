@@ -14,10 +14,9 @@ ${txtInputCompanyName}    xpath=//*[@id="txtCompanyName"]
 ${lstAvailablePlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div
 ${txtMessageCompanyNoCode}    xpath=//*[@id="txtCompanyCode_validationMessage"]
 ${txtMessageCompanyNoName}    xpath=//*[@id="txtCompanyName_validationMessage"]
-${ddlSelectPlant}    xpath=/html/body/div[11]/div[2]/div/div[6]/div/div/input
-${ddlSelectCompany}    xpath=/html/body/div[11]/div[2]/div/div[4]/div/div
-${btnUpdateCompany}    xpath=/html/body/div[11]/div[2]/div/div[7]/a[1]
-${btnUpdateBusinessGroup}    xpath=/html/body/div[11]/div[2]/div/div[5]/a[1]
+${ddlSelectPlant}    xpath=//*[@class="k-multiselect-wrap k-floatwrap"]/input[@aria-owns="Plants_taglist Plants_listbox"]
+${ddlSelectCompany}    xpath=//*[@class="k-multiselect-wrap k-floatwrap"]/input[@aria-owns="Companies_taglist Companies_listbox"]
+${btnUpdate}      xpath=//*[@class="k-button k-button-icontext k-primary k-grid-update"]
 ${lstFirstPlant}    xpath=//*[@id="Plants_listbox"]/li[1]
 ${btnCompanyNextPage}    xpath=//*[@id="gridCompany"]/div[4]/a[3]/span
 ${btnPlantNextPage}    xpath=//*[@id="gridPlant"]/div[4]/a[3]/span
@@ -25,8 +24,8 @@ ${btnMachineNextPage}    xpath=//*[@id="gridMachine"]/div[4]/a[3]
 ${btnRefresh}     xpath=//*[@id="gridCompany"]/div[4]/a[5]
 ${txtInputPlantCode}    xpath=//*[@id="txtPlantCode"]
 ${txtInputPlantName}    xpath=//*[@id="txtPlantName"]
-${ddlSelectMachine}    xpath=/html/body/div[12]/div[2]/div/div[6]/div/div/input
-${ddlSelectLocation}    xpath=/html/body/div[12]/div[2]/div/div[8]/div/div/input
+${ddlSelectMachine}    xpath=//*[@class="k-multiselect-wrap k-floatwrap"]/input[@aria-owns="Machines_taglist Machines_listbox"]
+${ddlSelectLocation}    xpath=//*[@class="k-multiselect-wrap k-floatwrap"]/input[@aria-owns="Locations_taglist Locations_listbox"]
 ${txtInputBusinessGroupName}    xpath=//*[@id="txtBusinessGroupName"]
 ${lstFirstCompany}    xpath=//*[@id="Companies_listbox"]/li[1]
 ${btnDeleteBusinessGroupFirstRow}    xpath=//*[@id="gridBusinessGroup"]/div[3]/table/tbody/tr[1]/td[3]/a[2]
@@ -49,9 +48,6 @@ ${lstThirdMachine}    xpath=//*[@id="Machines_listbox"]/li[3]
 ${lstFirstLocation}    xpath=//*[@id="Locations_listbox"]/li[1]
 ${lstSecondLocation}    xpath=//*[@id="Locations_listbox"]/li[2]
 ${lstThirdLocation}    xpath=//*[@id="Locations_listbox"]/li[3]
-${btnUpdatePlant}    xpath=/html/body/div[12]/div[2]/div/div[9]/a[1]
-${btnUpdateMachine}    xpath=/html/body/div[10]/div[2]/div/div[5]/a[1]
-${btnUpdateLocation}    xpath=/html/body/div[10]/div[2]/div/div[5]/a[1]
 ${lblPlantCodeRequired}    xpath=//*[@id="txtPlantCode_validationMessage"]
 ${lblPlantNameRequired}    xpath=//*[@id="txtPlantName_validationMessage"]
 ${lblCompanyCodeFirstRow}    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[1]/td[1]
@@ -63,7 +59,7 @@ ${btnLocationLastPage}    xpath=//*[@id="gridLocation"]/div[4]/a[4]
 ${lblPlantCodeFirstRow}    xpath=//*[@id="gridPlant"]/div[3]/table/tbody/tr[1]/td[1]
 ${lblPlantNameFirstRow}    xpath=//*[@id="gridPlant"]/div[3]/table/tbody/tr[1]/td[2]
 ${btnEditPlant}    xpath=//*[@id="gridPlant"]/div[3]/table/tbody/tr[1]/td[5]/a[1]
-${txtInputLocationCapacity}    xpath=/html/body/div[10]/div[2]/div/div[4]/span/span
+${txtInputLocationCapacity}    xpath=//*[@class="k-formatted-value k-input"]
 ${txtInputLocationName}    xpath=//*[@id="txtLocationName"]
 ${lstContainer}    xpath=//div[@class="k-animation-container"]
 ${lblMachineCodeRequired}    xpath=//*[@id="txtMachineCode_validationMessage"]

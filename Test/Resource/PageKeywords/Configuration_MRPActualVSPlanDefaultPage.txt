@@ -33,7 +33,9 @@ Select Material Tier1
 Select Material Tier2
     Click Web Element    ${ddlMaterialTierTwo}
     ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierTwo_listbox"]/li
+    ${name}    Get Web Text    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}]
     Click Web Element    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}]
+    [Return]    ${name}
 
 Select Type
     [Arguments]    ${type}
