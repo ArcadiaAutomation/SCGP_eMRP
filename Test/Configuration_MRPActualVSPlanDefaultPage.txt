@@ -8,7 +8,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
-    Create Default Page Data Tier3 All Type
+    ${name}    Create Default Page Data Tier3 All Type
+    Verify Create Tier 3 All Type    ${name}
     [Teardown]    Keywords For Teardown
 
 65_Create Default Page Select Tier 3 And Import Type
@@ -160,6 +161,51 @@ Create Default Page Data Tier3 Domestic Type
     Select Material Tier2
     Select Type    Domestic
     Search Create Default Page
+
+Create Default Page Data Tier3 Import Type
+    select material tier1
+    select material tier2
+    select type    Import
+    click search create default page
+    select first material tier create default page
+    click save create default
+
+Create Default Page Data Tier3 Domestic Type
+    select material tier1
+    select material tier2
+    select type    Domestic
+    click search create default page
+    select first material tier create default page
+    click save create default
+
+Verify Create Tier 3 All Type
+    [Arguments]    ${name}
+    Web Element Text Should Be    ${txtMessageSaveDefault}    ${txtMessageSaveDefaultPage}
+    Click Web Element    ${btnDismissMessageSaveDefault}
+    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr/td[1]
+    :FOR    ${index}    IN RANGE    1    ${count}
+    \    ${tiername}    Get Web Text    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${index}]/td[1]
+    \    Run Keyword If    "${tiername}" == "${name}"    Exit For Loop
+    ${total}    Evaluate    ${index}+1
+    Web Element Text Should Be    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${total}]/td[1]    ${name}
+    Capture ScreenShot
+
+Verify Create Tier 3 Import Type
+    [Arguments]    ${name}
+    Web Element Text Should Be    ${txtMessageSaveDefault}    ${txtMessageSaveDefaultPage}
+    Click Web Element    ${btnDismissMessageSaveDefault}
+    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr/td[1]
+    :FOR    ${index}    IN RANGE    1    ${count}
+    \    ${tiername}    Get Web Text    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${index}]/td[1]
+    \    Run Keyword If    "${tiername}" == "${name}"    Exit For Loop
+    ${total}    Evaluate    ${index}+1
+    Web Element Text Should Be    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${total}]/td[1]    ${name}
+    select material tier1
+    ${name}    select material tier2
+    click search create default page
+    select first material tier create default page
+    click save create default
+    [Return]    ${name}
 
 Verify Message Not Select Tier 1
     Web Element Text Should Be    ${modaltxtAlertMssage}    ${txtMessageNotSelectTier1}
