@@ -3,7 +3,7 @@ Resource          Resource/PageKeywords/Configuration_MRPActualVSPlanDefaultPage
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 *** Test Cases ***
-64_Create Default Page Select Tier 3 And All Type
+64_Create default page select tier 3 and all type
     [Documentation]    ***Condition***
     ...    Prepare data Material Tier 3
     ...
@@ -25,7 +25,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
-65_Create Default Page Select Tier 3 And Import Type
+65_Create default page select tier 3 and import type
     [Documentation]    ***Condition***
     ...    Prepare data Material Tier 3 type imported
     ...
@@ -48,7 +48,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
-66_Create Default Page Select Tier 3 And Domestic Type
+66_Create default page select tier 3 and domestic type
     [Documentation]    ***Condition***
     ...    Prepare data Material Tier 3 type domestic
     ...
@@ -71,7 +71,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
-67_Create Default Page Select Tier 4 And All Type
+67_Create default page select tier 4 and all type
     [Documentation]    ***Condition***
     ...    Prepare data Material Tier 4
     ...
@@ -94,7 +94,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
-68_Create Default Page Select Tier 5 And All Type
+68_Create default page select tier 5 and all type
     [Documentation]    ***Condition***
     ...    Prepare data Material Tier 5
     ...
@@ -117,7 +117,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
-69_Create Default Page In Case Not Select Material Tier 1
+69_Create default page in case not select material tier 1
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -137,7 +137,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Message Not Select Tier 1
     [Teardown]    Keywords For Teardown
 
-70_Create Default Page In Case Not Select Material Tier 2
+70_Create default page in case not select material tier 2
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -158,7 +158,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Message Not Select Tier 2
     [Teardown]    Keywords For Teardown
 
-71_Create Default Page In Case Not Select Lists of Material
+71_Create default page in case not select lists of material
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -187,7 +187,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Message Not Select Material
     [Teardown]    Keywords For Teardown
 
-72_Clear Search Create Default Page
+72_Clear search create default page
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -196,9 +196,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    3.Select "MRP Actual VS Plan Default Page"
     ...    4. Select Material Tier 1
     ...    5. Select Material Tier 2
-    ...    6. Select Tier 3
-    ...    7. Select Type All
-    ...    8. Click Clearl
+    ...    6. Select Tier 5
+    ...    7. Select Type Domestic
+    ...    8. Click Clear
     ...    9. Verify Clear Search Data
     [Tags]    success
     Open SCG Website
@@ -214,7 +214,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Clear Search Create Default Page
     [Teardown]    Keywords For Teardown
 
-73_Save As Link To Plant Page
+73_Save as link to plant page
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -222,7 +222,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     ...    2.Select "Configuration"
     ...    3.Select "MRP Actual VS Plan Default Page"
     ...    4.Click "Save As"
-    ...    5.Verify Page
+    ...    5.Verify Plant Page
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -231,14 +231,14 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Save As Link
     [Teardown]    Keywords For Teardown
 
-74_Search Result Material Tier 2
+74_Search result material tier 2
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
     ...    1.Open SCG website
     ...    2.Select "Configuration"
     ...    3.Select "MRP Actual VS Plan Default Page"
-    ...    4.Type keyword in textbox
+    ...    4. Input keyword in \ Material Tier 2
     ...    5.Search Material Tier 2
     ...    6.Verify Search Material Tier 2
     Open SCG Website
@@ -249,7 +249,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Search Material Result    ${name}
     [Teardown]    Keywords For Teardown
 
-75_Edit Result Material Tier 2
+75_Edit result material tier 2
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -267,7 +267,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Edit Material    ${name}
     [Teardown]    Keywords For Teardown
 
-76_Search View Material Tier
+76_Search view material tier
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -292,7 +292,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Search Result By Upper Case
     [Teardown]    Keywords For Teardown
 
-77_Preview Result Material Tier
+77_Preview result material tier
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -310,7 +310,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Preview Result Material Tier
     [Teardown]    Keywords For Teardown
 
-78_Delete Result Material Tier 2
+78_Delete result material tier 2
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -329,8 +329,24 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 79_Create default page in case condition search not macth data
-    [Documentation]    ***Expected Result***
-    ...    Alert message "Condition search not match data on the table you want to save?"
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "MRP Actual VS Plan Default Page"
+    ...    4. Select Material Tier 1
+    ...    5. Select Material Tier 2
+    ...    6. Select Tier 3
+    ...    7. Select Type All
+    ...    6. Click search
+    ...    8. Select Material
+    ...    9. Change Material Tier 2
+    ...    10. Click search
+    ...    11. Select Material
+    ...    12. Save
+    ...    13. Alert message "Condition search not match data on the table you want to save?"
+    [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration

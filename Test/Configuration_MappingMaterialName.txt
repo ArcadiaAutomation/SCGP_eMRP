@@ -3,7 +3,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
 
 *** Test Cases ***
-31_Add Mapping Select Type Con
+31_Add Mapping select type Con
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -31,7 +31,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Add Mapping Type Con Success
     [Teardown]    Keywords For Teardown
 
-32_Add Mapping Type Con in case not select machine
+32_Add Mapping type Con in case not select machine
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -54,7 +54,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Message Not Select Machine
     [Teardown]    Keywords For Teardown
 
-33_Add Mapping Type Con in case not select last tier
+33_Add Mapping type Con in case not select last tier
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -80,7 +80,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Message Not Select Last Tier
     [Teardown]    Keywords For Teardown
 
-34_Add Mapping Type Con in case not select material
+34_Add Mapping type Con in case not select material
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -107,7 +107,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Message Not Select Material
     [Teardown]    Keywords For Teardown
 
-35_Add Mapping Type Rec
+35_Add Mapping type Rec
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -135,7 +135,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Add Mapping Type Rec Success
     [Teardown]    Keywords For Teardown
 
-36_Add Mapping Type Rec in case not select attribute
+36_Add Mapping type Rec in case not select attribute
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -148,7 +148,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Message Not Select Attribute
     [Teardown]    Keywords For Teardown
 
-37_Add Mapping Type Rec in case not select last tier
+37_Add Mapping type Rec in case not select last tier
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -162,7 +162,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Message Not Select Last Tier
     [Teardown]    Keywords For Teardown
 
-38_Add Mapping Type Rec in case not select material
+38_Add Mapping type Rec in case not select material
     [Tags]    fail
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
@@ -177,7 +177,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Message Not Select Material
     [Teardown]    Keywords For Teardown
 
-39_Add Mapping Type Inv
+39_Add Mapping type Inv
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -205,7 +205,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Add Mapping Type Inv Success
     [Teardown]    Keywords For Teardown
 
-40_Add Mapping Type Inv in case not select Location
+40_Add Mapping type Inv in case not select location
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -231,7 +231,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Message Not Select Location
     [Teardown]    Keywords For Teardown
 
-41_Add Mapping Type Inv in case not select Last tier
+41_Add Mapping type Inv in case not select last tier
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -258,7 +258,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     Verify Message Not Select Last Tier
     [Teardown]    Keywords For Teardown
 
-42_Add Mapping Type Inv in case not select material
+42_Add Mapping type Inv in case not select material
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -312,7 +312,6 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     ...    4. Delete Mapping (First row)
     ...    5. Save
     ...    6. Verify Delete Success Message
-    ...
     [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}

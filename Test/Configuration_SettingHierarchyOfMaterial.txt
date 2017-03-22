@@ -146,7 +146,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     Verify Search Success
     [Teardown]    Keywords For Teardown
 
-52_Add Material Tier Not Select Tier
+52_Add Material Tier in case not select tier
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -170,7 +170,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     Verify Add Material Tier No Tier
     [Teardown]    Keywords For Teardown
 
-53_Add Material Tier Not Select Parent Tier
+53_Add Material Tier in case not Select parent tier
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -194,7 +194,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     Verify Add Material Tier No Parent Tier
     [Teardown]    Keywords For Teardown
 
-54_Add Material Tier No Name
+54_Add Material Tier in case no name
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
@@ -219,7 +219,7 @@ Resource          Resource/PageKeywords/Configuration_SettingHierarchyOfMaterial
     Verify Add Material Tier No Name
     [Teardown]    Keywords For Teardown
 
-55_Add Material Tier Not Select Tier, Parent Tier and Input Tier Name
+55_Add Material Tier in case not select tier parent tier and input tier name
     [Documentation]    ***Condition***
     ...
     ...    ***Test Step***
