@@ -7,3 +7,4 @@ ${txtddlMaterialTieSelect}    Select
 ${txtSearchViewMaterialTeirLowwer}    sub
 ${txtSearchViewMaterialTeirUpper}    SUB
 ${txtPreviewLinkToPlantPage}    Form Preview MRP Actual VS Plan Plant Page
+${txtPlantPageHeader}    MRP Actual VS Plan Plant Page

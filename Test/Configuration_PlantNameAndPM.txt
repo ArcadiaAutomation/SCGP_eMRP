@@ -78,7 +78,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Company
-    Click Add Record    Company
+    Fill Company Duplicate Data
+    Click Update Button
+    Verify Duplicate Company
     [Teardown]    Keywords For Teardown
 
 5_Edit a company to change the company name and plant list
@@ -171,7 +173,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    BusinessGroup
-    Click Add Record    BusinessGroup
+    Fill Business Duplicate Name
+    Click Update Button
+    Verify Duplicate Business Group
     [Teardown]    Keywords For Teardown
 
 10_Edit business group name and the list of companies inside
@@ -332,7 +336,9 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select Menu    Configuration
     Select Sub Menu    PlantNameAndPM
     Select Tab    Plant
-    Click Add Record    Plant
+    Fill Duplicate Plant
+    Click Update Button
+    Verify Duplicate Plant
     [Teardown]    Keywords For Teardown
 
 18_Edit a plant to change name and the list of machines and locations inside
@@ -1062,3 +1068,31 @@ Edit plant name
     [Arguments]    ${text}
     click edit button    Plant
     Input Web Text    ${txtInputPlantName}    ${text}
+
+Fill Company Duplicate Data
+    ${code}    Get Web Text    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[1]/td[1]
+    ${name}    Get Web Text    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[1]/td[2]
+    Click Add Record    Company
+    Fill Code    Company    ${code}
+    Fill Name    Company    ${name}
+
+Verify Duplicate Company
+    Alert Should Be Present    Company already exist
+
+Fill Business Duplicate Name
+    ${name}    Get Web Text    xpath=//*[@id="gridBusinessGroup"]/div[3]/table/tbody/tr[1]/td[1]
+    Click Add Record    BusinessGroup
+    Fill Name    BusinessGroup    ${name}
+
+Verify Duplicate Business Group
+    Alert Should Be Present    Group already exist
+
+Fill Duplicate Plant
+    ${code}    Generate Random String    4    [UPPER]
+    ${name}    Generate Random String    4    [UPPER]
+    Click Add Record    Plant
+    Fill Code    Plant    ${code}
+    Fill Name    Plant    ${name}
+
+Verify Duplicate Plant
+    Alert Should Be Present    Plant already exist

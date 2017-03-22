@@ -8,8 +8,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
-    ${name}    Create Default Page Data Tier3 All Type
-    Verify Create Tier 3 All Type    ${name}
+    ${name}    ${name2}    Create Default Page Data Tier3 All Type
+    Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
 65_Create Default Page Select Tier 3 And Import Type
@@ -17,7 +17,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
-    Create Default Page Data Tier3 Import Type
+    ${name}    ${name2}    Create Default Page Data Tier3 Import Type
+    Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
 66_Create Default Page Select Tier 3 And Domestic Type
@@ -25,7 +26,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
-    Create Default Page Data Tier3 Domestic Type
+    ${name}    ${name2}    Create Default Page Data Tier3 Domestic Type
+    Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
 67_Create Default Page Select Tier 4 And All Type
@@ -33,6 +35,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    ${name}    ${name2}    Create Default Page Data Tier 4 All Type
+    Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
 68_Create Default Page Select Tier 5 And All Type
@@ -40,6 +44,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    ${name}    ${name2}    Create Default Page Data Tier 5 All Type
+    Verify Create Default Page    ${name}    ${name2}
     [Teardown]    Keywords For Teardown
 
 69_Create Default Page In Case Not Select Material Tier 1
@@ -144,6 +150,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    Click Save As
+    Verify Save As Link
     [Teardown]    Keywords For Teardown
 
 74_Search Result Material Tier 2
@@ -151,6 +159,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    ${name}    Search Material Tier 2
+    Verify Search Material Result    ${name}
     [Teardown]    Keywords For Teardown
 
 75_Edit Result Material Tier 2
@@ -158,6 +168,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    ${name}    Edit Material Result
+    Verify Edit Material    ${name}
     [Teardown]    Keywords For Teardown
 
 76_Search View Material Tier
@@ -194,68 +206,101 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 *** Keywords ***
 Create Default Page Data Tier3 All Type
-    Select Material Tier1
-    Select Material Tier2
-    Search Create Default Page
-    Select First Material Tier Create Default Page
-    Save Create Default
-
-Create Default Page Data Tier3 Import Type
-    Select Material Tier1
-    Select Material Tier2
-    Select Type    Import
-    Search Create Default Page
-
-Create Default Page Data Tier3 Domestic Type
-    Select Material Tier1
-    Select Material Tier2
-    Select Type    Domestic
-    Search Create Default Page
-
-Create Default Page Data Tier3 Import Type
-    select material tier1
-    select material tier2
-    select type    Import
-    click search create default page
-    select first material tier create default page
-    click save create default
-
-Create Default Page Data Tier3 Domestic Type
-    select material tier1
-    select material tier2
-    select type    Domestic
-    click search create default page
-    select first material tier create default page
-    click save create default
-
-Verify Create Tier 3 All Type
-    [Arguments]    ${name}
-    Web Element Text Should Be    ${txtMessageSaveDefault}    ${txtMessageSaveDefaultPage}
-    Click Web Element    ${btnDismissMessageSaveDefault}
-    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr/td[1]
-    : FOR    ${index}    IN RANGE    1    ${count}
-    \    ${tiername}    Get Web Text    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${index}]/td[1]
-    \    Run Keyword If    "${tiername}" == "${name}"    Exit For Loop
-    ${total}    Evaluate    ${index}+1
-    Web Element Text Should Be    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${total}]/td[1]    ${name}
-    Capture ScreenShot
-
-Verify Create Tier 3 Import Type
-    [Arguments]    ${name}
-    Web Element Text Should Be    ${txtMessageSaveDefault}    ${txtMessageSaveDefaultPage}
-    Click Web Element    ${btnDismissMessageSaveDefault}
-    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr/td[1]
-    : FOR    ${index}    IN RANGE    1    ${count}
-    \    ${tiername}    Get Web Text    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${index}]/td[1]
-    \    Run Keyword If    "${tiername}" == "${name}"    Exit For Loop
-    ${total}    Evaluate    ${index}+1
-    Web Element Text Should Be    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${total}]/td[1]    ${name}
     select material tier1
     ${name}    select material tier2
     click search create default page
-    select first material tier create default page
+    ${name2}    select first material tier create default page
     click save create default
+    [Return]    ${name}    ${name2}
+
+Create Default Page Data Tier3 Import Type
+    select material tier1
+    ${name}    select material tier2
+    select type    Import
+    click search create default page
+    ${name2}    select first material tier create default page
+    click save create default
+    [Return]    ${name}    ${name2}
+
+Create Default Page Data Tier3 Domestic Type
+    select material tier1
+    ${name}    select material tier2
+    select type    Domestic
+    click search create default page
+    ${name2}    select first material tier create default page
+    click save create default
+    [Return]    ${name}    ${name2}
+
+Verify Create Default Page
+    [Arguments]    ${name}    ${name2}
+    Web Element Text Should Be    ${txtMessageSaveDefault}    ${txtMessageSaveDefaultPage}
+    Click Web Element    ${btnDismissMessageSaveDefault}
+    ${count}    Get Matching Xpath Count    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr/td[1]
+    : FOR    ${index}    IN RANGE    1    ${count}
+    \    ${tiername}    Get Web Text    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${index}]/td[1]
+    \    Run Keyword If    "${tiername}" == "${name}"    Click Web Element    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[${index}]/td[2]/a[@class="k-button k-button-icontext k-grid-Edit"]
+    \    Run Keyword If    "${tiername}" == "${name}"    exit for loop
+    sleep    2
+    ${count2}    Get Matching Xpath Count    //*[@id="gridViewDefaultPlanPage"]/table/tbody/tr/td[2]
+    ${total}    Evaluate    ${count2}+1
+    : FOR    ${index2}    IN RANGE    1    ${total}
+    \    ${matName}    Get Web Text    xpath=//*[@id="gridViewDefaultPlanPage"]/table/tbody/tr[${index2}]/td[1]
+    \    Run Keyword If    "${matName}" == "${name2}"    exit for loop
+    Web Element Text Should Be    xpath=//*[@id="gridViewDefaultPlanPage"]/table/tbody/tr[${index2}]/td[1]    ${name2}
+    Capture ScreenShot
+
+Create Default Page Data Tier 4 All Type
+    select material tier1
+    Click Web Element    ${ddlMaterialTierTwo}
+    ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierTwo_listbox"]/li
+    ${name}    Get Web Text    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}-2]
+    Click Web Element    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}-2]
+    click select tier    4
+    click search create default page
+    ${name2}    select first material tier create default page
+    click save create default
+    [Return]    ${name}    ${name2}
+
+Create Default Page Data Tier 5 All Type
+    select material tier1
+    Click Web Element    ${ddlMaterialTierTwo}
+    ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierTwo_listbox"]/li
+    ${name}    Get Web Text    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}-1]
+    Click Web Element    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}-1]
+    click select tier    5
+    click search create default page
+    ${name2}    select first material tier create default page
+    click save create default
+    [Return]    ${name}    ${name2}
+
+Verify Save As Link
+    Web Element Text Should Be    ${lblPlantPageHeader}    ${txtPlantPageHeader}
+    Capture ScreenShot
+
+Search Material Tier 2
+    ${name}    Get Web Text    //*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[4]/td[1]
+    Input Web Text    ${txtboxSearchMaterialTier2Result}    ${name}
+    Click Web Element    ${btnSearchMaterialTier2Result}
     [Return]    ${name}
+
+Verify Search Material Result
+    [Arguments]    ${name}
+    sleep    2
+    Web Element Text Should Be    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[1]    ${name}
+    Capture ScreenShot
+
+Edit Material Result
+    Set Selenium Speed    0.4
+    Click Web Element    ${btnEditMaterialTierResultFirstRow}
+    ${name}    Get Web Text    xpath=//*[@id="gridViewDefaultPlanPage"]/table/tbody/tr[1]/td[1]
+    Click Web Element    ${btnDeleteMaterialTierViewFirstRow}
+    Click Web Element    ${btnOkDeleteMaterialView}
+    [Return]    ${name}
+
+Verify Edit Material
+    [Arguments]    ${name}
+    Click Web Element
+    Element Should Not Contain    xpath=//*[@id="gridViewDefaultPlanPage"]/table/tbody/tr[1]/td[1]    ${name}
 
 Verify Message Not Select Tier 1
     Web Element Text Should Be    ${modaltxtAlertMssage}    ${txtMessageNotSelectTier1}

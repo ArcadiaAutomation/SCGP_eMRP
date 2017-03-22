@@ -41,6 +41,11 @@ Select Type
     [Arguments]    ${type}
     Click Web Element    ${radiobtn${type}Type}
 
+click edit material
+
+Click Save As
+    Click Web Element    ${btnSaveAsCreateDefaultPage}
+
 Select First Material Tier Create Default Page
     Click Web Element    ${btnSelectMaterialTierFirstRow}
 

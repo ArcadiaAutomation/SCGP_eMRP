@@ -17,6 +17,10 @@ ${btnBackPreviewPage}    xpath=//*[@id="wid-id-0"]/div/div[2]/div[1]/fieldset/di
 ${btnPreviewMaterialTierResultFirstRow}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[1]
 ${btnEditMaterialTierResultFirstRow}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[2]
 ${btnDeleteMaterialTierResultFirstRow}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[3]
+${lblPlantPageHeader}    xpath=//*[@id="wid-id-0"]/header/h2
+${btnDeleteMaterialTierViewFirstRow}    xpath=//*[@id="gridViewDefaultPlanPage"]/table/tbody/tr[1]/td[2]/a
+${btnOkDeleteMaterialView}    xpath=//*[@id="yes_two"]
+${btnRefreshMaterialView}    xpath=//*[@id="gridViewDefaultPlanPage"]/div[2]/a[@class="k-pager-refresh k-link"]
 ${radiobtnAllType}    xpath=//*[@id="divType"]/div/div/ul/li[1]/label
 ${radiobtnImportType}    xpath=//*[@id="divType"]/div/div/ul/li[2]/label
 ${radiobtnDomesticType}    xpath=//*[@id="divType"]/div/div/ul/li[3]/label
@@ -31,3 +35,4 @@ ${btnSeachViewMaterial}    xpath=//*[@id="ID_SEARCH_VIEWRESULT"]
 ${btnEditFristRowMaterialTier2}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[@class="k-button k-button-icontext k-grid-Edit"]
 ${btnPriviewFristRowMaterialTier2}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[@class="k-button k-button-icontext k-grid-Preview"]
 ${lblHeadPlantPage}    xpath=//*[@id="wid-id-0"]/header/h2
+
