@@ -306,8 +306,8 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
-    Select Material Tier To Preview
-    Verify Preview Result Material Tier
+    ${materialtierfirstrow}    Select Material Tier To Preview
+    Verify Preview Result Material Tier    ${materialtierfirstrow}
     [Teardown]    Keywords For Teardown
 
 78_Delete result material tier 2
@@ -514,11 +514,16 @@ Verify Search Result By Upper Case
     Capture ScreenShot
 
 Select Material Tier To Preview
+    ${materialtierfirstrow}=    Get Web Text    ${lblNameMaterialTierTwoFirstrow}
     Click Web Element    ${btnPriviewFristRowMaterialTier2}
+    [Return]    ${materialtierfirstrow}
 
 Verify Preview Result Material Tier
+    [Arguments]    ${materialtierfirstrow}
     Web Element Text Should Be    ${lblHeadPlantPage}    ${txtPreviewLinkToPlantPage}
     Location Should Be    ${SCGPeMRP_ConfigurationPlantPage}
+    ${materailtiername}    Get Element Attribute    //*[@id="txtMaterialTier2"]@value
+    Should Be Equal    ${materailtiername}    ${materialtierfirstrow}
     Capture ScreenShot
 
 Delete Result Material Tier 2 First Row
@@ -547,3 +552,4 @@ Change Material Tier 2
 
 Verify Condition Search Not Macth Data
     Alert Should Be Present    ${txtConditionNotMatchData}
+    Comment    Take A Screenshot
