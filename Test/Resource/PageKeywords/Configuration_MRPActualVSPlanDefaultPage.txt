@@ -27,14 +27,13 @@ Search Material Tier Result
 
 Select Material Tier1
     Click Web Element    ${ddlMaterialTierOne}
-    ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierOne_listbox"]/li
-    Click Web Element    xpath=//*[@id="ddlMaterialTierOne_listbox"]/li[${count}]
+    Click Web Element    xpath=//*[@id="ddlMaterialTierOne_listbox"]/li[1]
 
 Select Material Tier2
     Click Web Element    ${ddlMaterialTierTwo}
     ${count}    Get Matching Xpath Count    //*[@id="ddlMaterialTierTwo_listbox"]/li
-    ${name}    Get Web Text    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}]
-    Click Web Element    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[${count}]
+    ${name}    Get Web Text    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[1]
+    Click Web Element    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[1]
     [Return]    ${name}
 
 Select Type
