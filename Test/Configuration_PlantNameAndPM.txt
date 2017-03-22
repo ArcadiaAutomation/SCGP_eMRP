@@ -651,6 +651,7 @@ Verify Create Company Success
     refresh page    Company
     Sleep    2
     Click Web Element    xpath=//*[@id="gridCompany"]/div[4]/a[@title="Go to the last page"]
+    Sleep    1
     ${count}    Get Matching Xpath Count    //*[@id="gridCompany"]/div[3]/table/tbody/tr/td[4]/a[1]
     Web Element Text Should Be    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${count}]/td[1]    ${code1}
     Web Element Text Should Be    xpath=//*[@id="gridCompany"]/div[3]/table/tbody/tr[${count}]/td[2]    ${name1}
@@ -968,7 +969,8 @@ Edit Machine Name
     Click Update Button
 
 Verify Edit Machine Success
-    Set Selenium Speed    0.2
+    Set Selenium Speed    0.3
+    sleep    2
     Wait Web Until Page Contains Element    ${lblMachineNameFirstRow}
     Web Element Should Be Visible    ${lblMachineNameFirstRow}
     Web Element Text Should Be    ${lblMachineNameFirstRow}    ${txtNewMachineName}
