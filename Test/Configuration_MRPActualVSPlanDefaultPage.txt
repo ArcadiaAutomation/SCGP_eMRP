@@ -173,18 +173,40 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 76_Search View Material Tier
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "MRP Actual VS Plan Default Page"
+    ...    4. Search Material tier "OCC"
+    ...    5. Click Edit Material tier
+    ...    6. Search View Material Tier by lower case
+    ...    7. Verify search result
+    ...    8. Search View Material Tier by upper case
+    ...    9. Verify search result
+    [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
     Select Material Tier To View
-    Search View Material Tier By Lowwer Case
-    Verify Search Rusult By Lowwer Case
-    Search View Material Tier By Upperr Case
+    Search View Material Tier By Lower Case
+    Verify Search Rusult By Lower Case
+    Search View Material Tier By Upper Case
     Verify Search Rusult By Upper Case
     [Teardown]    Keywords For Teardown
 
 77_Preview Result Material Tier
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "MRP Actual VS Plan Default Page"
+    ...    4. Click Preview Material tier
+    ...    5. Verify Preview link to plant page
+    [Tags]    success
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
@@ -194,15 +216,40 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     [Teardown]    Keywords For Teardown
 
 78_Delete Result Material Tier 2
+    [Documentation]    ***Condition***
+    ...
+    ...    ***Test Step***
+    ...    1.Open SCG website
+    ...    2.Select "Configuration"
+    ...    3.Select "MRP Actual VS Plan Default Page"
+    ...    4.Delete Material tier (Firstrow)
+    ...    5.Verify Delete completed
+    ...    Alert message "Delete Completed"
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration
     Select Sub Menu    MRPActualVSPlanningDefaultPage
+    ${materialtierdelete}    Delete Result Material Tier 2 First Row
+    Verify Delete Result Material Tier 2 Completed    ${materialtierdelete}
     [Teardown]    Keywords For Teardown
 
-79_Create default page in case change material tier 2
+79_Create default page in case condition search not macth data
     [Documentation]    ***Expected Result***
     ...    Alert message "Condition search not match data on the table you want to save?"
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Configuration
+    Select Sub Menu    MRPActualVSPlanningDefaultPage
+    Select Material Tier1
+    Select Material Tier2
+    Select Tier    3
+    Select Type    All
+    Search Create Default Page
+    Select First Material Tier Create Default Page
+    Change Material Tier 2
+    Save Create Default
+    Verify Condition Search Not Macth Data
+    [Teardown]    Keywords For Teardown
 
 *** Keywords ***
 Create Default Page Data Tier3 All Type
@@ -331,16 +378,16 @@ Select Material Tier To View
     Search Material Tier Result    OCC
     Click Web Element    ${btnEditFristRowMaterialTier2}
 
-Search View Material Tier By Lowwer Case
+Search View Material Tier By Lower Case
     Search View Material Tier    ${txtSearchViewMaterialTeirLowwer}
 
-Verify Search Rusult By Lowwer Case
+Verify Search Rusult By Lower Case
     ${firstrow}=    Get Web Text    ${lblSeachViewMaterialFirstRow}
     ${searchresult}=    Should Match Regexp    ${firstrow}    (?i).*${txtSearchViewMaterialTeirLowwer}.*
     Log    ${searchresult}
     Capture ScreenShot
 
-Search View Material Tier By Upperr Case
+Search View Material Tier By Upper Case
     Clear Element Text    ${txtboxSearchViewMaterial}
     Click Web Element    ${btnSeachViewMaterial}
     Search View Material Tier    ${txtSearchViewMaterialTeirUpper}
@@ -352,10 +399,36 @@ Verify Search Rusult By Upper Case
     Capture ScreenShot
 
 Select Material Tier To Preview
-    Search Material Tier Result    OCC
     Click Web Element    ${btnPriviewFristRowMaterialTier2}
 
 Verify Preview Result Material Tier
     Web Element Text Should Be    ${lblHeadPlantPage}    ${txtPreviewLinkToPlantPage}
-    Location Should Be    http://192.168.1.62:5767/MRPActualVSPlanDefaultPage/PlanPreview
+    Location Should Be    ${SCGPeMRP_ConfigurationPlantPage}
     Capture ScreenShot
+
+Delete Result Material Tier 2 First Row
+    ${materialtierdelete}=    Get Web Text    ${lblNameMaterialTierTwoFirstrow}
+    Log    ${materialtierdelete}
+    Click Web Element    ${btnDeleteMaterialTierResultFirstRow}
+    [Return]    ${materialtierdelete}
+
+Verify Delete Result Material Tier 2 Completed
+    [Arguments]    ${materialtierdelete}
+    Web Element Text Should Be    ${lblDeleteConfirmation}    ${txtDeleteComfirmation}
+    Click Web Element    ${btnOkDeleteMaterialTier2}
+    Web Element Text Should Be    ${modaltxtAlertMssage}    ${txtDeleteCompleted}
+    Capture ScreenShot
+    Click Web Element    ${btnOKDeleteComplete}
+    ${materialtierfirstrow}=    Get Web Text    ${lblNameMaterialTierTwoFirstrow}
+    Should Not Be Equal    ${materialtierfirstrow}    ${materialtierdelete}
+    Capture ScreenShot
+
+Change Material Tier 2
+    Click Web Element    ${ddlMaterialTierTwo}
+    Click Web Element    ${listMaterial2First}
+    Wait Until Element Is Not Visible    ${listMaterial2First}
+    Search Create Default Page
+    Select First Material Tier Create Default Page
+
+Verify Condition Search Not Macth Data
+    Alert Should Be Present    ${txtConditionNotMatchData}

@@ -8,3 +8,6 @@ ${txtSearchViewMaterialTeirLowwer}    sub
 ${txtSearchViewMaterialTeirUpper}    SUB
 ${txtPreviewLinkToPlantPage}    Form Preview MRP Actual VS Plan Plant Page
 ${txtPlantPageHeader}    MRP Actual VS Plan Plant Page
+${txtDeleteConfirmation}    Delete?
+${txtDeleteCompleted}    Deleted completed
+${txtConditionNotMatchData}    Condition search not match data on the table you want to save?

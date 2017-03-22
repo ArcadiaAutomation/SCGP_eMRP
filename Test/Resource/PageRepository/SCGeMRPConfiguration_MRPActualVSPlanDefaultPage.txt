@@ -35,4 +35,9 @@ ${btnSeachViewMaterial}    xpath=//*[@id="ID_SEARCH_VIEWRESULT"]
 ${btnEditFristRowMaterialTier2}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[@class="k-button k-button-icontext k-grid-Edit"]
 ${btnPriviewFristRowMaterialTier2}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[2]/a[@class="k-button k-button-icontext k-grid-Preview"]
 ${lblHeadPlantPage}    xpath=//*[@id="wid-id-0"]/header/h2
-
+${btnOkDeleteMaterialTier2}    xpath=//*[@id="yes"]
+${lblDeleteConfirmation}    xpath=//*[@id="modalWindowDelete"]/h2
+${btnOKDeleteComplete}    xpath=//*[@id="ok"]
+${lblNameMaterialTierTwoFirstrow}    xpath=//*[@id="gridMaterialTierTwoDefaultPage"]/table/tbody/tr[1]/td[1]
+${radiobtnTier3}    xpath=//*[@id="divTier"]/div/div/ul/li[1]/label
+${listMaterial2First}    xpath=//*[@id="ddlMaterialTierTwo_listbox"]/li[1]
