@@ -607,7 +607,7 @@ Delete Material Tier
     Scroll Web To Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[6]/span/a
     Click Web Element    xpath=//*[@id="gridMaterialTier"]/table/tbody/tr[${count}]/td[6]/span/a
     sleep    1
-    Click Web Element    xpath=/html/body/div[7]/div[3]/div/button[3]
+    Click Web Element    xpath=//*[@class="ui-dialog-buttonset"]/button[3]
 
 Verify Delete Material Tier
     Comment    Take A Screenshot

@@ -14,7 +14,7 @@ Search Create Default Page
 Save Create Default
     Click Web Element    ${btnSaveCreateDefaultPage}
 
-Clear Search Create Defult Page
+Clear Search Create Default Page
     Click Web Element    ${btnClearCreateDefaultPage}
 
 Click Select All
@@ -47,7 +47,9 @@ Click Save As
     Click Web Element    ${btnSaveAsCreateDefaultPage}
 
 Select First Material Tier Create Default Page
+    ${name}    Get Web Text    //*[@id="gridDefaultPage"]/table/tbody/tr[1]/td[2]
     Click Web Element    ${btnSelectMaterialTierFirstRow}
+    [Return]    ${name}
 
 Search View Material Tier
     [Arguments]    ${text}
