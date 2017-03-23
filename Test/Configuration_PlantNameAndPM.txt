@@ -893,7 +893,7 @@ Verify Edit Plant
     Capture ScreenShot
 
 Fill Location Data
-    ${num}    Generate Random String    2    [NUMBERS]
+    ${num}    Generate Random String    2    123456789
     ${name}    Generate Random String    4    [UPPER]
     Fill Name    Location    ${name}
     sleep    1
