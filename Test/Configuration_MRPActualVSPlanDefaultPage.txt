@@ -359,7 +359,7 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Select First Material Tier Create Default Page
     Change Material Tier 2
     Save Create Default
-    Verify Condition Search Not Macth Data
+    Verify Condition Search Not Match Data
     [Teardown]    Keywords For Teardown
 
 *** Keywords ***
@@ -551,6 +551,6 @@ Change Material Tier 2
     Search Create Default Page
     Select First Material Tier Create Default Page
 
-Verify Condition Search Not Macth Data
+Verify Condition Search Not Match Data
     Alert Should Be Present    ${txtConditionNotMatchData}
     Comment    Take A Screenshot

@@ -1,0 +1,40 @@
+*** Settings ***
+Resource          Resource/PageKeywords/Inventory_OverallInventory.txt
+Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
+
+*** Test Cases ***
+01_Search overall inventory by all
+
+02_Search overall inventory by Business Group
+
+03_Search overall inventory by Business Group in case multiple search
+
+04_Search overall inventory by Company
+
+05_Search overall inventory by Company in case multiple search
+
+06_Search overall inventory by Plant
+
+07_Search overall inventory by Plant in case multiple search
+
+08_Search overall inventory in case empty
+
+09_Search overall inventory by Plant in case not information of yesterday date
+
+10_Verify the maximum number of main block (material tier 1) is 8 main blocks per plant.
+
+11_Verify the maximum material tier 2 of main block is not more than 8 block
+
+12_Verify the maximum Ton is xx,xxx Ton.
+
+13_Verify the oval graph shall display blue color for used space and grey color for free space
+
+14_Verify calculation of the oval graph
+
+15_Verify calculation of the raw material of Ton
+
+16_Verify status color of the raw material in case minnimum
+
+17_Verify status color of the raw material in case wraning
+
+18_Verify status color of the raw material in case maximum

@@ -1,0 +1,4 @@
+*** Settings ***
+Resource          SCGPeMRPCommon.txt
+Resource          ../Localized/${ar_LANG}/Inventory_OverallInventoryLocalized.txt
+Resource          ../PageRepository/SCGeMRPInventory_OverallInventory.txt
