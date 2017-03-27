@@ -287,7 +287,7 @@ Resource          Resource/PageKeywords/Configuration_MappingMaterialName.txt
     [Teardown]    Keywords For Teardown
 
 43_Add Mapping in case duplicate record
-    [Tags]    on hold
+    [Tags]    rejected
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Configuration

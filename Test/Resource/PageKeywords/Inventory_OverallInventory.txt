@@ -5,19 +5,19 @@ Resource          ../PageRepository/SCGeMRPInventory_OverallInventory.txt
 
 *** Keywords ***
 Select business group
-    [Arguments]    ${num}
+    [Arguments]    ${text}
     Click Web Element    ${ddlBusinessGroupList}
-    Click Web Element    xpath=//*[@id="BusinessGroup_listbox"]/li[${num}]
+    Click Web Element    xpath=//*[@id="BusinessGroup_listbox"]/li[text()="${text}"]
 
 Select company
-    [Arguments]    ${num}
+    [Arguments]    ${text}
     Click Web Element    ${ddlCompanyList}
-    Click Web Element    xpath=//*[@id="Company_listbox"]/li[${num}]
+    Click Web Element    xpath=//*[@id="Company_listbox"]/li[text()="${text}"]
 
 Select plant
-    [Arguments]    ${num}
+    [Arguments]    ${text}
     Click Web Element    ${ddlPlantList}
-    Click Web Element    xpath=//*[@id="Inventoryplant_listbox"]/li[${num}]
+    Click Web Element    xpath=//*[@id="Inventoryplant_listbox"]/li[text()="${text}"]
 
 Click search
     Click Web Element    ${btnSearch}

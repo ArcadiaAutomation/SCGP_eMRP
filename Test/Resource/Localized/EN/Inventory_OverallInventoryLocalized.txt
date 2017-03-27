@@ -1,0 +1,4 @@
+*** Variables ***
+${lblMaterialTier1Over}    OverINV
+${lblMaterialTier1Fib}    Fibrous
+${lblMaterialTier1Ov3}    OverA
