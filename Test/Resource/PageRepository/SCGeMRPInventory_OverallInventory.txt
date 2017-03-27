@@ -1,0 +1,7 @@
+*** Variables ***
+${ddlBusinessGroupList}    xpath=//*[@aria-owns="BusinessGroup_taglist BusinessGroup_listbox"]
+${ddlCompanyList}    xpath=//*[@aria-owns="Company_taglist Company_listbox"]
+${ddlPlantList}    xpath=//*[@aria-owns="Inventoryplant_taglist Inventoryplant_listbox"]
+${btnSearch}      xpath=//*[@id="ID_SEARCH"]
+${lblBlock1}      xpath=//*[@id="block1-Tier1"]
+${lstPlantNameOver}    xpath=//*[@id="Inventoryplant_listbox"]/li[10]

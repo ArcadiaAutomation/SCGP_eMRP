@@ -2,3 +2,22 @@
 Resource          SCGPeMRPCommon.txt
 Resource          ../Localized/${ar_LANG}/Inventory_OverallInventoryLocalized.txt
 Resource          ../PageRepository/SCGeMRPInventory_OverallInventory.txt
+
+*** Keywords ***
+Select business group
+    [Arguments]    ${num}
+    Click Web Element    ${ddlBusinessGroupList}
+    Click Web Element    xpath=//*[@id="BusinessGroup_listbox"]/li[${num}]
+
+Select company
+    [Arguments]    ${num}
+    Click Web Element    ${ddlCompanyList}
+    Click Web Element    xpath=//*[@id="Company_listbox"]/li[${num}]
+
+Select plant
+    [Arguments]    ${num}
+    Click Web Element    ${ddlPlantList}
+    Click Web Element    xpath=//*[@id="Inventoryplant_listbox"]/li[${num}]
+
+Click search
+    Click Web Element    ${btnSearch}

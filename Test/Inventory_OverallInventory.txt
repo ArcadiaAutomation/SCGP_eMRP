@@ -4,37 +4,143 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 *** Test Cases ***
 01_Search overall inventory by all
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    Search By All
+    Verify Search By All
+    [Teardown]    Keywords For Teardown
 
 02_Search overall inventory by Business Group
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 03_Search overall inventory by Business Group in case multiple search
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 04_Search overall inventory by Company
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 05_Search overall inventory by Company in case multiple search
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 06_Search overall inventory by Plant
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 07_Search overall inventory by Plant in case multiple search
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 08_Search overall inventory in case empty
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 09_Search overall inventory by Plant in case not information of yesterday date
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 10_Verify the maximum number of main block (material tier 1) is 8 main blocks per plant.
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 11_Verify the maximum material tier 2 of main block is not more than 8 block
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 12_Verify the maximum Ton is xx,xxx Ton.
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 13_Verify the oval graph shall display blue color for used space and grey color for free space
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 14_Verify calculation of the oval graph
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 15_Verify calculation of the raw material of Ton
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 16_Verify status color of the raw material in case minnimum
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 17_Verify status color of the raw material in case wraning
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
 
 18_Verify status color of the raw material in case maximum
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    [Teardown]    Keywords For Teardown
+
+*** Keywords ***
+Search By All
+    Select business group    4
+    sleep    1
+    Select company    1
+    sleep    1
+    Select Plant    1
+    Click search
+
+Verify Search By All
+    Web Element Text Should Be    ${lblBlock1}    OverINV
+    sleep    2
+    Capture ScreenShot
