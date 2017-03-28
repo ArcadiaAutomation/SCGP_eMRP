@@ -2,3 +2,6 @@
 ${txtRawMaterialMaximum}    SUBOCC
 ${txtRawMaterialWarning}    ${EMPTY}
 ${txtRawMaterialMinimum}    ${EMPTY}
+${lblMaterialTier1Over}    OverINV
+${lblMaterialTier1Fib}    Fibrous
+${lblMaterialTier1Ov3}    OverA
