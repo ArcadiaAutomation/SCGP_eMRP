@@ -15,9 +15,9 @@ Select company
     Click Web Element    xpath=//*[@id="Company_listbox"]/li[${num}]
 
 Select plant
-    [Arguments]    ${num}
+    [Arguments]    ${name}
     Click Web Element    ${ddlPlantList}
-    Click Web Element    xpath=//*[@id="Inventoryplant_listbox"]/li[${num}]
+    Click Web Element    xpath=//*[@id="Inventoryplant_listbox"]/li[text()="${name}"]
 
 Click search
     Click Web Element    ${btnSearch}

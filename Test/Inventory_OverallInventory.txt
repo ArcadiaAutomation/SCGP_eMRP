@@ -3,7 +3,7 @@ Resource          Resource/PageKeywords/Inventory_OverallInventory.txt
 Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
 
 *** Test Cases ***
-01_Search overall inventory by all
+80_Search overall inventory by all
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
@@ -12,123 +12,138 @@ Resource          Resource/PageKeywords/SCGPeMRPCommon.txt
     Verify Search By All
     [Teardown]    Keywords For Teardown
 
-02_Search overall inventory by Business Group
+81_Search overall inventory by Business Group
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-03_Search overall inventory by Business Group in case multiple search
+82_Search overall inventory by Business Group in case multiple search
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-04_Search overall inventory by Company
+83_Search overall inventory by Company
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-05_Search overall inventory by Company in case multiple search
+84_Search overall inventory by Company in case multiple search
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-06_Search overall inventory by Plant
+85_Search overall inventory by Plant
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-07_Search overall inventory by Plant in case multiple search
+86_Search overall inventory by Plant in case multiple search
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-08_Search overall inventory in case empty
+87_Search overall inventory in case empty
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-09_Search overall inventory by Plant in case not information of yesterday date
+88_Search overall inventory by Plant in case not information of yesterday date
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-10_Verify the maximum number of main block (material tier 1) is 8 main blocks per plant.
+89_Verify the maximum number of main block (material tier 1) is 8 main blocks per plant
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-11_Verify the maximum material tier 2 of main block is not more than 8 block
+90_Verify the maximum material tier 2 of main block is not more than 8 block
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-12_Verify the maximum Ton is xx,xxx Ton.
+91_Verify the maximum Ton is xx,xxx Ton
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-13_Verify the oval graph shall display blue color for used space and grey color for free space
+92_Verify the oval graph shall display blue color for used space and grey color for free space
+    Open SCG Website
+    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
+    Select Menu    Inventory
+    Select Sub Menu    OverallInventory
+    Select plant    Over2
+    Click search
+    Wait Web Until Page Element Visible    ${lblBlock1}
+    Wait Web Until Page Element Visible    xpath=//*[@id="grid121"]/table/tbody/tr/td[2]
+    ${style}    Get Element Attribute    //*[@id="wid-id-9"]/div/div[1]/div[2]/div/div[1]/div[1]@style
+    Log    ${style}
+    [Teardown]    Keywords For Teardown
+
+93_Verify calculation of the oval graph
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-14_Verify calculation of the oval graph
+94_Verify calculation of the raw material of Ton
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
     [Teardown]    Keywords For Teardown
 
-15_Verify calculation of the raw material of Ton
+95_Verify status color of the raw material in case minimum
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
+    Select plant    Over2
+    Click search
+    Verify Status Color Raw Material Is Minimum
     [Teardown]    Keywords For Teardown
 
-16_Verify status color of the raw material in case minnimum
+96_Verify status color of the raw material in case warning
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
+    Select plant    Over2
+    Click search
+    Verify Status Color Raw Material Is Warning
     [Teardown]    Keywords For Teardown
 
-17_Verify status color of the raw material in case wraning
+97_Verify status color of the raw material in case maximum
     Open SCG Website
     Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
     Select Menu    Inventory
     Select Sub Menu    OverallInventory
-    [Teardown]    Keywords For Teardown
-
-18_Verify status color of the raw material in case maximum
-    Open SCG Website
-    Login SCGP    ${txtLoginUsername}    ${txtLoginPassword}
-    Select Menu    Inventory
-    Select Sub Menu    OverallInventory
+    Select plant    Over2
+    Click search
+    Verify Status Color Raw Material Is Maximun
     [Teardown]    Keywords For Teardown
 
 *** Keywords ***
@@ -144,3 +159,45 @@ Verify Search By All
     Web Element Text Should Be    ${lblBlock1}    OverINV
     sleep    2
     Capture ScreenShot
+
+Verify Status Color Raw Material Is Minimum
+    Wait Web Until Page Element Visible    ${lblBlock1}
+    Wait Web Until Page Element Visible    xpath=//*[@id="grid121"]/table/tbody/tr/td[2]
+    ${count}    Get Matching Xpath Count    xpath=//*[@id="grid121"]/table/tbody/tr/td[2]
+    Log    ${count}
+    : FOR    ${index}    IN RANGE    1    ${count}
+    \    ${total}    Evaluate    ${count}-${index}+1
+    \    log    ${total}
+    \    Scroll Web To Element    xpath=//*[@id="grid121"]/table/tbody/tr[${total}]/td[2]
+    \    ${name}    Get Web Text    xpath=//*[@id="grid121"]/table/tbody/tr[${total}]/td[2]
+    \    ${status}=    Run Keyword If    "${name}" == "${txtRawMaterialMinimum}"    Get Element Attribute    //div[@id='grid121']//tr[${total}]//div@class
+    \    Run Keyword If    "${status}"=="circleBase R"    Exit For Loop
+    \    ...    ELSE    Fail
+
+Verify Status Color Raw Material Is Maximun
+    Wait Web Until Page Element Visible    ${lblBlock1}
+    Wait Web Until Page Element Visible    xpath=//*[@id="grid121"]/table/tbody/tr/td[2]
+    ${count}    Get Matching Xpath Count    xpath=//*[@id="grid121"]/table/tbody/tr/td[2]
+    Log    ${count}
+    : FOR    ${index}    IN RANGE    1    ${count}
+    \    ${total}    Evaluate    ${count}-${index}+1
+    \    log    ${total}
+    \    Scroll Web To Element    xpath=//*[@id="grid121"]/table/tbody/tr[${total}]/td[2]
+    \    ${name}    Get Web Text    xpath=//*[@id="grid121"]/table/tbody/tr[${total}]/td[2]
+    \    ${status}=    Run Keyword If    "${name}" == "${txtRawMaterialMaximun}"    Get Element Attribute    //div[@id='grid121']//tr[${total}]//div@class
+    \    Run Keyword If    "${status}"=="circleBase G"    Exit For Loop
+    \    ...    ELSE    Fail
+
+Verify Status Color Raw Material Is Warning
+    Wait Web Until Page Element Visible    ${lblBlock1}
+    Wait Web Until Page Element Visible    xpath=//*[@id="grid121"]/table/tbody/tr/td[2]
+    ${count}    Get Matching Xpath Count    xpath=//*[@id="grid121"]/table/tbody/tr/td[2]
+    Log    ${count}
+    : FOR    ${index}    IN RANGE    1    ${count}
+    \    ${total}    Evaluate    ${count}-${index}+1
+    \    log    ${total}
+    \    Scroll Web To Element    xpath=//*[@id="grid121"]/table/tbody/tr[${total}]/td[2]
+    \    ${name}    Get Web Text    xpath=//*[@id="grid121"]/table/tbody/tr[${total}]/td[2]
+    \    ${status}=    Run Keyword If    "${name}" == "${txtRawMaterialWarning}"    Get Element Attribute    //div[@id='grid121']//tr[${total}]//div@class
+    \    Run Keyword If    "${status}"=="circleBase O"    Exit For Loop
+    \    ...    ELSE    Fail

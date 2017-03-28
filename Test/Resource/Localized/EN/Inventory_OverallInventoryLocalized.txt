@@ -1,0 +1,4 @@
+*** Variables ***
+${txtRawMaterialMaximum}    SUBOCC
+${txtRawMaterialWarning}    ${EMPTY}
+${txtRawMaterialMinimum}    ${EMPTY}
